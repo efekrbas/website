@@ -1,0 +1,103 @@
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.loading-projects {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px;
+    color: var(--secondary-text);
+    font-size: 1.2rem;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    border-color: var(--accent-color);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.folder-icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+}
+
+.project-links a {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+
+.project-links a:hover {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+.project-title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.project-desc {
+    font-size: 0.95rem;
+    color: var(--secondary-text);
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--secondary-text);
+    margin-top: auto;
+}
+
+.project-tech-list {
+    display: flex;
+    gap: 15px;
+    font-family: 'Courier New', monospace;
+}
+
+.project-stats {
+    display: flex;
+    gap: 15px;
+}
+
+.project-stats span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.github-more {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

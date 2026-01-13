@@ -68,4 +68,90 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     `;
     document.head.appendChild(style);
+    // GitHub Projects Fetching
+    const projectsContainer = document.getElementById('projects-container');
+    const username = 'efekrbas';
+    
+    // Fallback data in case API fails or rate limit is hit
+    const fallbackProjects = [
+        {
+            name: "Portfolio",
+            description: "Personal portfolio website built with HTML, CSS, and JS.",
+            html_url: "https://github.com/efekrbas/efekrbas.github.io",
+            language: "HTML",
+            stargazers_count: 5,
+            forks_count: 2
+        },
+        {
+            name: "Automation-Scripts",
+            description: "Collection of Python scripts for daily task automation.",
+            html_url: "https://github.com/efekrbas",
+            language: "Python",
+            stargazers_count: 12,
+            forks_count: 3
+        }
+    ];
+
+    const fetchProjects = async () => {
+        try {
+            const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&direction=desc`);
+            
+            if (!response.ok) {
+                throw new Error('GitHub API request failed');
+            }
+
+            const data = await response.json();
+            
+            // Filter out forks if desired, or keep them. Showing top 6
+            const projects = data.slice(0, 6);
+            
+            renderProjects(projects);
+            
+        } catch (error) {
+            console.error('Error fetching projects:', error);
+            // Use fallback data if API fails
+            renderProjects(fallbackProjects);
+        }
+    };
+
+    const renderProjects = (projects) => {
+        projectsContainer.innerHTML = '';
+        
+        projects.forEach(project => {
+            // Check for valid description or use default
+            const description = project.description || "No description available.";
+            const language = project.language || "Code";
+            
+            const projectHTML = `
+                <div class="project-card glass-card">
+                    <div class="project-header">
+                        <i class="far fa-folder folder-icon"></i>
+                        <div class="project-links">
+                            <a href="${project.html_url}" target="_blank" aria-label="GitHub Link"><i class="fab fa-github"></i></a>
+                            ${project.homepage ? `<a href="${project.homepage}" target="_blank" aria-label="External Link"><i class="fas fa-external-link-alt"></i></a>` : ''}
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">${project.name}</h3>
+                        <p class="project-desc">${description}</p>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-tech-list">
+                            <span>${language}</span>
+                        </div>
+                        <div class="project-stats">
+                            <span><i class="far fa-star"></i> ${project.stargazers_count}</span>
+                            <span><i class="fas fa-code-branch"></i> ${project.forks_count}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            projectsContainer.innerHTML += projectHTML;
+        });
+    };
+
+    // Call the function
+    fetchProjects();
+
 });
