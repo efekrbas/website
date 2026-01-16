@@ -814,6 +814,10 @@ footer {
     pre {
         font-size: 0.75rem;
         text-align: left;
+        overflow-x: auto;
+        white-space: pre;
+        padding-bottom: 10px;
+        /* Space for scrollbar */
     }
 
     .cta-buttons {
@@ -824,6 +828,18 @@ footer {
     }
 
     .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .scroll-down {
+        position: relative;
+        bottom: auto;
+        margin-top: 30px;
+        transform: none;
+        left: auto;
+        display: flex;
+        align-items: center;
         width: 100%;
         justify-content: center;
     }
