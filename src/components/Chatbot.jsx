@@ -30,28 +30,30 @@ const Chatbot = () => {
         setIsLoading(true);
 
         try {
-            const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+            const apiKey = import.meta.env.VITE_OPENROUTER_API_KEY;
 
             if (!apiKey) {
                 // Demo Response if no key provided
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 const demoResponse = {
                     id: Date.now() + 1,
-                    text: "Demo Modu: Gerçek bir yanıt almak için lütfen .env dosyasına VITE_OPENAI_API_KEY ekleyin.",
+                    text: "Demo Modu: Gerçek bir yanıt almak için lütfen .env dosyasına VITE_OPENROUTER_API_KEY ekleyin.",
                     sender: 'bot'
                 };
                 setMessages(prev => [...prev, demoResponse]);
                 return;
             }
 
-            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+            const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKey}`
+                    'Authorization': `Bearer ${apiKey}`,
+                    'HTTP-Referer': window.location.href, // Required for OpenRouter
+                    'X-Title': 'Efe Kirbas Portfolio' // Optional for OpenRouter
                 },
                 body: JSON.stringify({
-                    model: "gpt-3.5-turbo",
+                    model: "openai/gpt-3.5-turbo", // You can change this to any OpenRouter model
                     messages: [{ role: "user", content: inputText }]
                 })
             });
@@ -62,6 +64,7 @@ const Chatbot = () => {
                 const aiText = data.choices[0].message.content;
                 setMessages(prev => [...prev, { id: Date.now() + 1, text: aiText, sender: 'bot' }]);
             } else {
+                console.error("OpenRouter Error:", data);
                 throw new Error("API Error");
             }
 
