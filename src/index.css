@@ -104,6 +104,19 @@ header {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
 /* Hero Section */
 #hero {
     height: 100vh;
@@ -644,7 +657,7 @@ footer {
     color: #666;
 }
 
-/* Projects Section */ 
+/* Projects Section */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -689,7 +702,8 @@ footer {
     font-size: 0.95rem;
     color: var(--secondary-text);
     margin-bottom: 20px;
-    flex-grow: 1; /* Pushes footer down */
+    flex-grow: 1;
+    /* Pushes footer down */
 }
 
 .project-footer {
@@ -727,7 +741,25 @@ footer {
     .nav-links {
         display: none;
     }
-    
+
+    .burger {
+        display: block;
+        z-index: 1001;
+    }
+
+    /* Toggle Animation */
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .toggle .line2 {
+        opacity: 0;
+    }
+
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
     /* Mobile Nav Logic */
     .nav-links.nav-active {
         display: flex;
@@ -737,7 +769,7 @@ footer {
         right: 0;
         height: 100vh;
         width: 60%;
-        background: rgba(5,5,5,0.95);
+        background: rgba(5, 5, 5, 0.95);
         backdrop-filter: blur(10px);
         padding-top: 100px;
         z-index: 999;
@@ -856,7 +888,9 @@ footer {
     }
 }
 
-.line1, .line2, .line3 {
+.line1,
+.line2,
+.line3 {
     width: 25px;
     height: 3px;
     background-color: var(--text-color);
@@ -880,6 +914,7 @@ footer {
     from {
         transform: translateX(100%);
     }
+
     to {
         transform: translateX(0);
     }
