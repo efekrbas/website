@@ -12,7 +12,7 @@ const Header = () => {
         setNavOpen(false);
         const element = document.getElementById(id);
         if (element) {
-            window.history.pushState({}, '', `/${id}`);
+            window.history.pushState({}, '', `/#${id}`);
             element.scrollIntoView({ behavior: 'smooth' });
         }
     };
