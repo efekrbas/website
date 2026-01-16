@@ -47,20 +47,15 @@ const Chatbot = () => {
     - İletişim: Sitenin iletişim bölümünden veya LinkedIn üzerinden ulaşılabilir.
     `;
 
-    const handleSendMessage = async (e) => {
-        e.preventDefault();
-        if (!inputText.trim()) return;
-
-        const userMessage = { id: Date.now(), text: inputText, sender: 'user' };
+    const processMessage = async (text) => {
+        const userMessage = { id: Date.now(), text: text, sender: 'user' };
         setMessages(prev => [...prev, userMessage]);
-        setInputText("");
         setIsLoading(true);
 
         try {
             const apiKey = import.meta.env.VITE_OPENROUTER_API_KEY;
 
             if (!apiKey) {
-                // Demo Response if no key provided
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 const demoResponse = {
                     id: Date.now() + 1,
@@ -71,11 +66,10 @@ const Chatbot = () => {
                 return;
             }
 
-            // Prepare messages array with system prompt at the start
             const apiMessages = [
                 { role: "system", content: SYSTEM_PROMPT },
                 ...messages.map(m => ({ role: m.sender === 'user' ? 'user' : 'assistant', content: m.text })),
-                { role: "user", content: inputText }
+                { role: "user", content: text }
             ];
 
             const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -83,11 +77,11 @@ const Chatbot = () => {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${apiKey}`,
-                    'HTTP-Referer': window.location.href, // Required for OpenRouter
-                    'X-Title': 'Efe Kirbas Portfolio' // Optional for OpenRouter
+                    'HTTP-Referer': window.location.href,
+                    'X-Title': 'Efe Kirbas Portfolio'
                 },
                 body: JSON.stringify({
-                    model: "openai/gpt-3.5-turbo", // You can change this to any OpenRouter model
+                    model: "openai/gpt-3.5-turbo",
                     messages: apiMessages
                 })
             });
@@ -108,6 +102,18 @@ const Chatbot = () => {
         } finally {
             setIsLoading(false);
         }
+    };
+
+    const handleSendMessage = async (e) => {
+        e.preventDefault();
+        if (!inputText.trim()) return;
+        const text = inputText;
+        setInputText("");
+        await processMessage(text);
+    };
+
+    const sendSuggested = (text) => {
+        processMessage(text);
     };
 
     return (
@@ -155,6 +161,19 @@ const Chatbot = () => {
                                 </div>
                             )}
                             <div ref={messagesEndRef} />
+                        </div>
+
+                        {/* Suggested Questions */}
+                        <div className="suggested-questions">
+                            {["Efe kimdir?", "Projeleri neler?", "Hangi teknolojileri kullanıyor?", "Sertifikaları neler?"].map((q, index) => (
+                                <button
+                                    key={index}
+                                    className="question-chip"
+                                    onClick={() => sendSuggested(q)}
+                                >
+                                    {q}
+                                </button>
+                            ))}
                         </div>
 
                         <form className="chatbot-input-area" onSubmit={handleSendMessage}>
@@ -282,6 +301,37 @@ const Chatbot = () => {
                 @keyframes typing {
                     from { transform: translateY(0); }
                     to { transform: translateY(-5px); }
+                }
+
+                .suggested-questions {
+                    padding: 10px 15px;
+                    display: flex;
+                    gap: 8px;
+                    overflow-x: auto;
+                    white-space: nowrap;
+                    scrollbar-width: none;
+                    -ms-overflow-style: none;
+                }
+                
+                .suggested-questions::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .question-chip {
+                    background: rgba(255, 255, 255, 0.1);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    color: #ccc;
+                    padding: 8px 12px;
+                    border-radius: 15px;
+                    font-size: 0.8rem;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    flex-shrink: 0;
+                }
+
+                .question-chip:hover {
+                    background: var(--accent-color);
+                    color: #000;
                 }
 
                 .chatbot-input-area {
