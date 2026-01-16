@@ -774,6 +774,8 @@ footer {
         padding-top: 100px;
         z-index: 999;
         animation: slideIn 0.3s ease-in-out;
+        align-items: center;
+        text-align: center;
     }
 
     h1 {
@@ -833,12 +835,9 @@ footer {
     }
 
     .scroll-down {
-        position: relative;
-        bottom: auto;
-        margin-top: 30px;
+        position: static;
+        margin: 30px auto 0 auto;
         transform: none;
-        left: 0;
-        right: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
