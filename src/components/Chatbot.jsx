@@ -1,0 +1,309 @@
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const Chatbot = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [messages, setMessages] = useState([
+        { id: 1, text: "Merhaba! Ben Efe'nin yapay zeka asistanıyım. Size nasıl yardımcı olabilirim?", sender: 'bot' }
+    ]);
+    const [inputText, setInputText] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+    const messagesEndRef = useRef(null);
+
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
+
+    useEffect(() => {
+        if (isOpen) {
+            scrollToBottom();
+        }
+    }, [messages, isOpen]);
+
+    const handleSendMessage = async (e) => {
+        e.preventDefault();
+        if (!inputText.trim()) return;
+
+        const userMessage = { id: Date.now(), text: inputText, sender: 'user' };
+        setMessages(prev => [...prev, userMessage]);
+        setInputText("");
+        setIsLoading(true);
+
+        try {
+            const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+
+            if (!apiKey) {
+                // Demo Response if no key provided
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                const demoResponse = {
+                    id: Date.now() + 1,
+                    text: "Demo Modu: Gerçek bir yanıt almak için lütfen .env dosyasına VITE_OPENAI_API_KEY ekleyin.",
+                    sender: 'bot'
+                };
+                setMessages(prev => [...prev, demoResponse]);
+                return;
+            }
+
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: "gpt-3.5-turbo",
+                    messages: [{ role: "user", content: inputText }]
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.choices && data.choices[0]) {
+                const aiText = data.choices[0].message.content;
+                setMessages(prev => [...prev, { id: Date.now() + 1, text: aiText, sender: 'bot' }]);
+            } else {
+                throw new Error("API Error");
+            }
+
+        } catch (error) {
+            console.error(error);
+            setMessages(prev => [...prev, { id: Date.now(), text: "Üzgünüm, bir hata oluştu.", sender: 'bot' }]);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    return (
+        <>
+            {/* Toggle Button */}
+            <motion.button
+                className="chatbot-toggle"
+                onClick={() => setIsOpen(!isOpen)}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+            >
+                {isOpen ? <i className="fas fa-times"></i> : <i className="fas fa-robot"></i>}
+            </motion.button>
+
+            {/* Chat Window */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        className="chatbot-window glass-card"
+                        initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 20, scale: 0.9 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        <div className="chatbot-header">
+                            <div className="chatbot-title">
+                                <i className="fas fa-robot"></i>
+                                <span>AI Asistan</span>
+                            </div>
+                            <span className="online-indicator"></span>
+                        </div>
+
+                        <div className="chatbot-messages">
+                            {messages.map((msg) => (
+                                <div key={msg.id} className={`message ${msg.sender === 'user' ? 'user-message' : 'bot-message'}`}>
+                                    {msg.text}
+                                </div>
+                            ))}
+                            {isLoading && (
+                                <div className="message bot-message typing-indicator">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            )}
+                            <div ref={messagesEndRef} />
+                        </div>
+
+                        <form className="chatbot-input-area" onSubmit={handleSendMessage}>
+                            <input
+                                type="text"
+                                placeholder="Mesajınızı yazın..."
+                                value={inputText}
+                                onChange={(e) => setInputText(e.target.value)}
+                            />
+                            <button type="submit" disabled={isLoading || !inputText.trim()}>
+                                <i className="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            <style>{`
+                .chatbot-toggle {
+                    position: fixed;
+                    bottom: 30px;
+                    right: 30px;
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    background: var(--accent-color);
+                    color: #000;
+                    border: none;
+                    cursor: pointer;
+                    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+                    z-index: 10000;
+                    font-size: 1.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .chatbot-window {
+                    position: fixed;
+                    bottom: 100px;
+                    right: 30px;
+                    width: 350px;
+                    height: 500px;
+                    background: rgba(10, 10, 10, 0.9);
+                    backdrop-filter: blur(20px);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: 20px;
+                    z-index: 10000;
+                    display: flex;
+                    flex-direction: column;
+                    overflow: hidden;
+                    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+                }
+
+                .chatbot-header {
+                    padding: 15px 20px;
+                    background: rgba(255, 255, 255, 0.05);
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .chatbot-title {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-weight: 600;
+                    color: white;
+                }
+
+                .online-indicator {
+                    width: 8px;
+                    height: 8px;
+                    background: #27c93f;
+                    border-radius: 50%;
+                    box-shadow: 0 0 5px #27c93f;
+                }
+
+                .chatbot-messages {
+                    flex: 1;
+                    padding: 20px;
+                    overflow-y: auto;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                }
+
+                .message {
+                    max-width: 80%;
+                    padding: 10px 15px;
+                    border-radius: 15px;
+                    font-size: 0.9rem;
+                    line-height: 1.4;
+                    word-wrap: break-word;
+                }
+
+                .bot-message {
+                    background: rgba(255, 255, 255, 0.1);
+                    color: #ddd;
+                    align-self: flex-start;
+                    border-top-left-radius: 2px;
+                }
+
+                .user-message {
+                    background: var(--accent-color);
+                    color: #000;
+                    align-self: flex-end;
+                    border-bottom-right-radius: 2px;
+                }
+
+                .typing-indicator span {
+                    display: inline-block;
+                    width: 6px;
+                    height: 6px;
+                    background: #aaa;
+                    border-radius: 50%;
+                    margin: 0 2px;
+                    animation: typing 0.6s infinite alternate;
+                }
+                
+                .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+                .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+                @keyframes typing {
+                    from { transform: translateY(0); }
+                    to { transform: translateY(-5px); }
+                }
+
+                .chatbot-input-area {
+                    padding: 15px;
+                    border-top: 1px solid rgba(255, 255, 255, 0.05);
+                    display: flex;
+                    gap: 10px;
+                }
+
+                .chatbot-input-area input {
+                    flex: 1;
+                    background: rgba(0, 0, 0, 0.3);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    padding: 10px 15px;
+                    border-radius: 25px;
+                    color: white;
+                    font-family: inherit;
+                    outline: none;
+                }
+                
+                .chatbot-input-area input:focus {
+                    border-color: var(--accent-color);
+                }
+
+                .chatbot-input-area button {
+                    background: var(--accent-color);
+                    color: #000;
+                    border: none;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: transform 0.2s;
+                }
+
+                .chatbot-input-area button:hover:not(:disabled) {
+                    transform: scale(1.1);
+                }
+                
+                .chatbot-input-area button:disabled {
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                }
+
+                /* Mobile Fixes */
+                @media (max-width: 768px) {
+                    .chatbot-window {
+                        width: 90%;
+                        right: 5%;
+                        bottom: 100px;
+                        height: 60vh;
+                    }
+                }
+            `}</style>
+        </>
+    );
+};
+
+export default Chatbot;

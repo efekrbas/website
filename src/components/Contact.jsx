@@ -17,7 +17,16 @@ const Contact = () => {
         e.preventDefault();
         setStatus('submitting');
         const formData = new FormData(e.target);
-        formData.append("access_key", "e84086d1-45b2-4008-a38c-d098200d6928");
+
+        const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+        if (accessKey) {
+            formData.append("access_key", accessKey);
+        } else {
+            // Fallback or error if not set, though user has it in props previously
+            console.error("Web3Forms Access Key missing in .env");
+            setStatus('error');
+            return;
+        }
 
         try {
             const response = await fetch("https://api.web3forms.com/submit", {

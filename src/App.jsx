@@ -10,10 +10,13 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Cursor from './components/Cursor';
 
+import Chatbot from './components/Chatbot';
+
 function App() {
   return (
     <>
       <Cursor />
+      <Chatbot />
       <Header />
       <main>
         <Hero />
