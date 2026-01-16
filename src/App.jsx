@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -13,6 +13,20 @@ import Cursor from './components/Cursor';
 import Chatbot from './components/Chatbot';
 
 function App() {
+  useEffect(() => {
+    // Basic routing handling for SPA
+    const path = window.location.pathname.substring(1); // remove leading slash
+    if (path) {
+      const element = document.getElementById(path);
+      if (element) {
+        // Wait for render
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, []);
+
   return (
     <>
       <Cursor />

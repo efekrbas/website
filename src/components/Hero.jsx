@@ -16,7 +16,11 @@ const Hero = () => {
                 <p className="hero-desc">Karmaşık iş akışlarını terminale taşıyor, sistemleri otomatize eden verimli toollar
                     geliştiriyorum</p>
                 <div className="cta-buttons">
-                    <a href="#contact" className="btn primary">İletişime Geç <i className="fas fa-arrow-right"></i></a>
+                    <a href="/contact" className="btn primary" onClick={(e) => {
+                        e.preventDefault();
+                        window.history.pushState({}, '', '/contact');
+                        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    }}>İletişime Geç <i className="fas fa-arrow-right"></i></a>
                     <a href="https://www.linkedin.com/in/efekrbs" target="_blank" className="btn secondary"><i
                         className="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
