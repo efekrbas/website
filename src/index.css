@@ -835,14 +835,16 @@ footer {
     }
 
     .scroll-down {
-        position: static;
-        margin: 30px auto 0 auto;
-        transform: none;
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+        width: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 100%;
     }
 
     .about-container {
