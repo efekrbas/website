@@ -13,18 +13,19 @@ import Cursor from './components/Cursor';
 import Chatbot from './components/Chatbot';
 
 function App() {
-  useEffect(() => {
-    // Basic routing handling for SPA
-    const path = window.location.pathname.substring(1); // remove leading slash
-    if (path) {
-      const element = document.getElementById(path);
-      if (element) {
-        // Wait for render
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
+    useEffect(() => {
+    // 1. Tarayıcının otomatik kaydırma geri yüklemesini devre dışı bırak
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
     }
+
+    // 2. Tarayıcının atlamasını önlemek için URL'deki hash'i (örn: /#contact) temizle
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+
+    // 3. Sayfayı en tepeye kaydır
+    window.scrollTo(0, 0);
   }, []);
 
   return (
