@@ -33,7 +33,7 @@ const About = () => {
                         </motion.div>
                         <motion.div className="stat-card glass-card" whileHover={{ y: -5 }}>
                             <i className="fas fa-shield-alt"></i>
-                            <h3>Cyber Security</h3>
+                            <h3>Cyber Security Enthusiast</h3>
                             <p>Student @ Siber Vatan</p>
                         </motion.div>
                     </div>

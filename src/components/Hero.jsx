@@ -16,13 +16,19 @@ const Hero = () => {
                 <p className="hero-desc">Karmaşık iş akışlarını terminale taşıyor, sistemleri otomatize eden verimli toollar
                     geliştiriyorum</p>
                 <div className="cta-buttons">
-                    <a href="/contact" className="btn primary" onClick={(e) => {
+                    <a href="/#contact" className="btn primary" onClick={(e) => {
                         e.preventDefault();
-                        window.history.pushState({}, '', '/contact');
-                        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                    }}>İletişime Geç <i className="fas fa-arrow-right"></i></a>
-                    <a href="https://www.linkedin.com/in/efekrbs" target="_blank" className="btn secondary"><i
-                        className="fab fa-linkedin"></i> LinkedIn</a>
+                        window.history.pushState({}, '', '/#contact');
+                        const contactSection = document.getElementById('contact');
+                        if (contactSection) {
+                            contactSection.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                            window.location.href = '/#contact';
+                        }
+                    }}>İletişime Geç</a>
+                    <a href="/Efe Kırbaş CV.pdf" download="Efe_Kirbas_CV.pdf" className="btn secondary">
+                        <i className="fas fa-download"></i> CV İndir
+                    </a>
                 </div>
             </motion.div>
             <motion.div
