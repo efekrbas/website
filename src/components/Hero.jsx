@@ -12,7 +12,7 @@ const Hero = () => {
             >
                 <span className="greeting">Merhaba, ben</span>
                 <h1 className="glitch" data-text="Efe Kırbaş">Efe Kırbaş</h1>
-                <h2 className="subtitle">Software<br></br><span className="highlight">Developer</span></h2>
+                <h2 className="subtitle">Software<br><span className="highlight">Developer</span></h2>
                 <p className="hero-desc">Karmaşık iş akışlarını terminale taşıyor, sistemleri otomatize eden verimli toollar
                     geliştiriyorum</p>
                 <div className="cta-buttons">
