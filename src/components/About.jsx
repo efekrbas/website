@@ -28,8 +28,7 @@ const About = () => {
                     <div className="stats-grid">
                         <motion.div className="stat-card glass-card" whileHover={{ y: -5 }}>
                             <i className="fas fa-code"></i>
-                            <h3>Developer</h3>
-                            <p>Software</p>
+                            <h3>Software Developer</h3>
                         </motion.div>
                         <motion.div className="stat-card glass-card" whileHover={{ y: -5 }}>
                             <i className="fas fa-shield-alt"></i>
