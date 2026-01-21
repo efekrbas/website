@@ -29,7 +29,7 @@ const About = () => {
                         <motion.div className="stat-card glass-card" whileHover={{ y: -5 }}>
                             <i className="fas fa-code"></i>
                             <h3>Developer</h3>
-                            <p>CLI & Automation</p>
+                            <p>Software</p>
                         </motion.div>
                         <motion.div className="stat-card glass-card" whileHover={{ y: -5 }}>
                             <i className="fas fa-shield-alt"></i>
