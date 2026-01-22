@@ -78,7 +78,7 @@ const Chatbot = () => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${apiKey}`,
                     'HTTP-Referer': window.location.href,
-                    'X-Title': 'Efe Kirbas Portfolio'
+                    'X-Title': 'Efe Kırbaş Portfolio'
                 },
                 body: JSON.stringify({
                     model: "openai/gpt-3.5-turbo",
