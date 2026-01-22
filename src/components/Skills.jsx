@@ -18,7 +18,7 @@ const Skills = () => {
                 <div className="skill-category">
                     <h3>Teknik Yetenekler (10)</h3>
                     <div className="tags">
-                        <span className="tag">Siber Güvenlik</span>
+                        <span className="tag">Penetration Testing</span>
                         <span className="tag">Linux</span>
                         <span className="tag">C,C#,C++</span>
                         <span className="tag">Python</span>
