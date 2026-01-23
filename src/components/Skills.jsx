@@ -55,6 +55,7 @@ const Skills = () => {
                     <h3>Sertifikalar (13)</h3>
                     <ul className="cert-list">
                         <li><i className="fas fa-award"></i> Certified Associate Penetration Tester (CAPT) - Hackviser</li>
+						<li><i className="fas fa-award"></i> Introduction to Cybersecurity - Cisco</li>
                         <li><i className="fas fa-award"></i> Technical Support Fundamentals - Google</li>
                         <li className={`cert-accordion-item ${certOpen ? 'active' : ''}`}>
                             <div className="cert-accordion-header" onClick={() => setCertOpen(!certOpen)}>
