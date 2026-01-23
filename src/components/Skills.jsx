@@ -52,7 +52,7 @@ const Skills = () => {
                 </div>
 
                 <div className="certifications glass-card">
-                    <h3>Sertifikalar (13)</h3>
+                    <h3>Sertifikalar (14)</h3>
                     <ul className="cert-list">
                         <li><i className="fas fa-award"></i> Certified Associate Penetration Tester (CAPT) - Hackviser</li>
 						<li><i className="fas fa-award"></i> Introduction to Cybersecurity - Cisco</li>
