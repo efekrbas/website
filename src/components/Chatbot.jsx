@@ -55,6 +55,14 @@ const Chatbot = () => {
         try {
             const apiKey = import.meta.env.VITE_OPENROUTER_API_KEY;
 
+            // Detailed debug logging
+            console.log("Debug Info:", {
+                apiKeyExists: !!apiKey,
+                apiKeyLength: apiKey ? apiKey.length : 0,
+                baseUrl: 'https://openrouter.ai/api/v1/chat/completions',
+                referer: window.location.href
+            });
+
             if (!apiKey) {
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 const demoResponse = {
@@ -78,7 +86,7 @@ const Chatbot = () => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${apiKey}`,
                     'HTTP-Referer': window.location.href,
-                    'X-Title': 'Efe Kırbaş Portfolio'
+                    'X-Title': 'Efe Kirbas Portfolio'
                 },
                 body: JSON.stringify({
                     model: "openai/gpt-3.5-turbo",
@@ -88,17 +96,27 @@ const Chatbot = () => {
 
             const data = await response.json();
 
+            if (!response.ok) {
+                console.error("API Error Response:", data);
+                throw new Error(data.error?.message || `API Error: ${response.status}`);
+            }
+
             if (data.choices && data.choices[0]) {
                 const aiText = data.choices[0].message.content;
                 setMessages(prev => [...prev, { id: Date.now() + 1, text: aiText, sender: 'bot' }]);
             } else {
-                console.error("OpenRouter Error:", data);
-                throw new Error("API Error");
+                console.error("Unexpected API Response format:", data);
+                throw new Error("API yanıtı beklenmedik formatta");
             }
 
         } catch (error) {
-            console.error(error);
-            setMessages(prev => [...prev, { id: Date.now(), text: "Üzgünüm, bir hata oluştu.", sender: 'bot' }]);
+            console.error("Chatbot Error:", error);
+            const errorMessage = error.message || "Bilinmeyen bir hata oluştu";
+            setMessages(prev => [...prev, {
+                id: Date.now(),
+                text: `Üzgünüm, bir hata oluştu: ${errorMessage}. (Detaylar için konsolu kontrol edin)`,
+                sender: 'bot'
+            }]);
         } finally {
             setIsLoading(false);
         }
