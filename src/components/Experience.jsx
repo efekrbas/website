@@ -20,7 +20,7 @@ const Experience = () => {
                                 <img src="/images/sibervatan.png" alt="Siber Vatan" className="company-logo" />
                             </div>
                             <div className="text-container">
-                                <h3>Student</h3>
+                                <h3>Cyber Security Student</h3>
                                 <h4>Siber Vatan</h4>
                                 <p className="location"><i className="fas fa-map-marker-alt"></i> Bilecik, Türkiye</p>
 
