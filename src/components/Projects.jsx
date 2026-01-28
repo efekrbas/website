@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const Projects = () => {
+    const { t } = useLanguage();
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -51,11 +53,11 @@ const Projects = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
         >
-            <h2 className="section-title">Projelerim</h2>
+            <h2 className="section-title">{t('projectsTitle')}</h2>
             <div id="projects-container" className="projects-grid">
                 {loading ? (
                     <div className="loading-projects">
-                        <i className="fas fa-circle-notch fa-spin"></i> Projeler yükleniyor...
+                        <i className="fas fa-circle-notch fa-spin"></i> {t('loadingProjects')}
                     </div>
                 ) : (
                     projects.map((project, index) => (
@@ -93,7 +95,7 @@ const Projects = () => {
             </div>
             <div className="github-more">
                 <a href="https://github.com/efekrbas?tab=repositories" target="_blank" rel="noopener noreferrer" className="btn secondary">
-                    <i className="fab fa-github"></i> Tümünü Gör
+                    <i className="fab fa-github"></i> {t('viewAll')}
                 </a>
             </div>
         </motion.section>

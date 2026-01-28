@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const About = () => {
+    const { t } = useLanguage();
+
     return (
         <motion.section
             id="about"
@@ -10,30 +13,23 @@ const About = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
         >
-            <h2 className="section-title">Hakkımda</h2>
+            <h2 className="section-title">{t('aboutTitle')}</h2>
             <div className="about-container">
                 <div className="about-image-wrapper">
                     <img src="/images/efe-profile.png" alt="Efe Kırbaş" className="about-profile-img" />
                 </div>
                 <div className="about-details">
                     <div className="about-text">
-                        <p>Medipol Sağlık Grubu'nda Bilgi İşlem Saha Destek Stajyeri olarak çalıştım ve bu süreçte son
-                            kullanıcıların donanım-yazılım sorunlarını çözme, arıza-tespiti konularında pratik deneyim
-                            kazandım. Ayrıca bilgisayar, yazıcı ve çevre birimlerinin kurulum–bakım işlemlerini
-                            gerçekleştirme
-                            konularında aktif görev aldım. <br />Bilecik Şeyh Edebali Üniversitesi'nde Bilgisayar
-                            Programcılığı bölümünde önlisans eğitimime devam ediyor, aynı zamanda yazılım geliştirme
-                            üzerine yoğunlaşıyorum.</p>
+                        <p>{t('aboutText')}</p>
                     </div>
                     <div className="stats-grid">
                         <motion.div className="stat-card glass-card" whileHover={{ y: -5 }}>
                             <i className="fas fa-code"></i>
-                            <h3>Software Developer</h3>
+                            <h3>{t('softwareDeveloper')}</h3>
                         </motion.div>
                         <motion.div className="stat-card glass-card" whileHover={{ y: -5 }}>
                             <i className="fas fa-shield-alt"></i>
-                            <h3>Cyber Security Enthusiast</h3>
-                            <p>Student @ Siber Vatan</p>
+                            <h3>{t('cyberSecurityEnthusiast')}</h3>
                         </motion.div>
                     </div>
                 </div>

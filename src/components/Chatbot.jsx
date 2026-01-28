@@ -1,14 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const Chatbot = () => {
+    const { language, t } = useLanguage();
     const [isOpen, setIsOpen] = useState(false);
-    const [messages, setMessages] = useState([
-        { id: 1, text: "Merhaba! Ben Efe'nin yapay zeka asistanıyım. Size nasıl yardımcı olabilirim?", sender: 'bot' }
-    ]);
+    const [messages, setMessages] = useState([]);
     const [inputText, setInputText] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef(null);
+
+    // Initialize welcome message based on language
+    useEffect(() => {
+        setMessages([{ id: 1, text: t('chatbotWelcome'), sender: 'bot' }]);
+    }, [language]);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -67,7 +72,7 @@ const Chatbot = () => {
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 const demoResponse = {
                     id: Date.now() + 1,
-                    text: "Demo Modu: Gerçek bir yanıt almak için lütfen .env dosyasına VITE_OPENROUTER_API_KEY ekleyin.",
+                    text: t('chatbotDemo'),
                     sender: 'bot'
                 };
                 setMessages(prev => [...prev, demoResponse]);
@@ -111,10 +116,10 @@ const Chatbot = () => {
 
         } catch (error) {
             console.error("Chatbot Error:", error);
-            const errorMessage = error.message || "Bilinmeyen bir hata oluştu";
+            const errorMessage = error.message || "Unknown error";
             setMessages(prev => [...prev, {
                 id: Date.now(),
-                text: `Üzgünüm, bir hata oluştu: ${errorMessage}. (Detaylar için konsolu kontrol edin)`,
+                text: `${t('chatbotError')}: ${errorMessage}`,
                 sender: 'bot'
             }]);
         } finally {
@@ -162,7 +167,7 @@ const Chatbot = () => {
                         <div className="chatbot-header">
                             <div className="chatbot-title">
                                 <i className="fas fa-robot"></i>
-                                <span>AI Asistan</span>
+                                <span>{t('chatbotTitle')}</span>
                             </div>
                             <span className="online-indicator"></span>
                         </div>
@@ -183,7 +188,7 @@ const Chatbot = () => {
 
                         {/* Suggested Questions */}
                         <div className="suggested-questions">
-                            {["Efe kimdir?", "Projeleri neler?", "Hangi teknolojileri kullanıyor?", "Sertifikaları neler?"].map((q, index) => (
+                            {[t('chatbotQ1'), t('chatbotQ2'), t('chatbotQ3'), t('chatbotQ4')].map((q, index) => (
                                 <button
                                     key={index}
                                     className="question-chip"
@@ -197,7 +202,7 @@ const Chatbot = () => {
                         <form className="chatbot-input-area" onSubmit={handleSendMessage}>
                             <input
                                 type="text"
-                                placeholder="Mesajınızı yazın..."
+                                placeholder={t('chatbotPlaceholder')}
                                 value={inputText}
                                 onChange={(e) => setInputText(e.target.value)}
                             />

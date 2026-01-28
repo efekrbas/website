@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const Education = () => {
+    const { t } = useLanguage();
+
     return (
         <motion.section
             id="education"
@@ -10,7 +13,7 @@ const Education = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
         >
-            <h2 className="section-title">Eğitim</h2>
+            <h2 className="section-title">{t('educationTitle')}</h2>
             <div className="education-grid">
                 <div className="edu-card glass-card">
                     <div className="edu-inner">
@@ -20,8 +23,8 @@ const Education = () => {
                         </div>
                         <div className="text-container">
                             <div className="year">2025 - 2027</div>
-                            <h3>Bilecik Şeyh Edebali Üniversitesi</h3>
-                            <p>Önlisans, Bilgisayar Programcılığı</p>
+                            <h3>{t('bilecikUniversity')}</h3>
+                            <p>{t('associateDegree')}</p>
                         </div>
                     </div>
                 </div>
@@ -32,8 +35,8 @@ const Education = () => {
                         </div>
                         <div className="text-container">
                             <div className="year">2022 - 2025</div>
-                            <h3>Dündar Uçar Mesleki Ve Teknik Anadolu Lisesi</h3>
-                            <p>Lise, Bilişim Teknolojileri / Yazılım Geliştirme</p>
+                            <h3>{t('dundarUcarHighSchool')}</h3>
+                            <p>{t('highSchool')}</p>
                         </div>
                     </div>
                 </div>

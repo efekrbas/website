@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const Contact = () => {
+    const { t } = useLanguage();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -16,11 +18,11 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus('submitting');
-        const formData = new FormData(e.target);
+        const formDataObj = new FormData(e.target);
 
         const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
         if (accessKey) {
-            formData.append("access_key", accessKey);
+            formDataObj.append("access_key", accessKey);
         } else {
             // Fallback or error if not set, though user has it in props previously
             console.error("Web3Forms Access Key missing in .env");
@@ -31,7 +33,7 @@ const Contact = () => {
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
-                body: formData
+                body: formDataObj
             });
 
             const data = await response.json();
@@ -57,10 +59,10 @@ const Contact = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
         >
-            <h2 className="section-title">İletişim</h2>
+            <h2 className="section-title">{t('contactTitle')}</h2>
             <div className="contact-container glass-card">
                 <div className="contact-info">
-                    <p>Projeleriniz veya iş birlikleri için benimle iletişime geçebilirsiniz.</p>
+                    <p>{t('contactDesc')}</p>
                     <a href="mailto:efekrbass@gmail.com" className="contact-link">
                         <i className="fas fa-envelope"></i> efekrbass@gmail.com
                     </a>
@@ -75,7 +77,7 @@ const Contact = () => {
                         <input
                             type="text"
                             name="name"
-                            placeholder="Adınız Soyadınız"
+                            placeholder={t('yourName')}
                             value={formData.name}
                             onChange={handleChange}
                             required
@@ -86,7 +88,7 @@ const Contact = () => {
                         <input
                             type="email"
                             name="email"
-                            placeholder="E-posta Adresiniz"
+                            placeholder={t('yourEmail')}
                             value={formData.email}
                             onChange={handleChange}
                             required
@@ -96,7 +98,7 @@ const Contact = () => {
                     <div style={{ marginBottom: '15px' }}>
                         <textarea
                             name="message"
-                            placeholder="Mesajınız"
+                            placeholder={t('yourMessage')}
                             value={formData.message}
                             onChange={handleChange}
                             required
@@ -105,10 +107,10 @@ const Contact = () => {
                         ></textarea>
                     </div>
                     <button type="submit" className="btn primary" disabled={status === 'submitting'} style={{ width: '100%', justifyContent: 'center' }}>
-                        {status === 'submitting' ? 'Gönderiliyor...' : 'Gönder'} <i className="fas fa-paper-plane"></i>
+                        {status === 'submitting' ? t('sending') : t('send')} <i className="fas fa-paper-plane"></i>
                     </button>
-                    {status === 'success' && <p style={{ color: '#27c93f', marginTop: '10px', textAlign: 'center' }}>Mesajınız başarıyla gönderildi!</p>}
-                    {status === 'error' && <p style={{ color: '#ff5f56', marginTop: '10px', textAlign: 'center' }}>Bir hata oluştu. Lütfen tekrar deneyin.</p>}
+                    {status === 'success' && <p style={{ color: '#27c93f', marginTop: '10px', textAlign: 'center' }}>{t('successMessage')}</p>}
+                    {status === 'error' && <p style={{ color: '#ff5f56', marginTop: '10px', textAlign: 'center' }}>{t('errorMessage')}</p>}
                 </form>
             </div>
         </motion.section>
