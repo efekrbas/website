@@ -1,9 +1,12 @@
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Footer = () => {
+    const { t } = useLanguage();
+
     return (
         <footer>
-            <p>&copy; 2026 Efe Kırbaş. All rights reserved.</p>
+            <p>{t('footerText')}</p>
         </footer>
     );
 };
