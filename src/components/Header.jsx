@@ -23,7 +23,7 @@ const Header = () => {
     return (
         <header>
             <nav className="glass-nav">
-                <div className="logo">EK.</div>
+                <div className="logo">EFEK</div>
                 <ul className={`nav-links ${navOpen ? 'nav-active' : ''}`}>
                     <li><a href="/about" onClick={(e) => handleNavClick(e, 'about')}>{t('about')}</a></li>
                     <li><a href="/experience" onClick={(e) => handleNavClick(e, 'experience')}>{t('experience')}</a></li>
