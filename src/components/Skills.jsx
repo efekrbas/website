@@ -3,14 +3,12 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
 const Skills = () => {
-    const [hackviserOpen, setHackviserOpen] = useState(false);
-    const [ciscoOpen, setCiscoOpen] = useState(false);
-    const [garantiOpen, setGarantiOpen] = useState(false);
-    const [googleOpen, setGoogleOpen] = useState(false);
-    const [miuulOpen, setMiuulOpen] = useState(false);
-    const [mebOpen, setMebOpen] = useState(false);
-    const [btkOpen, setBtkOpen] = useState(false);
+    const [activeAccordion, setActiveAccordion] = useState(null);
     const { t } = useLanguage();
+
+    const toggleAccordion = (name) => {
+        setActiveAccordion(activeAccordion === name ? null : name);
+    };
 
     // Sertifika sayısını hesapla
     const hackviserCertCount = 1; // CAPT
@@ -71,8 +69,8 @@ const Skills = () => {
                 <div className="certifications glass-card">
                     <h3>{t('certificates')} ({totalCertCount})</h3>
                     <ul className="cert-list">
-                        <li className={`cert-accordion-item ${hackviserOpen ? 'active' : ''}`}>
-                            <div className="cert-accordion-header" onClick={() => setHackviserOpen(!hackviserOpen)}>
+                        <li className={`cert-accordion-item ${activeAccordion === 'hackviser' ? 'active' : ''}`}>
+                            <div className="cert-accordion-header" onClick={() => toggleAccordion('hackviser')}>
                                 <span>Hackviser</span>
                                 <i className="fas fa-chevron-down accordion-icon"></i>
                             </div>
@@ -80,8 +78,8 @@ const Skills = () => {
                                 <li><i className="fas fa-award"></i> {t('certCAPT')}</li>
                             </ul>
                         </li>
-                        <li className={`cert-accordion-item ${ciscoOpen ? 'active' : ''}`}>
-                            <div className="cert-accordion-header" onClick={() => setCiscoOpen(!ciscoOpen)}>
+                        <li className={`cert-accordion-item ${activeAccordion === 'cisco' ? 'active' : ''}`}>
+                            <div className="cert-accordion-header" onClick={() => toggleAccordion('cisco')}>
                                 <span>Cisco</span>
                                 <i className="fas fa-chevron-down accordion-icon"></i>
                             </div>
@@ -95,8 +93,8 @@ const Skills = () => {
                                 <li><i className="fas fa-award"></i> {t('certModernAI')}</li>
                             </ul>
                         </li>
-                        <li className={`cert-accordion-item ${googleOpen ? 'active' : ''}`}>
-                            <div className="cert-accordion-header" onClick={() => setGoogleOpen(!googleOpen)}>
+                        <li className={`cert-accordion-item ${activeAccordion === 'google' ? 'active' : ''}`}>
+                            <div className="cert-accordion-header" onClick={() => toggleAccordion('google')}>
                                 <span>Google</span>
                                 <i className="fas fa-chevron-down accordion-icon"></i>
                             </div>
@@ -104,8 +102,8 @@ const Skills = () => {
                                 <li><i className="fas fa-award"></i> {t('certTechSupport')}</li>
                             </ul>
                         </li>
-                        <li className={`cert-accordion-item ${miuulOpen ? 'active' : ''}`}>
-                            <div className="cert-accordion-header" onClick={() => setMiuulOpen(!miuulOpen)}>
+                        <li className={`cert-accordion-item ${activeAccordion === 'miuul' ? 'active' : ''}`}>
+                            <div className="cert-accordion-header" onClick={() => toggleAccordion('miuul')}>
                                 <span>Miuul</span>
                                 <i className="fas fa-chevron-down accordion-icon"></i>
                             </div>
@@ -114,8 +112,8 @@ const Skills = () => {
                                 <li><i className="fas fa-award"></i> {t('certAIMiniBootcamp')}</li>
                             </ul>
                         </li>
-                        <li className={`cert-accordion-item ${mebOpen ? 'active' : ''}`}>
-                            <div className="cert-accordion-header" onClick={() => setMebOpen(!mebOpen)}>
+                        <li className={`cert-accordion-item ${activeAccordion === 'meb' ? 'active' : ''}`}>
+                            <div className="cert-accordion-header" onClick={() => toggleAccordion('meb')}>
                                 <span>MEB</span>
                                 <i className="fas fa-chevron-down accordion-icon"></i>
                             </div>
@@ -125,8 +123,8 @@ const Skills = () => {
                                 <li><i className="fas fa-award"></i> {t('certFastTyping')}</li>
                             </ul>
                         </li>
-                        <li className={`cert-accordion-item ${btkOpen ? 'active' : ''}`}>
-                            <div className="cert-accordion-header" onClick={() => setBtkOpen(!btkOpen)}>
+                        <li className={`cert-accordion-item ${activeAccordion === 'btk' ? 'active' : ''}`}>
+                            <div className="cert-accordion-header" onClick={() => toggleAccordion('btk')}>
                                 <span>{t('btkAkademi')}</span>
                                 <i className="fas fa-chevron-down accordion-icon"></i>
                             </div>
@@ -134,8 +132,8 @@ const Skills = () => {
                                 <li><i className="fas fa-award"></i> {t('certDomainLaw')}</li>
                             </ul>
                         </li>
-                        <li className={`cert-accordion-item ${garantiOpen ? 'active' : ''}`}>
-                            <div className="cert-accordion-header" onClick={() => setGarantiOpen(!garantiOpen)}>
+                        <li className={`cert-accordion-item ${activeAccordion === 'garanti' ? 'active' : ''}`}>
+                            <div className="cert-accordion-header" onClick={() => toggleAccordion('garanti')}>
                                 <span>{t('certGarantiBBVA')}</span>
                                 <i className="fas fa-chevron-down accordion-icon"></i>
                             </div>
