@@ -3,8 +3,24 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
 const Skills = () => {
-    const [certOpen, setCertOpen] = useState(false);
+    const [hackviserOpen, setHackviserOpen] = useState(false);
+    const [ciscoOpen, setCiscoOpen] = useState(false);
+    const [garantiOpen, setGarantiOpen] = useState(false);
+    const [googleOpen, setGoogleOpen] = useState(false);
+    const [miuulOpen, setMiuulOpen] = useState(false);
+    const [mebOpen, setMebOpen] = useState(false);
+    const [btkOpen, setBtkOpen] = useState(false);
     const { t } = useLanguage();
+
+    // Sertifika sayısını hesapla
+    const hackviserCertCount = 1; // CAPT
+    const ciscoCertCount = 7; // Industrial Networking, Network Technician, Networking Basics, Digital Safety, Cybersecurity, IoT, Modern AI
+    const garantiCertCount = 5; // Garanti BBVA + MachineLearning, GenAI, ChatGPT, FutureTech
+    const googleCertCount = 1; // TechSupport
+    const miuulCertCount = 2; // UIUX, AIMiniBootcamp
+    const mebCertCount = 3; // ComputerOperator, OOP, FastTyping
+    const btkCertCount = 1; // DomainLaw
+    const totalCertCount = hackviserCertCount + ciscoCertCount + garantiCertCount + googleCertCount + miuulCertCount + mebCertCount + btkCertCount;
 
     return (
         <motion.section
@@ -53,14 +69,74 @@ const Skills = () => {
                 </div>
 
                 <div className="certifications glass-card">
-                    <h3>{t('certificates')} (14)</h3>
+                    <h3>{t('certificates')} ({totalCertCount})</h3>
                     <ul className="cert-list">
-                        <li><i className="fas fa-award"></i> {t('certCAPT')}</li>
-                        <li><i className="fas fa-award"></i> {t('certCybersecurity')}</li>
-                        <li><i className="fas fa-award"></i> {t('certTechSupport')}</li>
-                        <li className={`cert-accordion-item ${certOpen ? 'active' : ''}`}>
-                            <div className="cert-accordion-header" onClick={() => setCertOpen(!certOpen)}>
-                                <span><i className="fas fa-award"></i> {t('certGarantiBBVA')}</span>
+                        <li className={`cert-accordion-item ${hackviserOpen ? 'active' : ''}`}>
+                            <div className="cert-accordion-header" onClick={() => setHackviserOpen(!hackviserOpen)}>
+                                <span>Hackviser</span>
+                                <i className="fas fa-chevron-down accordion-icon"></i>
+                            </div>
+                            <ul className="cert-accordion-content">
+                                <li><i className="fas fa-award"></i> {t('certCAPT')}</li>
+                            </ul>
+                        </li>
+                        <li className={`cert-accordion-item ${ciscoOpen ? 'active' : ''}`}>
+                            <div className="cert-accordion-header" onClick={() => setCiscoOpen(!ciscoOpen)}>
+                                <span>Cisco</span>
+                                <i className="fas fa-chevron-down accordion-icon"></i>
+                            </div>
+                            <ul className="cert-accordion-content">
+                                <li><i className="fas fa-award"></i> {t('certIndustrialNetworking')}</li>
+                                <li><i className="fas fa-award"></i> {t('certNetworkTechnician')}</li>
+                                <li><i className="fas fa-award"></i> {t('certNetworkingBasics')}</li>
+                                <li><i className="fas fa-award"></i> {t('certDigitalSafety')}</li>
+                                <li><i className="fas fa-award"></i> {t('certCybersecurity')}</li>
+                                <li><i className="fas fa-award"></i> {t('certIoT')}</li>
+                                <li><i className="fas fa-award"></i> {t('certModernAI')}</li>
+                            </ul>
+                        </li>
+                        <li className={`cert-accordion-item ${googleOpen ? 'active' : ''}`}>
+                            <div className="cert-accordion-header" onClick={() => setGoogleOpen(!googleOpen)}>
+                                <span>Google</span>
+                                <i className="fas fa-chevron-down accordion-icon"></i>
+                            </div>
+                            <ul className="cert-accordion-content">
+                                <li><i className="fas fa-award"></i> {t('certTechSupport')}</li>
+                            </ul>
+                        </li>
+                        <li className={`cert-accordion-item ${miuulOpen ? 'active' : ''}`}>
+                            <div className="cert-accordion-header" onClick={() => setMiuulOpen(!miuulOpen)}>
+                                <span>Miuul</span>
+                                <i className="fas fa-chevron-down accordion-icon"></i>
+                            </div>
+                            <ul className="cert-accordion-content">
+                                <li><i className="fas fa-award"></i> {t('certUIUX')}</li>
+                                <li><i className="fas fa-award"></i> {t('certAIMiniBootcamp')}</li>
+                            </ul>
+                        </li>
+                        <li className={`cert-accordion-item ${mebOpen ? 'active' : ''}`}>
+                            <div className="cert-accordion-header" onClick={() => setMebOpen(!mebOpen)}>
+                                <span>MEB</span>
+                                <i className="fas fa-chevron-down accordion-icon"></i>
+                            </div>
+                            <ul className="cert-accordion-content">
+                                <li><i className="fas fa-award"></i> {t('certComputerOperator')}</li>
+                                <li><i className="fas fa-award"></i> {t('certOOP')}</li>
+                                <li><i className="fas fa-award"></i> {t('certFastTyping')}</li>
+                            </ul>
+                        </li>
+                        <li className={`cert-accordion-item ${btkOpen ? 'active' : ''}`}>
+                            <div className="cert-accordion-header" onClick={() => setBtkOpen(!btkOpen)}>
+                                <span>{t('btkAkademi')}</span>
+                                <i className="fas fa-chevron-down accordion-icon"></i>
+                            </div>
+                            <ul className="cert-accordion-content">
+                                <li><i className="fas fa-award"></i> {t('certDomainLaw')}</li>
+                            </ul>
+                        </li>
+                        <li className={`cert-accordion-item ${garantiOpen ? 'active' : ''}`}>
+                            <div className="cert-accordion-header" onClick={() => setGarantiOpen(!garantiOpen)}>
+                                <span>{t('certGarantiBBVA')}</span>
                                 <i className="fas fa-chevron-down accordion-icon"></i>
                             </div>
                             <ul className="cert-accordion-content">
@@ -70,12 +146,6 @@ const Skills = () => {
                                 <li><i className="fas fa-award"></i> {t('certFutureTech')}</li>
                             </ul>
                         </li>
-                        <li><i className="fas fa-award"></i> {t('certUIUX')}</li>
-                        <li><i className="fas fa-award"></i> {t('certAIMiniBootcamp')}</li>
-                        <li><i className="fas fa-award"></i> {t('certComputerOperator')}</li>
-                        <li><i className="fas fa-award"></i> {t('certOOP')}</li>
-                        <li><i className="fas fa-award"></i> {t('certFastTyping')}</li>
-                        <li><i className="fas fa-award"></i> {t('certDomainLaw')}</li>
                     </ul>
                 </div>
             </div>
