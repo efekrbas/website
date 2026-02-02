@@ -232,10 +232,18 @@ export const translations = {
 };
 
 export const LanguageProvider = ({ children }) => {
-    const [language, setLanguage] = useState('en');
+    const [language, setLanguage] = useState(() => {
+        // localStorage'dan dil tercihini oku, yoksa varsayılan olarak 'tr' kullan
+        const savedLanguage = localStorage.getItem('language');
+        return savedLanguage || 'tr';
+    });
 
     const toggleLanguage = () => {
-        setLanguage(prev => prev === 'tr' ? 'en' : 'tr');
+        setLanguage(prev => {
+            const newLang = prev === 'tr' ? 'en' : 'tr';
+            localStorage.setItem('language', newLang);
+            return newLang;
+        });
     };
 
     const t = (key) => {
