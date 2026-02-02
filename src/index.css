@@ -17,7 +17,7 @@
 }
 
 html {
-    scroll-padding-top: 30px;
+    scroll-padding-top: 35px;
 }
 
 body {
@@ -605,6 +605,10 @@ section {
 }
 
 /* Education */
+#education {
+    min-height: 100vh;
+}
+
 .education-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
