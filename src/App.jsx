@@ -14,7 +14,7 @@ import Chatbot from './components/Chatbot';
 
 function App() {
   useEffect(() => {
-    // Hash varsa o section'a scroll yap
+    // Hash varsa o section'a scroll yap, yoksa en tepeye git
     const hash = window.location.hash;
     if (hash) {
       setTimeout(() => {
@@ -23,6 +23,8 @@ function App() {
           element.scrollIntoView({ behavior: 'auto' });
         }
       }, 100);
+    } else {
+      window.scrollTo(0, 0);
     }
   }, []);
 
