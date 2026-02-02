@@ -13,19 +13,17 @@ import Cursor from './components/Cursor';
 import Chatbot from './components/Chatbot';
 
 function App() {
-    useEffect(() => {
-    // 1. Tarayıcının otomatik kaydırma geri yüklemesini devre dışı bırak
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
+  useEffect(() => {
+    // Hash varsa o section'a scroll yap
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'auto' });
+        }
+      }, 100);
     }
-
-    // 2. Tarayıcının atlamasını önlemek için URL'deki hash'i (örn: /#contact) temizle
-    if (window.location.hash) {
-      window.history.replaceState(null, '', window.location.pathname);
-    }
-
-    // 3. Sayfayı en tepeye kaydır
-    window.scrollTo(0, 0);
   }, []);
 
   return (
