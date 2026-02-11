@@ -109,6 +109,12 @@ export const translations = {
         certUIUX: 'UI/UX Web Tasarımcısı',
         btkAkademi: 'BTK Akademi',
 
+        // Youtube
+        youtube: 'YouTube',
+        youtubeTitle: 'YouTube Videolarım',
+        watchVideo: 'İzle',
+        visitChannel: 'Kanalı Ziyaret Et',
+
         // Chatbot
         chatbotTitle: 'AI Asistan',
         chatbotWelcome: 'Merhaba! Ben Efe\'nin yapay zeka asistanıyım. Size nasıl yardımcı olabilirim?',
@@ -217,6 +223,12 @@ export const translations = {
         certGarantiBBVA: 'Garanti BBVA Young New Generation Career School',
         certUIUX: 'UI/UX Web Designer',
         btkAkademi: 'BTK Academy',
+
+        // Youtube
+        youtube: 'YouTube',
+        youtubeTitle: 'My YouTube Videos',
+        watchVideo: 'Watch',
+        visitChannel: 'Visit Channel',
 
         // Chatbot
         chatbotTitle: 'AI Assistant',

@@ -30,6 +30,7 @@ const Header = () => {
                     <li><a href="/skills" onClick={(e) => handleNavClick(e, 'skills')}>{t('skills')}</a></li>
                     <li><a href="/education" onClick={(e) => handleNavClick(e, 'education')}>{t('education')}</a></li>
                     <li><a href="/projects" onClick={(e) => handleNavClick(e, 'projects')}>{t('projects')}</a></li>
+                    <li><a href="/youtube" onClick={(e) => handleNavClick(e, 'youtube')}>{t('youtube')}</a></li>
                     <li><a href="/contact" onClick={(e) => handleNavClick(e, 'contact')}>{t('contact')}</a></li>
                     <li className="mobile-lang-toggle"><LanguageToggle /></li>
                 </ul>
