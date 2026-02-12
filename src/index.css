@@ -51,7 +51,7 @@ a {
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
-    z-index: 9999;
+    z-index: 99999;
     transition: transform 0.1s;
 }
 
@@ -62,7 +62,7 @@ a {
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
-    z-index: 9998;
+    z-index: 99998;
     transition: transform 0.15s, width 0.3s, height 0.3s;
 }
 
