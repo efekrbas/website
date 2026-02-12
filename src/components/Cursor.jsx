@@ -19,17 +19,10 @@ const Cursor = () => {
             }
         };
 
-        // Elements whose hover state has a white/light background
-        const isLightHoverElement = (el) => {
-            return el.closest('.btn.primary, .contact-link, .chatbot-toggle, .chatbot-input-area button:not(:disabled), .question-chip');
-        };
-
-        const handleLinkHover = (e) => {
+        const handleLinkHover = () => {
             if (cursor && follower) {
-                const isLight = isLightHoverElement(e.currentTarget);
                 cursor.style.transform = `scale(1.5)`;
-                cursor.style.background = isLight ? 'black' : 'white';
-                cursor.style.borderColor = isLight ? 'black' : 'white';
+                cursor.style.background = 'white';
                 follower.style.opacity = '0';
             }
         };
@@ -38,7 +31,6 @@ const Cursor = () => {
             if (cursor && follower) {
                 cursor.style.transform = `scale(1)`;
                 cursor.style.background = 'transparent';
-                cursor.style.borderColor = 'white';
                 follower.style.opacity = '1';
             }
         };
