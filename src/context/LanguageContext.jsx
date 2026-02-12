@@ -105,7 +105,7 @@ export const translations = {
         certIoT: 'Introduction to IoT',
         certModernAI: 'Introduction to Modern AI',
         certTechSupport: 'Teknik Destek Temelleri',
-        certGarantiBBVA: 'Genç Yeni Nesil Kariyer Okulu',
+        certGarantiBBVA: 'Garanti BBVA Genç Yeni Nesil Kariyer Okulu',
         certUIUX: 'UI/UX Web Tasarımcısı',
         btkAkademi: 'BTK Akademi',
 
