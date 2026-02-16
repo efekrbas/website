@@ -12,7 +12,7 @@ const Skills = () => {
 
     // Sertifika sayısını hesapla
     const hackviserCertCount = 1; // CAPT
-    const ciscoCertCount = 7; // Industrial Networking, Network Technician, Networking Basics, Digital Safety, Cybersecurity, IoT, Modern AI
+    const ciscoCertCount = 9; // Industrial Networking, Network Technician, Networking Basics, Digital Safety, Cybersecurity, IoT, Modern AI, Networking Devices, Network Addressing
     const garantiCertCount = 5; // Garanti BBVA + MachineLearning, GenAI, ChatGPT, FutureTech
     const googleCertCount = 1; // TechSupport
     const miuulCertCount = 2; // UIUX, AIMiniBootcamp
@@ -92,6 +92,8 @@ const Skills = () => {
                                 <li><i className="fas fa-award"></i> {t('certCybersecurity')}</li>
                                 <li><i className="fas fa-award"></i> {t('certIoT')}</li>
                                 <li><i className="fas fa-award"></i> {t('certModernAI')}</li>
+                                <li><i className="fas fa-award"></i> {t('certNetworkingDevices')}</li>
+                                <li><i className="fas fa-award"></i> {t('certNetworkAddressing')}</li>
                             </ul>
                         </li>
                         <li className={`cert-accordion-item ${activeAccordion === 'google' ? 'active' : ''}`}>
