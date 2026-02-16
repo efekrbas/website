@@ -108,6 +108,8 @@ export const translations = {
         certGarantiBBVA: 'Garanti BBVA Genç Yeni Nesil Kariyer Okulu',
         certUIUX: 'UI/UX Web Tasarımcısı',
         btkAkademi: 'BTK Akademi',
+        certAltaySecAcademy: 'AltaySec Akademi',
+        certAltaySec: 'Sızma Testi Eğitim Programı Başarı Sertifikası',
 
         // Youtube
         youtube: 'YouTube',
@@ -223,6 +225,8 @@ export const translations = {
         certGarantiBBVA: 'Garanti BBVA Young New Generation Career School',
         certUIUX: 'UI/UX Web Designer',
         btkAkademi: 'BTK Academy',
+        certAltaySecAcademy: 'AltaySec Academy',
+        certAltaySec: 'Penetration Testing Training Program Certificate of Achievement',
 
         // Youtube
         youtube: 'YouTube',
