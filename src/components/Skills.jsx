@@ -18,7 +18,8 @@ const Skills = () => {
     const miuulCertCount = 2; // UIUX, AIMiniBootcamp
     const mebCertCount = 3; // ComputerOperator, OOP, FastTyping
     const btkCertCount = 1; // DomainLaw
-    const totalCertCount = hackviserCertCount + ciscoCertCount + garantiCertCount + googleCertCount + miuulCertCount + mebCertCount + btkCertCount;
+    const altaysecCount = 1 // AltaySec
+    const totalCertCount = hackviserCertCount + ciscoCertCount + garantiCertCount + googleCertCount + miuulCertCount + mebCertCount + btkCertCount + altaysecCount;
 
     return (
         <motion.section
@@ -130,6 +131,15 @@ const Skills = () => {
                             </div>
                             <ul className="cert-accordion-content">
                                 <li><i className="fas fa-award"></i> {t('certDomainLaw')}</li>
+                            </ul>
+                        </li>
+                        <li className={`cert-accordion-item ${activeAccordion === 'altaysec' ? 'active' : ''}`}>
+                            <div className="cert-accordion-header" onClick={() => toggleAccordion('altaysec')}>
+                                <span>{t('certAltaySecAcademy')}</span>
+                                <i className="fas fa-chevron-down accordion-icon"></i>
+                            </div>
+                            <ul className="cert-accordion-content">
+                                <li><i className="fas fa-award"></i> {t('certAltaySec')}</li>
                             </ul>
                         </li>
                         <li className={`cert-accordion-item ${activeAccordion === 'garanti' ? 'active' : ''}`}>
