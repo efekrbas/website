@@ -2,6 +2,75 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
+const VideoCard = ({ video }) => {
+    const [isPlaying, setIsPlaying] = React.useState(false);
+    const [isPaused, setIsPaused] = React.useState(false);
+    const iframeRef = React.useRef(null);
+
+    const togglePlay = () => {
+        if (!iframeRef.current) return;
+
+        const action = isPaused ? 'playVideo' : 'pauseVideo';
+        iframeRef.current.contentWindow.postMessage(JSON.stringify({
+            event: 'command',
+            func: action,
+            args: []
+        }), '*');
+        setIsPaused(!isPaused);
+    };
+
+    const handleThumbnailClick = () => {
+        setIsPlaying(true);
+        setIsPaused(false);
+    };
+
+    return (
+        <div className="video-container">
+            {!isPlaying ? (
+                <div
+                    className="video-thumbnail"
+                    onClick={handleThumbnailClick}
+                    style={{
+                        backgroundImage: `url(https://img.youtube.com/vi/${video.id}/maxresdefault.jpg)`,
+                        cursor: 'none'
+                    }}
+                >
+                    <div className="play-button">
+                        <i className="fas fa-play"></i>
+                    </div>
+                </div>
+            ) : (
+                <>
+                    <iframe
+                        ref={iframeRef}
+                        src={`https://www.youtube.com/embed/${video.id}?autoplay=1&enablejsapi=1&controls=0&modestbranding=1&rel=0`}
+                        title={video.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        loading="lazy"
+                    ></iframe>
+                    <div
+                        className="video-overlay"
+                        onClick={togglePlay}
+                        style={{
+                            cursor: 'none',
+                            backgroundColor: isPaused ? 'rgba(0, 0, 0, 0.4)' : 'transparent',
+                            backdropFilter: isPaused ? 'blur(5px)' : 'none',
+                            transition: 'background-color 0.3s, backdrop-filter 0.3s'
+                        }}
+                    >
+                        {isPaused && (
+                            <div className="play-button overlay-icon">
+                                <i className="fas fa-play"></i>
+                            </div>
+                        )}
+                    </div>
+                </>
+            )}
+        </div>
+    );
+};
+
 const Youtube = () => {
     const { t } = useLanguage();
 
@@ -14,7 +83,6 @@ const Youtube = () => {
             id: 'm25zP_XQeq4', // Found via search
             title: 'Discord Orbs Rozeti Nasıl Alınır?',
         },
-        // Valid placeholder that works if needed, but sticking to real ones found.
     ];
 
     return (
@@ -35,15 +103,7 @@ const Youtube = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.3, delay: index * 0.1 }}
                     >
-                        <div className="video-container">
-                            <iframe
-                                src={`https://www.youtube.com/embed/${video.id}`}
-                                title={video.title}
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                                loading="lazy"
-                            ></iframe>
-                        </div>
+                        <VideoCard video={video} />
                         <div className="youtube-content">
                             <h3 className="youtube-video-title">{video.title}</h3>
                         </div>
@@ -78,6 +138,51 @@ const Youtube = () => {
                     padding-bottom: 56.25%; /* 16:9 aspect ratio */
                     height: 0;
                     overflow: hidden;
+                    background-color: #000;
+                }
+                .video-thumbnail {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                    background-position: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: opacity 0.3s ease;
+                }
+                .video-thumbnail:hover {
+                    opacity: 0.9;
+                }
+                .video-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .play-button {
+                    width: 60px;
+                    height: 60px;
+                    background: rgba(255, 0, 0, 0.9);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 24px;
+                    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+                .video-thumbnail:hover .play-button, .play-button.overlay-icon:hover {
+                    transform: scale(1.1);
+                    box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
                 }
                 .video-container iframe {
                     position: absolute;

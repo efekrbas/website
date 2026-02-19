@@ -537,89 +537,32 @@ section {
     background: var(--accent-color);
 }
 
-.cert-list {
-    list-style: none;
-}
-
-.cert-list li {
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    display: flex;
+.view-certs-btn {
+    display: inline-flex;
     align-items: center;
     gap: 10px;
-}
-
-.cert-list li:last-child {
-    border-bottom: none;
-}
-
-.cert-accordion-item {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.cert-accordion-item .cert-accordion-header {
-    width: 100%;
-}
-
-.cert-accordion-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0;
+    padding: 14px 28px;
+    margin-top: 15px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    color: var(--accent-color);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
     cursor: pointer;
-    gap: 10px;
-    transition: opacity 0.3s ease;
 }
 
-.cert-accordion-header:hover {
-    opacity: 0.8;
+.view-certs-btn:hover {
+    background: var(--accent-color);
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.15);
 }
 
-.cert-accordion-header span {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex: 1;
-}
-
-.accordion-icon {
-    transition: transform 0.3s ease;
-    font-size: 0.8rem;
-    color: var(--secondary-text);
-}
-
-.cert-accordion-item.active .accordion-icon {
-    transform: rotate(180deg);
-}
-
-.cert-accordion-content {
-    list-style: none;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    padding-left: 0;
-    margin: 0;
-    width: 100%;
-}
-
-.cert-accordion-item.active .cert-accordion-content {
-    max-height: 1000px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.cert-accordion-content li {
-    padding: 8px 0 8px 0;
-    border-bottom: none;
-    font-size: 0.95rem;
-    opacity: 0.9;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.view-certs-btn i {
+    font-size: 0.9rem;
 }
 
 /* Education */

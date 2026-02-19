@@ -1,25 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
 const Skills = () => {
-    const [activeAccordion, setActiveAccordion] = useState(null);
     const { t } = useLanguage();
-
-    const toggleAccordion = (name) => {
-        setActiveAccordion(activeAccordion === name ? null : name);
-    };
-
-    // Sertifika sayısını hesapla
-    const hackviserCertCount = 1; // CAPT
-    const ciscoCertCount = 9; // Industrial Networking, Network Technician, Networking Basics, Digital Safety, Cybersecurity, IoT, Modern AI, Networking Devices, Network Addressing
-    const garantiCertCount = 5; // Garanti BBVA + MachineLearning, GenAI, ChatGPT, FutureTech
-    const googleCertCount = 1; // TechSupport
-    const miuulCertCount = 2; // UIUX, AIMiniBootcamp
-    const mebCertCount = 3; // ComputerOperator, OOP, FastTyping
-    const btkCertCount = 1; // DomainLaw
-    const altaysecCount = 1 // AltaySec
-    const totalCertCount = hackviserCertCount + ciscoCertCount + garantiCertCount + googleCertCount + miuulCertCount + mebCertCount + btkCertCount + altaysecCount;
 
     return (
         <motion.section
@@ -67,99 +51,23 @@ const Skills = () => {
                     </div>
                 </div>
 
-                <div className="certifications glass-card">
-                    <h3>{t('certificates')} ({totalCertCount})</h3>
-                    <ul className="cert-list">
-                        <li className={`cert-accordion-item ${activeAccordion === 'hackviser' ? 'active' : ''}`}>
-                            <div className="cert-accordion-header" onClick={() => toggleAccordion('hackviser')}>
-                                <span>Hackviser</span>
-                                <i className="fas fa-chevron-down accordion-icon"></i>
-                            </div>
-                            <ul className="cert-accordion-content">
-                                <li><i className="fas fa-award"></i> {t('certCAPT')}</li>
-                            </ul>
-                        </li>
-                        <li className={`cert-accordion-item ${activeAccordion === 'cisco' ? 'active' : ''}`}>
-                            <div className="cert-accordion-header" onClick={() => toggleAccordion('cisco')}>
-                                <span>Cisco</span>
-                                <i className="fas fa-chevron-down accordion-icon"></i>
-                            </div>
-                            <ul className="cert-accordion-content">
-                                <li><i className="fas fa-award"></i> {t('certIndustrialNetworking')}</li>
-                                <li><i className="fas fa-award"></i> {t('certNetworkTechnician')}</li>
-                                <li><i className="fas fa-award"></i> {t('certNetworkingBasics')}</li>
-                                <li><i className="fas fa-award"></i> {t('certDigitalSafety')}</li>
-                                <li><i className="fas fa-award"></i> {t('certCybersecurity')}</li>
-                                <li><i className="fas fa-award"></i> {t('certIoT')}</li>
-                                <li><i className="fas fa-award"></i> {t('certModernAI')}</li>
-                                <li><i className="fas fa-award"></i> {t('certNetworkingDevices')}</li>
-                                <li><i className="fas fa-award"></i> {t('certNetworkAddressing')}</li>
-                            </ul>
-                        </li>
-                        <li className={`cert-accordion-item ${activeAccordion === 'google' ? 'active' : ''}`}>
-                            <div className="cert-accordion-header" onClick={() => toggleAccordion('google')}>
-                                <span>Google</span>
-                                <i className="fas fa-chevron-down accordion-icon"></i>
-                            </div>
-                            <ul className="cert-accordion-content">
-                                <li><i className="fas fa-award"></i> {t('certTechSupport')}</li>
-                            </ul>
-                        </li>
-                        <li className={`cert-accordion-item ${activeAccordion === 'miuul' ? 'active' : ''}`}>
-                            <div className="cert-accordion-header" onClick={() => toggleAccordion('miuul')}>
-                                <span>Miuul</span>
-                                <i className="fas fa-chevron-down accordion-icon"></i>
-                            </div>
-                            <ul className="cert-accordion-content">
-                                <li><i className="fas fa-award"></i> {t('certUIUX')}</li>
-                                <li><i className="fas fa-award"></i> {t('certAIMiniBootcamp')}</li>
-                            </ul>
-                        </li>
-                        <li className={`cert-accordion-item ${activeAccordion === 'meb' ? 'active' : ''}`}>
-                            <div className="cert-accordion-header" onClick={() => toggleAccordion('meb')}>
-                                <span>MEB</span>
-                                <i className="fas fa-chevron-down accordion-icon"></i>
-                            </div>
-                            <ul className="cert-accordion-content">
-                                <li><i className="fas fa-award"></i> {t('certComputerOperator')}</li>
-                                <li><i className="fas fa-award"></i> {t('certOOP')}</li>
-                                <li><i className="fas fa-award"></i> {t('certFastTyping')}</li>
-                            </ul>
-                        </li>
-                        <li className={`cert-accordion-item ${activeAccordion === 'btk' ? 'active' : ''}`}>
-                            <div className="cert-accordion-header" onClick={() => toggleAccordion('btk')}>
-                                <span>{t('btkAkademi')}</span>
-                                <i className="fas fa-chevron-down accordion-icon"></i>
-                            </div>
-                            <ul className="cert-accordion-content">
-                                <li><i className="fas fa-award"></i> {t('certDomainLaw')}</li>
-                            </ul>
-                        </li>
-                        <li className={`cert-accordion-item ${activeAccordion === 'altaysec' ? 'active' : ''}`}>
-                            <div className="cert-accordion-header" onClick={() => toggleAccordion('altaysec')}>
-                                <span>{t('certAltaySecAcademy')}</span>
-                                <i className="fas fa-chevron-down accordion-icon"></i>
-                            </div>
-                            <ul className="cert-accordion-content">
-                                <li><i className="fas fa-award"></i> {t('certAltaySec')}</li>
-                            </ul>
-                        </li>
-                        <li className={`cert-accordion-item ${activeAccordion === 'garanti' ? 'active' : ''}`}>
-                            <div className="cert-accordion-header" onClick={() => toggleAccordion('garanti')}>
-                                <span>{t('certGarantiBBVA')}</span>
-                                <i className="fas fa-chevron-down accordion-icon"></i>
-                            </div>
-                            <ul className="cert-accordion-content">
-                                <li><i className="fas fa-award"></i> {t('certMachineLearning')}</li>
-                                <li><i className="fas fa-award"></i> {t('certGenAI')}</li>
-                                <li><i className="fas fa-award"></i> {t('certChatGPT')}</li>
-                                <li><i className="fas fa-award"></i> {t('certFutureTech')}</li>
-                            </ul>
-                        </li>
-                    </ul>
+                <div className="skill-category certifications-section">
+                    <h3>{t('certificates')}</h3>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <a
+                            href="https://www.linkedin.com/in/efekrbs/details/certifications/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="view-certs-btn"
+                        >
+                            <i className="fas fa-award"></i> {t('viewCertifications')}
+                            <i className="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </motion.section>
     );
 };
 export default Skills;
+
