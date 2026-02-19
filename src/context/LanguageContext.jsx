@@ -48,6 +48,7 @@ export const translations = {
         english: 'İngilizce',
         turkish: 'Türkçe',
         certificates: 'Sertifikalar',
+        viewCertifications: 'Sertifikalarımı Görüntüle',
 
         // Education
         educationTitle: 'Eğitim',
@@ -167,6 +168,7 @@ export const translations = {
         english: 'English',
         turkish: 'Turkish',
         certificates: 'Certifications',
+        viewCertifications: 'View My Certifications',
 
         // Education
         educationTitle: 'Education',
