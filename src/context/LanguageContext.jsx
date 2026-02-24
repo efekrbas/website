@@ -42,7 +42,7 @@ export const translations = {
         expItem3: 'Donanım kurulum ve bakım işlemleri.',
 
         // Skills
-        skillsTitle: 'Yetenekler & Sertifikalar',
+        skillsTitle: 'Yetenekler',
         technicalSkills: 'Teknik Yetenekler',
         languages: 'Diller',
         english: 'İngilizce',
@@ -164,7 +164,7 @@ export const translations = {
         expItem3: 'Hardware installation and maintenance.',
 
         // Skills
-        skillsTitle: 'Skills & Certifications',
+        skillsTitle: 'Skills',
         technicalSkills: 'Technical Skills',
         languages: 'Languages',
         english: 'English',
