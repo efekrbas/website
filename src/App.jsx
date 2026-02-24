@@ -15,17 +15,15 @@ import Chatbot from './components/Chatbot';
 
 function App() {
   useEffect(() => {
-    // Hash varsa o section'a scroll yap, yoksa en tepeye git
-    const hash = window.location.hash;
-    if (hash) {
-      setTimeout(() => {
-        const element = document.querySelector(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'auto' });
-        }
-      }, 100);
-    } else {
-      window.scrollTo(0, 0);
+    // Sayfa her yenilendiğinde (F5) veya yüklendiğinde hash'i temizle ve en tepeye dön
+    if (window.location.hash) {
+      window.history.replaceState(null, null, window.location.pathname);
+    }
+    window.scrollTo(0, 0);
+
+    // Otomatik scroll restorasyonunu kapat
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
     }
   }, []);
 
