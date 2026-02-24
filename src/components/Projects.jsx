@@ -4,39 +4,42 @@ import { useLanguage } from '../context/LanguageContext';
 
 const Projects = () => {
     const { t } = useLanguage();
+    const [originalProjects, setOriginalProjects] = useState([]);
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [sortBy, setSortBy] = useState('stars'); // 'stars' or 'updated'
 
     const fallbackProjects = [
-        {
-            name: "Portfolio",
-            description: "Personal portfolio website built with HTML, CSS, and JS.",
-            html_url: "https://github.com/efekrbas/efekrbas.github.io",
-            language: "HTML",
-            stargazers_count: 5,
-            forks_count: 2
-        },
         {
             name: "Automation-Scripts",
             description: "Collection of Python scripts for daily task automation.",
             html_url: "https://github.com/efekrbas",
             language: "Python",
             stargazers_count: 12,
-            forks_count: 3
+            forks_count: 3,
+            updated_at: new Date().toISOString()
+        },
+        {
+            name: "Portfolio",
+            description: "Personal portfolio website built with HTML, CSS, and JS.",
+            html_url: "https://github.com/efekrbas/efekrbas.github.io",
+            language: "HTML",
+            stargazers_count: 5,
+            forks_count: 2,
+            updated_at: new Date(Date.now() - 86400000).toISOString()
         }
     ];
 
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                // Short delay to show loading state for demo purposes if needed, but not necessary.
-                const response = await fetch('https://api.github.com/users/efekrbas/repos?sort=updated&direction=desc');
+                const response = await fetch('https://api.github.com/users/efekrbas/repos?per_page=100');
                 if (!response.ok) throw new Error('Failed to fetch');
                 const data = await response.json();
-                setProjects(data.slice(0, 6));
+                setOriginalProjects(data);
             } catch (error) {
                 console.error("Error fetching projects:", error);
-                setProjects(fallbackProjects);
+                setOriginalProjects(fallbackProjects);
             } finally {
                 setLoading(false);
             }
@@ -44,6 +47,19 @@ const Projects = () => {
 
         fetchProjects();
     }, []);
+
+    useEffect(() => {
+        if (originalProjects.length > 0) {
+            const sorted = [...originalProjects].sort((a, b) => {
+                if (sortBy === 'stars') {
+                    return b.stargazers_count - a.stargazers_count;
+                } else {
+                    return new Date(b.updated_at) - new Date(a.updated_at);
+                }
+            });
+            setProjects(sorted.slice(0, 6));
+        }
+    }, [originalProjects, sortBy]);
 
     return (
         <motion.section
@@ -54,6 +70,29 @@ const Projects = () => {
             transition={{ duration: 0.6 }}
         >
             <h2 className="section-title">{t('projectsTitle')}</h2>
+
+            <div className="filter-container">
+                <div className="segmented-control glass-card">
+                    <motion.div
+                        className="selection-bg"
+                        animate={{ x: sortBy === 'stars' ? 0 : '100%' }}
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                    <button
+                        className={`segment-btn ${sortBy === 'stars' ? 'active' : ''}`}
+                        onClick={() => setSortBy('stars')}
+                    >
+                        {t('mostStarred')}
+                    </button>
+                    <button
+                        className={`segment-btn ${sortBy === 'updated' ? 'active' : ''}`}
+                        onClick={() => setSortBy('updated')}
+                    >
+                        {t('recentlyUpdated')}
+                    </button>
+                </div>
+            </div>
+
             <div id="projects-container" className="projects-grid">
                 {loading ? (
                     <div className="loading-projects">
@@ -63,11 +102,12 @@ const Projects = () => {
                     projects.map((project, index) => (
                         <motion.div
                             className="project-card glass-card"
-                            key={index}
+                            key={project.id || index}
+                            layout
                             whileHover={{ y: -5 }}
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.3, delay: index * 0.1 }}
+                            transition={{ duration: 0.3 }}
                         >
                             <div className="project-header">
                                 <i className="far fa-folder folder-icon"></i>
