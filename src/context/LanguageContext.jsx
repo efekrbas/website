@@ -77,7 +77,7 @@ export const translations = {
 
         // Dynamic text translations
         softwareDeveloper: 'Yazılım Geliştirici',
-        cyberSecurityEnthusiast: 'CAPT',
+        cyberSecurityEnthusiast: 'Sızma Testi Uzmanı',
         cyberSecurityStudent: 'Siber Güvenlik Öğrencisi',
         penetrationTesting: 'Sızma Testleri',
         automation: 'Otomasyon',
