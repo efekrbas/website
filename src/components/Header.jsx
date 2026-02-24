@@ -45,10 +45,23 @@ const Header = () => {
     const handleNavClick = (e, id) => {
         e.preventDefault();
         setNavOpen(false);
+
         const element = document.getElementById(id);
         if (element) {
+            // CSS'te section padding-top 80px olduğu için offsetTop tam olarak header'ın bittiği yere denk gelir
+            const targetPosition = element.offsetTop;
+
+            // Zaten o hizada mıyız? (10px tolerans)
+            if (Math.abs(window.scrollY - targetPosition) < 10) {
+                return;
+            }
+
             window.history.pushState({}, '', `/#${id}`);
-            element.scrollIntoView({ behavior: 'smooth' });
+            window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth"
+            });
+
             setActiveSection(id);
         }
     };

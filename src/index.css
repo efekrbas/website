@@ -13,12 +13,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
     cursor: none !important;
 }
 
 html {
-    scroll-padding-top: 44px;
+    scroll-padding-top: 140px;
 }
 
 body {
@@ -325,13 +324,14 @@ pre {
 
 /* Sections General */
 section {
-    padding: 100px 10%;
+    padding: 140px 10% 80px;
+    /* Daha fazla nefes alanı için üst boşluk artırıldı */
     min-height: 100vh;
 }
 
 .section-title {
     font-size: 2.5rem;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     text-align: center;
     position: relative;
     display: inline-block;
@@ -918,9 +918,32 @@ footer {
 
     .edu-card {
         margin-right: 0;
-        /* Grid handles gap, but if columns are 1fr, they fit container. 
-           If container has padding, it's fine. 
-           But let's ensure no overflow if user has small screen. */
+    }
+
+    .segmented-control {
+        min-width: unset !important;
+        width: 100%;
+        max-width: 350px;
+        /* Çok genişleyip dağılmasını önler */
+        margin: 0 auto;
+    }
+
+    .segment-btn {
+        padding: 10px 8px;
+        font-size: 0.75rem;
+        /* Uzun Türkçe metinler için daha küçük font */
+        white-space: normal;
+        /* Gerektiğinde alt satıra geçebilsin */
+        line-height: 1.2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .filter-container {
+        padding: 0 15px;
+        width: 100%;
     }
 }
 
