@@ -326,6 +326,10 @@ pre {
 /* Sections General */
 section {
     padding: 100px 10%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .section-title {
