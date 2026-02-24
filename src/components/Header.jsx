@@ -4,7 +4,39 @@ import LanguageToggle from './LanguageToggle';
 
 const Header = () => {
     const [navOpen, setNavOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('hero');
     const { t } = useLanguage();
+
+    const sections = ['about', 'experience', 'skills', 'education', 'projects', 'youtube', 'contact'];
+
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        sections.forEach(id => {
+            const section = document.getElementById(id);
+            if (section) observer.observe(section);
+        });
+
+        // Special case for hero section
+        const heroSection = document.getElementById('hero');
+        if (heroSection) observer.observe(heroSection);
+
+        return () => observer.disconnect();
+    }, []);
 
     const toggleNav = () => {
         setNavOpen(!navOpen);
@@ -17,6 +49,7 @@ const Header = () => {
         if (element) {
             window.history.pushState({}, '', `/#${id}`);
             element.scrollIntoView({ behavior: 'smooth' });
+            setActiveSection(id);
         }
     };
 
@@ -25,13 +58,17 @@ const Header = () => {
             <nav className="glass-nav">
                 <div className="logo">EFEK</div>
                 <ul className={`nav-links ${navOpen ? 'nav-active' : ''}`}>
-                    <li><a href="/about" onClick={(e) => handleNavClick(e, 'about')}>{t('about')}</a></li>
-                    <li><a href="/experience" onClick={(e) => handleNavClick(e, 'experience')}>{t('experience')}</a></li>
-                    <li><a href="/skills" onClick={(e) => handleNavClick(e, 'skills')}>{t('skills')}</a></li>
-                    <li><a href="/education" onClick={(e) => handleNavClick(e, 'education')}>{t('education')}</a></li>
-                    <li><a href="/projects" onClick={(e) => handleNavClick(e, 'projects')}>{t('projects')}</a></li>
-                    <li><a href="/youtube" onClick={(e) => handleNavClick(e, 'youtube')}>{t('youtube')}</a></li>
-                    <li><a href="/contact" onClick={(e) => handleNavClick(e, 'contact')}>{t('contact')}</a></li>
+                    {sections.map(id => (
+                        <li key={id}>
+                            <a
+                                href={`#${id}`}
+                                className={activeSection === id ? 'active' : ''}
+                                onClick={(e) => handleNavClick(e, id)}
+                            >
+                                {t(id)}
+                            </a>
+                        </li>
+                    ))}
                     <li className="mobile-lang-toggle"><LanguageToggle /></li>
                 </ul>
                 <div className="desktop-lang-toggle">
