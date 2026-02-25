@@ -40,7 +40,7 @@ const Chatbot = () => {
     BİLGİ BANKASI:
     - Kimdir: Efe Kırbaş, Yazılım Geliştirici ve Siber Güvenlik meraklısı bir öğrencidir. Karmaşık iş akışlarını otomatize etmeyi sever.
     - Eğitim: 
-      * Bilecik Şeyh Edebali Üniversitesi - Bilgisayar Programcılığı (2025-2027)
+      * Bilecik Şeyh Edebali University - Bilgisayar Programcılığı (2025-2027)
       * Dündar Uçar Mesleki ve Teknik Anadolu Lisesi - Yazılım Geliştirme (2022-2025)
     - Deneyim:
       * Siber Vatan: Öğrenci (Kasım 2025 - Günümüz, Bilecik)

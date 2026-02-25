@@ -32,7 +32,7 @@ export const translations = {
 
         // About
         aboutTitle: 'Hakkımda',
-        aboutText: 'Medipol Sağlık Grubu\'nda Bilgi İşlem Saha Destek Stajyeri olarak çalıştım ve bu süreçte son kullanıcıların donanım-yazılım sorunlarını çözme, arıza-tespiti konularında pratik deneyim kazandım. Ayrıca bilgisayar, yazıcı ve çevre birimlerinin kurulum–bakım işlemlerini gerçekleştirme konularında aktif görev aldım. Bilecik Şeyh Edebali Üniversitesi\'nde Bilgisayar Programcılığı bölümünde önlisans eğitimime devam ediyor, aynı zamanda yazılım geliştirme üzerine yoğunlaşıyorum.',
+        aboutText: 'Medipol Sağlık Grubu\'nda Bilgi İşlem Saha Destek Stajyeri olarak çalıştım ve bu süreçte son kullanıcıların donanım-yazılım sorunlarını çözme, arıza-tespiti konularında pratik deneyim kazandım. Ayrıca bilgisayar, yazıcı ve çevre birimlerinin kurulum–bakım işlemlerini gerçekleştirme konularında aktif görev aldım. Bilecik Şeyh Edebali University\'nde Bilgisayar Programcılığı bölümünde önlisans eğitimime devam ediyor, aynı zamanda yazılım geliştirme üzerine yoğunlaşıyorum.',
 
         // Experience  
         experienceTitle: 'Deneyim',
@@ -91,7 +91,7 @@ export const translations = {
         recentlyUpdated: 'Son Güncellenenler',
         loadingProjects: 'Projeler yükleniyor...',
         viewAll: 'Tümünü Gör',
-        bilecikUniversity: 'Bilecik Şeyh Edebali Üniversitesi',
+        bilecikUniversity: 'Bilecik Şeyh Edebali University',
         dundarUcarHighSchool: 'Dündar Uçar Mesleki Ve Teknik Anadolu Lisesi',
         Congenital: 'Doğuştan',
         certAIMiniBootcamp: 'Yapay Zeka Mini Bootcamp',
@@ -154,7 +154,7 @@ export const translations = {
 
         // About
         aboutTitle: 'About Me',
-        aboutText: 'I worked as an IT Field Support Intern at Medipol Health Group, where I gained practical experience in solving end-user hardware and software issues, and troubleshooting. I also actively participated in the installation and maintenance of computers, printers, and peripherals. I am continuing my associate degree in Computer Programming at Bilecik Sheikh Edebali University while focusing on software development.',
+        aboutText: 'I worked as an IT Field Support Intern at Medipol Sağlık Grubu, where I gained practical experience in solving end-user hardware and software issues, and troubleshooting. I also actively participated in the installation and maintenance of computers, printers, and peripherals. I am continuing my associate degree in Computer Programming at Bilecik Şeyh Edebali University while focusing on software development.',
 
         // Experience
         experienceTitle: 'Experience',
@@ -206,14 +206,14 @@ export const translations = {
         professional: 'Professional',
         native: 'Native',
         itFieldSupportIntern: 'IT Field Support Intern',
-        cyberHomeland: 'Cyber Homeland',
-        medipolHealthGroup: 'Medipol Health Group',
+        cyberHomeland: 'Siber Vatan',
+        medipolHealthGroup: 'Medipol Sağlık Grubu',
         projectsTitle: 'Projects',
         mostStarred: 'Most Starred',
         recentlyUpdated: 'Recently Updated',
         loadingProjects: 'Loading projects...',
         viewAll: 'View All',
-        bilecikUniversity: 'Bilecik Sheikh Edebali University',
+        bilecikUniversity: 'Bilecik Şeyh Edebali University',
         dundarUcarHighSchool: 'Dündar Uçar Vocational and Technical High School',
         Congenital: 'Congenital',
         certAIMiniBootcamp: 'Artificial Intelligence Mini Bootcamp',

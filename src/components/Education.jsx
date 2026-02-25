@@ -18,7 +18,7 @@ const Education = () => {
                 <div className="edu-card glass-card">
                     <div className="edu-inner">
                         <div className="logo-container">
-                            <img src="/images/bilecik-universitesi-logo.png" alt="Bilecik Şeyh Edebali Üniversitesi"
+                            <img src="/images/bilecik-universitesi-logo.png" alt="Bilecik Şeyh Edebali University"
                                 className="company-logo" />
                         </div>
                         <div className="text-container">
