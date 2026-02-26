@@ -54,7 +54,9 @@ const Projects = () => {
                 if (sortBy === 'stars') {
                     return b.stargazers_count - a.stargazers_count;
                 } else {
-                    return new Date(b.updated_at) - new Date(a.updated_at);
+                    const dateB = new Date(b.pushed_at || b.updated_at);
+                    const dateA = new Date(a.pushed_at || a.updated_at);
+                    return dateB - dateA;
                 }
             });
             setProjects(sorted.slice(0, 6));
