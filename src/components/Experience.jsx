@@ -17,12 +17,33 @@ const Experience = () => {
             <div className="timeline">
                 <div className="timeline-item">
                     <div className="timeline-date">
+                        {language === 'tr' ? 'Şubat 2026 - Günümüz' : 'February 2026 - Present'}
+                    </div>
+                    <div className="timeline-content glass-card">
+                        <div className="timeline-inner">
+                            <div className="text-container">
+                                <h3>{t('campusAmbassador')}</h3>
+                                <h4>{t('hackviser')}</h4>
+                            </div>
+                            <div className="logo-container">
+                                <img src="/images/hackviser.jpg" alt="Hackviser" className="company-logo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="timeline-item">
+                    <div className="timeline-date">
                         {language === 'tr' ? 'Kasım 2025 - Günümüz' : 'November 2025 - Present'}
                     </div>
                     <div className="timeline-content glass-card">
                         <div className="timeline-inner">
                             <div className="logo-container">
-                                <img src="/images/sibervatan.png" alt="Siber Vatan" className="company-logo" />
+                                <img
+                                    src="/images/sibervatan.png"
+                                    alt="Siber Vatan"
+                                    className="company-logo"
+                                    style={{ backgroundColor: 'transparent', padding: 0 }}
+                                />
                             </div>
                             <div className="text-container">
                                 <h3>{t('cyberSecurityStudent')}</h3>
