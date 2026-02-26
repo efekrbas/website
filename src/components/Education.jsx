@@ -22,7 +22,7 @@ const Education = () => {
                                 className="company-logo" />
                         </div>
                         <div className="text-container">
-                            <div className="year">2025 - 2027</div>
+                            <div className="year">2025 - ?</div>
                             <h3>{t('bilecikUniversity')}</h3>
                             <p>{t('associateDegree')}</p>
                         </div>
