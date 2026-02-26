@@ -21,7 +21,7 @@ Modern, responsive kişisel portfolio websitesi
 | 🎨 **Modern Tasarım** | Glassmorphism efektleri ile karanlık tema |
 | 📱 **Responsive** | Mobile-first yaklaşım |
 | 🤖 **AI Chatbot** | OpenRouter API ile interaktif asistan |
-| 📂 **Dinamik Projeler** | GitHub API entegrasyonu |
+| 📂 **Dinamik Projeler** | GitHub API entegrasyonu ile kod bazlı otomatik sıralama |
 | ✨ **Animasyonlar** | Framer Motion ile akıcı geçişler |
 | 📬 **İletişim Formu** | Çalışan contact form |
 | 🎯 **Custom Cursor** | Özel imleç efekti |
