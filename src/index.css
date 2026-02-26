@@ -465,12 +465,13 @@ section {
 .timeline-item:nth-child(odd) .timeline-content {
     margin-left: 0;
     margin-right: auto;
-    text-align: right;
+    text-align: left;
 }
 
 .timeline-item:nth-child(odd) .timeline-content ul {
-    direction: rtl;
-    padding-right: 20px;
+    direction: ltr;
+    padding-right: 0;
+    text-align: left;
 }
 
 .timeline-content h3 {
@@ -952,24 +953,29 @@ footer {
     padding: 15px 20px;
 }
 
-.timeline-inner {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+/* Remove specific timeline inner direction alterations as they are standardized */
 
-.timeline-item:nth-child(odd) .timeline-inner {
-    flex-direction: row;
-    text-align: left;
-}
-
+.timeline-item:nth-child(odd) .timeline-inner,
 .timeline-item:nth-child(even) .timeline-inner {
     flex-direction: row;
     text-align: left;
     align-items: flex-start;
 }
 
-.company-logo {
+.timeline-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    position: relative;
+}
+
+.timeline-inner .logo-container {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.timeline-inner .company-logo {
     height: 50px;
     width: auto;
     display: block;
@@ -978,15 +984,13 @@ footer {
     padding: 3px;
 }
 
-.text-container {
+.timeline-inner .text-container {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.timeline-item:nth-child(odd) .timeline-content .company-logo {
-    margin: 0;
+    padding-right: 60px;
+    /* Space for the absolute logo */
 }
 
 .timeline-content .location {
