@@ -123,17 +123,6 @@ export const translations = {
         youtubeTitle: 'YouTube Videolarım',
         watchVideo: 'İzle',
         visitChannel: 'Kanalı Ziyaret Et',
-
-        // Chatbot
-        chatbotTitle: 'AI Asistan',
-        chatbotWelcome: 'Merhaba! Ben Efe\'nin yapay zeka asistanıyım. Size nasıl yardımcı olabilirim?',
-        chatbotPlaceholder: 'Mesajınızı yazın...',
-        chatbotQ1: 'Efe kimdir?',
-        chatbotQ2: 'Projeleri neler?',
-        chatbotQ3: 'Hangi teknolojileri kullanıyor?',
-        chatbotQ4: 'Sertifikaları neler?',
-        chatbotDemo: 'Demo Modu: Gerçek bir yanıt almak için lütfen .env dosyasına VITE_OPENROUTER_API_KEY ekleyin.',
-        chatbotError: 'Üzgünüm, bir hata oluştu',
     },
     en: {
         // Navigation
@@ -247,17 +236,6 @@ export const translations = {
         youtubeTitle: 'My YouTube Videos',
         watchVideo: 'Watch',
         visitChannel: 'Visit Channel',
-
-        // Chatbot
-        chatbotTitle: 'AI Assistant',
-        chatbotWelcome: 'Hello! I\'m Efe\'s AI assistant. How can I help you?',
-        chatbotPlaceholder: 'Type your message...',
-        chatbotQ1: 'Who is Efe?',
-        chatbotQ2: 'What are his projects?',
-        chatbotQ3: 'What technologies does he use?',
-        chatbotQ4: 'What are his certifications?',
-        chatbotDemo: 'Demo Mode: Please add VITE_OPENROUTER_API_KEY to .env file for real responses.',
-        chatbotError: 'Sorry, an error occurred',
     }
 };
 
