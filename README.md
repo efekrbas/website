@@ -20,7 +20,6 @@ Modern, responsive kişisel portfolio websitesi
 | 🌍 **Çift Dil Desteği** | Türkçe ve İngilizce arasında geçiş (localStorage ile kalıcı) |
 | 🎨 **Modern Tasarım** | Glassmorphism efektleri ile karanlık tema |
 | 📱 **Responsive** | Mobile-first yaklaşım |
-| 🤖 **AI Chatbot** | OpenRouter API ile interaktif asistan |
 | 📂 **Dinamik Projeler** | GitHub API entegrasyonu ile kod bazlı otomatik sıralama |
 | ✨ **Animasyonlar** | Framer Motion ile akıcı geçişler |
 | 📬 **İletişim Formu** | Çalışan contact form |
@@ -34,8 +33,8 @@ Modern, responsive kişisel portfolio websitesi
 
 | Frontend | Animasyon | API | Araçlar |
 |:--------:|:---------:|:---:|:-------:|
-| React 19 | Framer Motion | OpenRouter | Vite 7 |
-| CSS3 | Lucide Icons | GitHub API | ESLint |
+| React 19 | Framer Motion | GitHub API | Vite 7 |
+| CSS3 | Lucide Icons | - | ESLint |
 
 </div>
 
@@ -59,18 +58,6 @@ npm run dev
 
 ---
 
-## 🔧 Ortam Değişkenleri
-
-Kök dizinde `.env` dosyası oluşturun:
-
-```env
-VITE_OPENROUTER_API_KEY=your_openrouter_api_key
-```
-
-> **Not:** API key olmadan chatbot demo modunda çalışır.
-
----
-
 ## 📁 Proje Yapısı
 
 ```
@@ -84,7 +71,6 @@ src/
 │   ├── Education.jsx       # Eğitim
 │   ├── Projects.jsx        # GitHub projeleri
 │   ├── Contact.jsx         # İletişim formu
-│   ├── Chatbot.jsx         # AI asistan
 │   ├── Cursor.jsx          # Custom cursor
 │   ├── LanguageToggle.jsx  # Dil değiştirici
 │   └── Footer.jsx          # Alt bilgi
