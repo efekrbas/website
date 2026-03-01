@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import LanguageToggle from './LanguageToggle';
 
 const Header = () => {
     const [navOpen, setNavOpen] = useState(false);
@@ -82,11 +81,7 @@ const Header = () => {
                             </a>
                         </li>
                     ))}
-                    <li className="mobile-lang-toggle"><LanguageToggle /></li>
                 </ul>
-                <div className="desktop-lang-toggle">
-                    <LanguageToggle />
-                </div>
                 <div className={`burger ${navOpen ? 'toggle' : ''}`} onClick={toggleNav}>
                     <div className="line1"></div>
                     <div className="line2"></div>
