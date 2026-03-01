@@ -240,26 +240,21 @@ export const translations = {
 };
 
 export const LanguageProvider = ({ children }) => {
-    const [language, setLanguage] = useState(() => {
-        // localStorage'dan dil tercihini oku, yoksa varsayılan olarak 'tr' kullan
-        const savedLanguage = localStorage.getItem('language');
-        return savedLanguage || 'tr';
+    const [language] = useState(() => {
+        // Tarayıcı dil ayarlarına göre dil belirle
+        const browserLang = navigator.language || navigator.userLanguage;
+        if (browserLang && browserLang.toLowerCase().startsWith('tr')) {
+            return 'tr';
+        }
+        return 'en';
     });
-
-    const toggleLanguage = () => {
-        setLanguage(prev => {
-            const newLang = prev === 'tr' ? 'en' : 'tr';
-            localStorage.setItem('language', newLang);
-            return newLang;
-        });
-    };
 
     const t = (key) => {
         return translations[language][key] || key;
     };
 
     return (
-        <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+        <LanguageContext.Provider value={{ language, t }}>
             {children}
         </LanguageContext.Provider>
     );

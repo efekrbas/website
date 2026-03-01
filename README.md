@@ -17,7 +17,7 @@ Modern, responsive kişisel portfolio websitesi
 
 | Özellik | Açıklama |
 |---------|----------|
-| 🌍 **Çift Dil Desteği** | Türkçe ve İngilizce arasında geçiş (localStorage ile kalıcı) |
+| 🌍 **Akıllı Dil Algılama** | Tarayıcı diline göre otomatik Türkçe veya İngilizce gösterimi |
 | 🎨 **Modern Tasarım** | Glassmorphism efektleri ile karanlık tema |
 | 📱 **Responsive** | Mobile-first yaklaşım |
 | 📂 **Dinamik Projeler** | GitHub API entegrasyonu ile kod bazlı otomatik sıralama |
@@ -72,7 +72,6 @@ src/
 │   ├── Projects.jsx        # GitHub projeleri
 │   ├── Contact.jsx         # İletişim formu
 │   ├── Cursor.jsx          # Custom cursor
-│   ├── LanguageToggle.jsx  # Dil değiştirici
 │   └── Footer.jsx          # Alt bilgi
 ├── context/
 │   └── LanguageContext.jsx # Dil yönetimi & çeviriler
