@@ -100,6 +100,7 @@ header {
     padding: 15px 30px;
     border-radius: 20px;
     border: 1px solid var(--glass-border);
+    position: relative;
 }
 
 .logo {
@@ -112,6 +113,9 @@ header {
     display: flex;
     list-style: none;
     gap: 30px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-links a {
@@ -800,6 +804,8 @@ footer {
         position: fixed;
         top: 0;
         right: 0;
+        left: auto;
+        transform: none;
         height: 100vh;
         width: 60%;
         background: rgba(5, 5, 5, 0.95);
