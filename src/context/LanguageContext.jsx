@@ -32,11 +32,11 @@ export const translations = {
 
         // About
         aboutTitle: 'Hakkımda',
-        aboutText: 'Medipol Sağlık Grubu\'nda Bilgi İşlem Saha Destek Stajyeri olarak çalıştım ve bu süreçte son kullanıcıların donanım-yazılım sorunlarını çözme, arıza-tespiti konularında pratik deneyim kazandım. Ayrıca bilgisayar, yazıcı ve çevre birimlerinin kurulum–bakım işlemlerini gerçekleştirme konularında aktif görev aldım. Bilecik Şeyh Edebali University\'nde Bilgisayar Programcılığı bölümünde önlisans eğitimime devam ediyor, aynı zamanda yazılım geliştirme üzerine yoğunlaşıyorum.',
+        aboutText: 'Medipol Sağlık Grubu\'nda Bilgi İşlem Saha Destek Stajyeri olarak çalıştım ve bu süreçte son kullanıcıların donanım-yazılım sorunlarını çözme, arıza-tespiti konularında pratik deneyim kazandım. Ayrıca bilgisayar, yazıcı ve çevre birimlerinin kurulum–bakım işlemlerini gerçekleştirme konularında aktif görev aldım. Bilecik Şeyh Edebali Üniversitesi\'nde Bilgisayar Programcılığı bölümünde önlisans eğitimime devam ediyor, aynı zamanda yazılım geliştirme üzerine yoğunlaşıyorum.',
 
         // Experience  
         experienceTitle: 'Deneyim',
-        present: 'Günümüz',
+        present: 'Devam ediyor',
         expItem1: 'Son kullanıcı donanım-yazılım sorunları çözümü.',
         expItem2: 'Arıza tespiti ve pratik çözüm üretimi.',
         expItem3: 'Donanım kurulum ve bakım işlemleri.',
@@ -93,7 +93,7 @@ export const translations = {
         recentlyUpdated: 'Son Güncellenenler',
         loadingProjects: 'Projeler yükleniyor...',
         viewAll: 'Tümünü Gör',
-        bilecikUniversity: 'Bilecik Şeyh Edebali University',
+        bilecikUniversity: 'Bilecik Şeyh Edebali Üniversitesi',
         dundarUcarHighSchool: 'Dündar Uçar Mesleki Ve Teknik Anadolu Lisesi',
         Congenital: 'Doğuştan',
         certAIMiniBootcamp: 'Yapay Zeka Mini Bootcamp',
