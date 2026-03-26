@@ -74,16 +74,48 @@ const VideoCard = ({ video }) => {
 const Youtube = () => {
     const { t } = useLanguage();
 
-    const videos = [
+    const [videos, setVideos] = React.useState([
         {
-            id: '7KzIZfZtk9g', // Found via search
+            id: '7KzIZfZtk9g',
             title: 'Microsoft IIS ile Localde Web Server Kurulumu',
         },
         {
-            id: 'm25zP_XQeq4', // Found via search
+            id: 'm25zP_XQeq4',
             title: 'Discord Orbs Rozeti Nasıl Alınır?',
         },
-    ];
+    ]);
+
+    React.useEffect(() => {
+        const fetchVideos = async () => {
+            try {
+                const CHANNEL_ID = 'UCiquA1ct0IF57G76Y0oGQ7w';
+                const rssUrl = encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`);
+                const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`);
+                const data = await response.json();
+
+                if (data.status === 'ok' && data.items.length > 0) {
+                    const fetchedVideos = data.items.slice(0, 3).map(item => {
+                        let videoId = '';
+                        if (item.link && item.link.includes('v=')) {
+                            videoId = item.link.split('v=')[1];
+                        } else if (item.guid) {
+                            const parts = item.guid.split(':');
+                            videoId = parts[parts.length - 1]; // gets ID from yt:video:ID
+                        }
+                        return {
+                            id: videoId,
+                            title: item.title,
+                        };
+                    });
+                    setVideos(fetchedVideos);
+                }
+            } catch (error) {
+                console.error("YouTube videoları çekilirken hata oluştu:", error);
+            }
+        };
+
+        fetchVideos();
+    }, []);
 
     return (
         <motion.section
