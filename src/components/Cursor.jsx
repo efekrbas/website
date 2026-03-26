@@ -92,13 +92,33 @@ const Cursor = () => {
         document.addEventListener('mousemove', moveCursor);
         window.addEventListener('scroll', handleScroll, true);
 
+        const handleVideoHover = () => {
+            cursor.style.opacity = '0';
+            follower.style.opacity = '0';
+        };
+
+        const handleVideoLeave = () => {
+            cursor.style.opacity = '1';
+            follower.style.opacity = '1';
+        };
+
         const attachListeners = () => {
+            // Original links and buttons
             const links = document.querySelectorAll('a, button');
             links.forEach(link => {
                 link.removeEventListener('mouseenter', handleLinkHover);
                 link.removeEventListener('mouseleave', handleLinkLeave);
                 link.addEventListener('mouseenter', handleLinkHover);
                 link.addEventListener('mouseleave', handleLinkLeave);
+            });
+
+            // Video containers
+            const videos = document.querySelectorAll('.video-container');
+            videos.forEach(video => {
+                video.removeEventListener('mouseenter', handleVideoHover);
+                video.removeEventListener('mouseleave', handleVideoLeave);
+                video.addEventListener('mouseenter', handleVideoHover);
+                video.addEventListener('mouseleave', handleVideoLeave);
             });
         };
 

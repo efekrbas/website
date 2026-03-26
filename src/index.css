@@ -16,6 +16,14 @@
     cursor: none !important;
 }
 
+/* Override global cursor none for video section */
+.video-container, .video-container iframe {
+    cursor: auto !important;
+}
+.video-thumbnail, .video-thumbnail .play-button, .video-thumbnail i {
+    cursor: pointer !important;
+}
+
 html {
     scroll-padding-top: 140px;
 }
