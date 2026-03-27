@@ -68,7 +68,7 @@ const Header = () => {
     return (
         <header>
             <nav className="glass-nav">
-                <div className="logo">EFEK</div>
+                <div className="logo">EFE KIRBAŞ</div>
                 <ul className={`nav-links ${navOpen ? 'nav-active' : ''}`}>
                     {sections.map(id => (
                         <li key={id}>
