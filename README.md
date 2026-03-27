@@ -4,7 +4,7 @@
 
 Modern, responsive kişisel portfolio websitesi
 
-[![Live Demo](https://img.shields.io/badge/🚀_Demo-efekrbs.vercel.app-blue?style=for-the-badge)](https://efekrbs.vercel.app)
+[![Live Demo](https://img.shields.io/badge/🚀_Demo-efekrbs.com-blue?style=for-the-badge)](https://efekrbs.com)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react)](https://react.dev)
 [![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite)](https://vitejs.dev)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
