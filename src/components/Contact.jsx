@@ -71,47 +71,7 @@ const Contact = () => {
                     </a>
                 </div>
 
-                {/* Form Section */}
-                <form className="contact-form" onSubmit={handleSubmit} style={{ marginTop: '30px', textAlign: 'left' }}>
-                    <div style={{ marginBottom: '15px' }}>
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder={t('yourName')}
-                            value={formData.name}
-                            onChange={handleChange}
-                            required
-                            style={{ width: '100%', padding: '15px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', borderRadius: '5px' }}
-                        />
-                    </div>
-                    <div style={{ marginBottom: '15px' }}>
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder={t('yourEmail')}
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                            style={{ width: '100%', padding: '15px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', borderRadius: '5px' }}
-                        />
-                    </div>
-                    <div style={{ marginBottom: '15px' }}>
-                        <textarea
-                            name="message"
-                            placeholder={t('yourMessage')}
-                            value={formData.message}
-                            onChange={handleChange}
-                            required
-                            rows="5"
-                            style={{ width: '100%', padding: '15px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', borderRadius: '5px' }}
-                        ></textarea>
-                    </div>
-                    <button type="submit" className="btn primary" disabled={status === 'submitting'} style={{ width: '100%', justifyContent: 'center' }}>
-                        {status === 'submitting' ? t('sending') : t('send')} <i className="fas fa-paper-plane"></i>
-                    </button>
-                    {status === 'success' && <p style={{ color: '#27c93f', marginTop: '10px', textAlign: 'center' }}>{t('successMessage')}</p>}
-                    {status === 'error' && <p style={{ color: '#ff5f56', marginTop: '10px', textAlign: 'center' }}>{t('errorMessage')}</p>}
-                </form>
+                {/* Form Section Disabled */}
             </div>
         </motion.section>
     );
