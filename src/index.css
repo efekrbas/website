@@ -542,6 +542,14 @@ section {
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: var(--card-hover);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
 }
 
 .languages .lang-item {
@@ -852,6 +860,11 @@ footer {
     .hero-content {
         width: 100%;
         max-width: 100%;
+    }
+
+    .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-visual {
