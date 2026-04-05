@@ -56,6 +56,10 @@ const Cursor = () => {
             isHovering.current = true;
             hoveredEl.current = e.currentTarget;
 
+            // Clear inline opacity so CSS classes take effect
+            cursor.style.opacity = '';
+            follower.style.opacity = '';
+
             cursor.classList.add('cursor--hidden');
             follower.classList.add('cursor-follower--wrapping');
             wrapElement(e.currentTarget);
@@ -98,8 +102,8 @@ const Cursor = () => {
         };
 
         const handleVideoLeave = () => {
-            cursor.style.opacity = '1';
-            follower.style.opacity = '1';
+            cursor.style.opacity = '';
+            follower.style.opacity = '';
         };
 
         const attachListeners = () => {
