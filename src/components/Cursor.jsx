@@ -14,6 +14,14 @@ const Cursor = () => {
         const follower = followerRef.current;
         if (!cursor || !follower) return;
 
+        // Don't initialize cursor for touch devices (mobile)
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        if (isTouchDevice) {
+            cursor.style.display = 'none';
+            follower.style.display = 'none';
+            return;
+        }
+
         // Smooth lerp for the follower
         const lerp = (start, end, factor) => start + (end - start) * factor;
 
