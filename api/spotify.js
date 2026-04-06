@@ -12,8 +12,12 @@ async function getAccessToken() {
         if (!CLIENT_SECRET) missing.push("SPOTIFY_CLIENT_SECRET");
         if (!REFRESH_TOKEN) missing.push("SPOTIFY_REFRESH_TOKEN");
 
+        const availableKeys = Object.keys(process.env).filter(k => k.startsWith("SPOTIFY") || k.includes("ID") || k.includes("SECRET") || k.includes("TOKEN"));
+
         console.error("Missing Spotify env variables:", missing.join(", "));
-        throw new Error(`Missing: ${missing.join(", ")}`);
+        console.info("Available related keys:", availableKeys);
+        
+        throw new Error(`Missing: ${missing.join(", ")}. Available related: ${availableKeys.join(", ")}`);
     }
 
     const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64');
