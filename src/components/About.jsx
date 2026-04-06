@@ -16,7 +16,13 @@ const About = () => {
             <h2 className="section-title">{t('aboutTitle')}</h2>
             <div className="about-container">
                 <div className="about-image-wrapper">
-                    <img src="/images/efe-profile.png" alt="Efe Kırbaş" className="about-profile-img" />
+                    <img 
+                        src="/images/efe-profile.png" 
+                        alt="Efe Kırbaş" 
+                        className="about-profile-img" 
+                        loading="lazy"
+                        decoding="async"
+                    />
                 </div>
                 <div className="about-details">
                     <div className="about-text">

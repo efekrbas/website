@@ -19,7 +19,7 @@ const Education = () => {
                     <div className="edu-inner">
                         <div className="logo-container">
                             <img src="/images/bilecik-universitesi-logo.png" alt="Bilecik Şeyh Edebali University"
-                                className="company-logo" />
+                                className="company-logo" loading="lazy" decoding="async" />
                         </div>
                         <div className="text-container">
                             <div className="year">2025 - {t('present')}</div>
@@ -31,7 +31,7 @@ const Education = () => {
                 <div className="edu-card glass-card">
                     <div className="edu-inner">
                         <div className="logo-container">
-                            <img src="/images/dundar-ucar-logo.jpg" alt="Dündar Uçar MTAL" className="company-logo" />
+                            <img src="/images/dundar-ucar-logo.jpg" alt="Dündar Uçar MTAL" className="company-logo" loading="lazy" decoding="async" />
                         </div>
                         <div className="text-container">
                             <div className="year">2022 - 2025</div>

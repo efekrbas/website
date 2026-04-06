@@ -105,7 +105,7 @@ const LiveStatus = () => {
                 <motion.div className="ls-card ls-area-discord" whileHover={{ y: -3 }} transition={{ duration: 0.2 }}>
                     <div className="ls-discord-profile">
                         <div className="ls-discord-avatar">
-                            <img src={avatarUrl} alt={username} />
+                            <img src={avatarUrl} alt={username} loading="lazy" />
                             <span className="ls-discord-status-dot" style={{ background: statusColors[discordStatus] }}></span>
                         </div>
                         <div className="ls-discord-info">
@@ -174,7 +174,7 @@ const LiveStatus = () => {
                         {isListeningSpotify && spotify ? (
                             <div className="ls-spotify-row">
                                 <div className="ls-spotify-album-art">
-                                    <img src={spotify.album_art_url} alt={spotify.album} />
+                                    <img src={spotify.album_art_url} alt={spotify.album} loading="lazy" />
                                 </div>
                                 <div className="ls-spotify-info">
                                     <span className="ls-spotify-song">{spotify.song}</span>

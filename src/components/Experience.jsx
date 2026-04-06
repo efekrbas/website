@@ -26,7 +26,7 @@ const Experience = () => {
                                 <h4>{t('hackviser')}</h4>
                             </div>
                             <div className="logo-container">
-                                <img src="/images/hackviser.jpg" alt="Hackviser" className="company-logo" />
+                                <img src="/images/hackviser.jpg" alt="Hackviser" className="company-logo" loading="lazy" decoding="async" />
                             </div>
                         </div>
                     </div>
@@ -43,6 +43,8 @@ const Experience = () => {
                                     alt="Siber Vatan"
                                     className="company-logo"
                                     style={{ backgroundColor: 'transparent', padding: 0 }}
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                             <div className="text-container">
@@ -72,7 +74,7 @@ const Experience = () => {
                                 </ul>
                             </div>
                             <div className="logo-container">
-                                <img src="/images/medipol.png" alt="Medipol Sağlık Grubu" className="company-logo" />
+                                <img src="/images/medipol.png" alt="Medipol Sağlık Grubu" className="company-logo" loading="lazy" decoding="async" />
                             </div>
                         </div>
                     </div>

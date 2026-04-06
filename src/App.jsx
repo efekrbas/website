@@ -1,15 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import About from './components/About';
-import LiveStatus from './components/LiveStatus';
-import Experience from './components/Experience';
-import Education from './components/Education';
-import Projects from './components/Projects';
-import Youtube from './components/Youtube';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
 import Cursor from './components/Cursor';
+import Footer from './components/Footer';
+
+// Lazy load components below the fold
+const About = lazy(() => import('./components/About'));
+const LiveStatus = lazy(() => import('./components/LiveStatus'));
+const Experience = lazy(() => import('./components/Experience'));
+const Education = lazy(() => import('./components/Education'));
+const Projects = lazy(() => import('./components/Projects'));
+const Youtube = lazy(() => import('./components/Youtube'));
+const Contact = lazy(() => import('./components/Contact'));
+
+// Basit bir yükleme bileşeni
+const SectionLoader = () => (
+  <div className="section-loader" style={{ 
+    height: '200px', 
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'center',
+    color: 'var(--accent-color, #00d2ff)',
+    fontSize: '0.9rem',
+    opacity: 0.5
+  }}>
+    <span>...</span>
+  </div>
+);
+
 
 
 function App() {
@@ -32,13 +50,15 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <About />
-        <LiveStatus />
-        <Experience />
-        <Education />
-        <Projects />
-        <Youtube />
-        <Contact />
+        <Suspense fallback={<SectionLoader />}>
+          <About />
+          <LiveStatus />
+          <Experience />
+          <Education />
+          <Projects />
+          <Youtube />
+          <Contact />
+        </Suspense>
       </main>
       <Footer />
     </>
