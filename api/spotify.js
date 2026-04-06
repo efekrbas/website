@@ -6,6 +6,15 @@ const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token';
 const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/currently-playing';
 
 async function getAccessToken() {
+    if (!CLIENT_ID || !CLIENT_SECRET || !REFRESH_TOKEN) {
+        console.error("Missing Spotify env variables:", {
+            clientId: !!CLIENT_ID,
+            clientSecret: !!CLIENT_SECRET,
+            refreshToken: !!REFRESH_TOKEN
+        });
+        throw new Error("Missing Spotify environment variables");
+    }
+
     const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64');
 
     const response = await fetch(TOKEN_ENDPOINT, {
@@ -20,6 +29,12 @@ async function getAccessToken() {
         }),
     });
 
+    if (!response.ok) {
+        const errorData = await response.text();
+        console.error("Spotify token request failed:", response.status, errorData);
+        throw new Error(`Spotify token error: ${response.status}`);
+    }
+
     return response.json();
 }
 
@@ -30,7 +45,13 @@ export default async function handler(req, res) {
     res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate');
 
     try {
-        const { access_token } = await getAccessToken();
+        const tokenResponse = await getAccessToken();
+        const access_token = tokenResponse.access_token;
+
+        if (!access_token) {
+            console.error("No access token in response:", tokenResponse);
+            return res.status(200).json({ isPlaying: false, error: "No access token" });
+        }
 
         const response = await fetch(NOW_PLAYING_ENDPOINT, {
             headers: {
@@ -39,8 +60,14 @@ export default async function handler(req, res) {
         });
 
         // Eğer hiçbir şey çalmıyorsa 204 döner
-        if (response.status === 204 || response.status > 400) {
+        if (response.status === 204) {
             return res.status(200).json({ isPlaying: false });
+        }
+
+        if (response.status > 400) {
+            const errorText = await response.text();
+            console.error("Spotify now playing request failed:", response.status, errorText);
+            return res.status(200).json({ isPlaying: false, error: "Playback request failed" });
         }
 
         const data = await response.json();
@@ -60,6 +87,11 @@ export default async function handler(req, res) {
 
         return res.status(200).json(song);
     } catch (error) {
-        return res.status(200).json({ isPlaying: false });
+        console.error("Internal Spotify handler error:", error.message);
+        // JSON formatında dön ama hatayı da bildir (Geliştirme için yararlı)
+        return res.status(200).json({ 
+            isPlaying: false, 
+            error: error.message 
+        });
     }
 }
