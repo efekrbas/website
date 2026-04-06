@@ -2,7 +2,7 @@
 
 # 🌐 Efe Kırbaş - Portfolio
 
-Modern, responsive kişisel portfolio websitesi
+Modern, responsive ve premium kişisel portfolio websitesi
 
 [![Live Demo](https://img.shields.io/badge/🚀_Demo-efekrbs.com-blue?style=for-the-badge)](https://efekrbs.com)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react)](https://react.dev)
@@ -17,13 +17,14 @@ Modern, responsive kişisel portfolio websitesi
 
 | Özellik | Açıklama |
 |---------|----------|
+| 📊 **Live Status Dashboard** | Discord varlığı, anlık Spotify çalma durumu ve sistem stack gösterimi |
+| 🎵 **Spotify Entegrasyonu** | Lanyard API ve Spotify Web API ile gerçek zamanlı müzik takibi |
 | 🌍 **Akıllı Dil Algılama** | Tarayıcı diline göre otomatik Türkçe veya İngilizce gösterimi |
-| 🎨 **Modern Tasarım** | Glassmorphism efektleri ile karanlık tema |
-| 📱 **Responsive** | Mobile-first yaklaşım |
-| 📂 **Dinamik Projeler** | GitHub API entegrasyonu ile kod bazlı otomatik sıralama |
-| ✨ **Animasyonlar** | Framer Motion ile akıcı geçişler |
-| 📬 **İletişim Formu** | Çalışan contact form |
-| 🎯 **Custom Cursor** | Özel imleç efekti |
+| 🎨 **Premium Grid Tasarım** | 12 sütunlu CSS Grid sistemi ve Glassmorphism efektleri |
+| 💻 **Tech Stack Kartları** | Kullanılan diller ve teknolojilerin interaktif gösterimi |
+| 📱 **Tam Responsive** | Tüm cihazlar için optimize edilmiş akıcı layout |
+| 📂 **GitHub API** | Projelerin yıldız ve güncelleme tarihine göre dinamik çekilmesi |
+| ✨ **Micro-Animations** | Framer Motion ile premium kullanıcı deneyimi |
 
 ---
 
@@ -31,10 +32,11 @@ Modern, responsive kişisel portfolio websitesi
 
 <div align="center">
 
-| Frontend | Animasyon | API | Araçlar |
+| Frontend | Animasyon | API / Entegrasyon | Araçlar |
 |:--------:|:---------:|:---:|:-------:|
-| React 19 | Framer Motion | GitHub API | Vite 7 |
-| CSS3 | Lucide Icons | - | ESLint |
+| React 19 | Framer Motion | Lanyard API (Discord) | Vite 7 |
+| CSS3 (12-col Grid) | Hover Effects | Spotify Web API | Vercel Serverless |
+| HTML5 | Micro-interactions | GitHub API | ESLint |
 
 </div>
 
@@ -44,7 +46,7 @@ Modern, responsive kişisel portfolio websitesi
 
 ```bash
 # Repository'yi klonla
-git clone https://github.com/efekrbs/website.git
+git clone https://github.com/efekrbas/website.git
 
 # Dizine git
 cd website
@@ -64,21 +66,21 @@ npm run dev
 src/
 ├── components/
 │   ├── Header.jsx          # Navigasyon
-│   ├── Hero.jsx            # Ana bölüm
+│   ├── Hero.jsx            # Ana bölüm (ASCII Art & Intro)
 │   ├── About.jsx           # Hakkımda
-│   ├── Experience.jsx      # Deneyim
-│   ├── Skills.jsx          # Yetenekler & Sertifikalar
+│   ├── LiveStatus.jsx      # Dashboard (Discord, Spotify, Tech Stack)
+│   ├── Experience.jsx      # Deneyim (Zigzag Timeline)
 │   ├── Education.jsx       # Eğitim
 │   ├── Projects.jsx        # GitHub projeleri
-│   ├── Contact.jsx         # İletişim formu
-│   ├── Cursor.jsx          # Custom cursor
+│   ├── Youtube.jsx         # YouTube içerikleri
+│   ├── Contact.jsx         # İletişim bölümü
+│   ├── Cursor.jsx          # Custom premium cursor
 │   └── Footer.jsx          # Alt bilgi
 ├── context/
 │   └── LanguageContext.jsx # Dil yönetimi & çeviriler
-├── App.jsx                 # Ana uygulama
+├── App.jsx                 # Ana uygulama yapısı
 ├── main.jsx                # Giriş noktası
-├── index.css               # Global stiller
-└── App.css                 # Uygulama stilleri
+└── index.css               # Global tasarım sistemi & stiller
 ```
 
 ---

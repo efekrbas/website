@@ -15,7 +15,7 @@ export const translations = {
         // Navigation
         about: 'Hakkımda',
         experience: 'Deneyim',
-        skills: 'Yetenekler',
+        'live-status': 'Canlı Durum',
         education: 'Eğitim',
         projects: 'Projeler',
         contact: 'İletişim',
@@ -118,6 +118,17 @@ export const translations = {
         certNetworkingDevices: 'Ağ Cihazları ve İlk Yapılandırma',
         certNetworkAddressing: 'Ağ Adresleme ve Temel Sorun Giderme',
 
+        // Live Status
+        liveStatusTitle: 'Canlı Durum',
+        istanbul: 'İstanbul',
+        weather: 'Hava Durumu',
+        spotifyTitle: 'Şu an ne dinliyorum?',
+        spotifyNotPlaying: 'Şu an bir şey dinlenmiyor',
+        stackTitle: 'Yetenekler',
+        location: 'Konum',
+        discordOffline: 'Çevrimdışı',
+        discordOnline: 'Çevrimiçi',
+
         // Youtube
         youtube: 'YouTube',
         youtubeTitle: 'YouTube Videolarım',
@@ -128,7 +139,7 @@ export const translations = {
         // Navigation
         about: 'About',
         experience: 'Experience',
-        skills: 'Skills',
+        'live-status': 'Live Status',
         education: 'Education',
         projects: 'Projects',
         contact: 'Contact',
@@ -230,6 +241,17 @@ export const translations = {
         certAltaySec: 'Penetration Testing Training Program Certificate of Achievement',
         certNetworkingDevices: 'Networking Devices and Initial Configuration',
         certNetworkAddressing: 'Network Addressing and Basic Troubleshooting',
+
+        // Live Status
+        liveStatusTitle: 'Live Status',
+        istanbul: 'Istanbul',
+        weather: 'Weather',
+        spotifyTitle: 'What am I listening to?',
+        spotifyNotPlaying: 'Nothing playing right now',
+        stackTitle: 'Skills',
+        location: 'Location',
+        discordOffline: 'Offline',
+        discordOnline: 'Online',
 
         // Youtube
         youtube: 'YouTube',

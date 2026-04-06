@@ -6,7 +6,7 @@ const Header = () => {
     const [activeSection, setActiveSection] = useState('hero');
     const { t } = useLanguage();
 
-    const sections = ['about', 'experience', 'skills', 'education', 'projects', 'youtube', 'contact'];
+    const sections = ['about', 'live-status', 'experience', 'education', 'projects', 'youtube', 'contact'];
 
     useEffect(() => {
         const observerOptions = {
