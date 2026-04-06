@@ -98,7 +98,7 @@ const LiveStatus = () => {
     const username = discordUser?.global_name || discordUser?.username || 'Efe';
     const avatarUrl = discordUser
         ? `https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.${discordUser.avatar?.startsWith('a_') ? 'gif' : 'png'}?size=128`
-        : 'https://cdn.discordapp.com/avatars/378501743366897675/a_7240edcff0d6d3b6f76bccc74bbf6688.gif?size=128';
+        : '/images/discord-avatar.gif';
 
 
     const statusColors = { online: '#3ba55d', idle: '#faa81a', dnd: '#ed4245', offline: '#747f8d' };
@@ -123,7 +123,7 @@ const LiveStatus = () => {
                             <img 
                                 src={avatarUrl} 
                                 alt={username} 
-                                onError={(e) => { e.target.onerror = null; e.target.src = 'https://wsrv.nl/?url=cdn.discordapp.com/avatars/378501743366897675/a_7240edcff0d6d3b6f76bccc74bbf6688.gif'; }} 
+                                onError={(e) => { e.target.onerror = null; e.target.src = '/images/discord-avatar.gif'; }} 
                             />
                             <span className="ls-discord-status-dot" style={{ background: statusColors[discordStatus] }}></span>
                         </div>
