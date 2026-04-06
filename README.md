@@ -17,10 +17,11 @@ Modern, responsive ve premium kişisel portfolio websitesi
 
 | Özellik | Açıklama |
 |---------|----------|
-| 📊 **Live Status Dashboard** | Discord varlığı, anlık Spotify çalma durumu ve sistem stack gösterimi |
+| 📊 **Live Status Dashboard** | Discord varlığı, anlık hava durumu ve sistem stack gösterimi |
 | 🎵 **Spotify Entegrasyonu** | Lanyard API ve Spotify Web API ile gerçek zamanlı müzik takibi |
+| ⛅ **Canlı Hava Durumu** | Open-Meteo API kullanılarak anlık İstanbul sıcaklığı ve dinamik ikonlar |
 | 🌍 **Akıllı Dil Algılama** | Tarayıcı diline göre otomatik Türkçe veya İngilizce gösterimi |
-| 🎨 **Premium Grid Tasarım** | 12 sütunlu CSS Grid sistemi ve Glassmorphism efektleri |
+| 🎨 **Premium Tasarım** | Tailwind CSS v4, özel Grid sistemi ve Glassmorphism efektleri |
 | 💻 **Tech Stack Kartları** | Kullanılan diller ve teknolojilerin interaktif gösterimi |
 | 📱 **Tam Responsive** | Tüm cihazlar için optimize edilmiş akıcı layout |
 | 📂 **GitHub API** | Projelerin yıldız ve güncelleme tarihine göre dinamik çekilmesi |
@@ -35,8 +36,9 @@ Modern, responsive ve premium kişisel portfolio websitesi
 | Frontend | Animasyon | API / Entegrasyon | Araçlar |
 |:--------:|:---------:|:---:|:-------:|
 | React 19 | Framer Motion | Lanyard API (Discord) | Vite 7 |
-| CSS3 (12-col Grid) | Hover Effects | Spotify Web API | Vercel Serverless |
-| HTML5 | Micro-interactions | GitHub API | ESLint |
+| Tailwind CSS v4 | Hover Effects | Spotify Web API | Vercel Serverless |
+| HTML5 / CSS3 | Micro-interactions | GitHub API | ESLint |
+| Grid & Flexbox | Smooth Scroll | Open-Meteo API | PostCSS |
 
 </div>
 
@@ -91,7 +93,22 @@ Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
 
 ---
 
-<div align="center">
+## 🎵 Spotify Integration Setup
+
+To enable the "Now Playing" feature, follow these steps:
+
+1. Create a Spotify Developer App at [developer.spotify.com/dashboard](https://developer.spotify.com/dashboard).
+2. Set the **Redirect URI** to `http://localhost:3000/callback` in your app settings.
+3. Run the helper script to get your `REFRESH_TOKEN`:
+   ```bash
+   node scripts/spotify-setup.cjs
+   ```
+4. Add the following environment variables to your Vercel project:
+   - `SPOTIFY_CLIENT_ID`
+   - `SPOTIFY_CLIENT_SECRET`
+   - `SPOTIFY_REFRESH_TOKEN`
+
+---
 
 ### 👤 İletişim
 

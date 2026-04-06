@@ -17,21 +17,6 @@ const Hero = () => {
                 <h1 className="glitch" data-text="Efe Kırbaş">Efe Kırbaş</h1>
                 <h2 className="subtitle">{t('softwareDeveloper')}</h2>
                 <p className="hero-desc">{t('heroDesc')}</p>
-                <div className="cta-buttons">
-                    <a href="/#contact" className="btn primary" onClick={(e) => {
-                        e.preventDefault();
-                        window.history.pushState({}, '', '/#contact');
-                        const contactSection = document.getElementById('contact');
-                        if (contactSection) {
-                            contactSection.scrollIntoView({ behavior: 'smooth' });
-                        } else {
-                            window.location.href = '/#contact';
-                        }
-                    }}>{t('contactBtn')}</a>
-                    <a href="/Efe Kırbaş CV.pdf" download="Efe_Kirbas_CV.pdf" className="btn secondary">
-                        <i className="fas fa-download"></i> {t('downloadCV')}
-                    </a>
-                </div>
             </motion.div>
             <motion.div
                 className="hero-visual"

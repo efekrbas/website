@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 const Header = () => {
+
     const [navOpen, setNavOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('hero');
     const { t } = useLanguage();
 
-    const sections = ['about', 'live-status', 'experience', 'education', 'projects', 'youtube', 'contact'];
+    const sections = ['about', 'live-status', 'experience', 'education', 'projects', 'youtube'];
 
     useEffect(() => {
         const observerOptions = {
@@ -25,16 +26,29 @@ const Header = () => {
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-        sections.forEach(id => {
-            const section = document.getElementById(id);
-            if (section) observer.observe(section);
+        const observeAll = () => {
+            observer.disconnect();
+            const allIds = ['hero', ...sections];
+            allIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) observer.observe(el);
+            });
+        };
+
+        // Initial observe after a short delay so lazy components mount
+        const timer = setTimeout(observeAll, 800);
+
+        // Re-observe when new sections appear in the DOM
+        const mutationObs = new MutationObserver(() => {
+            observeAll();
         });
+        mutationObs.observe(document.body, { childList: true, subtree: true });
 
-        // Special case for hero section
-        const heroSection = document.getElementById('hero');
-        if (heroSection) observer.observe(heroSection);
-
-        return () => observer.disconnect();
+        return () => {
+            clearTimeout(timer);
+            observer.disconnect();
+            mutationObs.disconnect();
+        };
     }, []);
 
     const toggleNav = () => {

@@ -11,14 +11,13 @@ const Experience = lazy(() => import('./components/Experience'));
 const Education = lazy(() => import('./components/Education'));
 const Projects = lazy(() => import('./components/Projects'));
 const Youtube = lazy(() => import('./components/Youtube'));
-const Contact = lazy(() => import('./components/Contact'));
 
 // Basit bir yükleme bileşeni
 const SectionLoader = () => (
-  <div className="section-loader" style={{ 
-    height: '200px', 
-    display: 'flex', 
-    alignItems: 'center', 
+  <div className="section-loader" style={{
+    height: '200px',
+    display: 'flex',
+    alignItems: 'center',
     justifyContent: 'center',
     color: 'var(--accent-color, #00d2ff)',
     fontSize: '0.9rem',
@@ -57,7 +56,6 @@ function App() {
           <Education />
           <Projects />
           <Youtube />
-          <Contact />
         </Suspense>
       </main>
       <Footer />
