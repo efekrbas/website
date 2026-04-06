@@ -7,12 +7,13 @@ async function getAccessToken() {
     const REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN;
 
     if (!CLIENT_ID || !CLIENT_SECRET || !REFRESH_TOKEN) {
-        console.error("Missing Spotify env variables:", {
-            clientId: !!CLIENT_ID,
-            clientSecret: !!CLIENT_SECRET,
-            refreshToken: !!REFRESH_TOKEN
-        });
-        throw new Error("Missing Spotify environment variables");
+        const missing = [];
+        if (!CLIENT_ID) missing.push("SPOTIFY_CLIENT_ID");
+        if (!CLIENT_SECRET) missing.push("SPOTIFY_CLIENT_SECRET");
+        if (!REFRESH_TOKEN) missing.push("SPOTIFY_REFRESH_TOKEN");
+
+        console.error("Missing Spotify env variables:", missing.join(", "));
+        throw new Error(`Missing: ${missing.join(", ")}`);
     }
 
     const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64');
