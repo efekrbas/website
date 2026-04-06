@@ -120,7 +120,11 @@ const LiveStatus = () => {
                 <motion.div className="ls-card ls-area-discord" whileHover={{ y: -3 }} transition={{ duration: 0.2 }}>
                     <div className="ls-discord-profile">
                         <div className="ls-discord-avatar">
-                            <img src={avatarUrl} alt={username} loading="lazy" />
+                            <img 
+                                src={avatarUrl} 
+                                alt={username} 
+                                onError={(e) => { e.target.onerror = null; e.target.src = '/images/efe-profile.png'; }} 
+                            />
                             <span className="ls-discord-status-dot" style={{ background: statusColors[discordStatus] }}></span>
                         </div>
                         <div className="ls-discord-info">
