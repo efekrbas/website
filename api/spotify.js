@@ -30,9 +30,9 @@ async function getAccessToken() {
     });
 
     if (!response.ok) {
-        const errorData = await response.text();
+        const errorData = await response.json();
         console.error("Spotify token request failed:", response.status, errorData);
-        throw new Error(`Spotify token error: ${response.status}`);
+        throw new Error(`Spotify token error: ${JSON.stringify(errorData)}`);
     }
 
     return response.json();
@@ -50,7 +50,7 @@ export default async function handler(req, res) {
 
         if (!access_token) {
             console.error("No access token in response:", tokenResponse);
-            return res.status(200).json({ isPlaying: false, error: "No access token" });
+            return res.status(200).json({ isPlaying: false, error: "No access token in JSON response" });
         }
 
         const response = await fetch(NOW_PLAYING_ENDPOINT, {
@@ -61,19 +61,19 @@ export default async function handler(req, res) {
 
         // Eğer hiçbir şey çalmıyorsa 204 döner
         if (response.status === 204) {
-            return res.status(200).json({ isPlaying: false });
+            return res.status(200).json({ isPlaying: false, message: "Nothing is currently playing" });
         }
 
         if (response.status > 400) {
             const errorText = await response.text();
             console.error("Spotify now playing request failed:", response.status, errorText);
-            return res.status(200).json({ isPlaying: false, error: "Playback request failed" });
+            return res.status(200).json({ isPlaying: false, error: `Playback error ${response.status}: ${errorText}` });
         }
 
         const data = await response.json();
 
         if (!data.item) {
-            return res.status(200).json({ isPlaying: false });
+            return res.status(200).json({ isPlaying: false, message: "Data received but no item playing" });
         }
 
         const song = {
@@ -88,7 +88,6 @@ export default async function handler(req, res) {
         return res.status(200).json(song);
     } catch (error) {
         console.error("Internal Spotify handler error:", error.message);
-        // JSON formatında dön ama hatayı da bildir (Geliştirme için yararlı)
         return res.status(200).json({ 
             isPlaying: false, 
             error: error.message 
