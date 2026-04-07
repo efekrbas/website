@@ -181,9 +181,8 @@ const Youtube = () => {
                     font-size: 1.1rem;
                     margin: 0;
                     color: #fff;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
+                    white-space: normal;
+                    overflow: visible;
                 }
             `}</style>
         </motion.section>
