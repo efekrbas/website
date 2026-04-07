@@ -23,6 +23,7 @@ Modern, responsive ve premium kişisel portfolio websitesi
 | 🌍 **Akıllı Dil Algılama** | Tarayıcı diline göre otomatik Türkçe veya İngilizce gösterimi |
 | 🎨 **Premium Tasarım** | Tailwind CSS v4, özel Grid sistemi ve Glassmorphism efektleri |
 | 💻 **Tech Stack Kartları** | Kullanılan diller ve teknolojilerin interaktif gösterimi |
+| ⌨️ **Dinamik Typewriter** | Hero bölümünde sonsuz döngülü terminal daktilo efekti |
 | 📱 **Tam Responsive** | Tüm cihazlar için optimize edilmiş akıcı layout |
 | 📂 **GitHub API** | Projelerin yıldız ve güncelleme tarihine göre dinamik çekilmesi |
 | ✨ **Micro-Animations** | Framer Motion ile premium kullanıcı deneyimi |
