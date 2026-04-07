@@ -48,7 +48,7 @@ const Hero = () => {
                     style={{ 
                         whiteSpace: 'nowrap', 
                         overflow: 'hidden', 
-                        display: 'flex', 
+                        display: 'inline-flex', 
                         alignItems: 'center',
                         margin: '0 0 10px 0'
                     }}
