@@ -12,7 +12,7 @@ const Header = () => {
     useEffect(() => {
         const observerOptions = {
             root: null,
-            rootMargin: '-30% 0px -30% 0px',
+            rootMargin: '-40% 0px -40% 0px',
             threshold: 0
         };
 

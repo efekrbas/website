@@ -355,7 +355,27 @@ section {
 
 @media (min-width: 1024px) {
     section {
-        padding: 100px 64px 100px;
+        padding: 120px 64px;
+        min-height: 100vh;
+    }
+
+    #about, #live-status, #education, #projects, #youtube {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #experience {
+        display: block; /* Restore default layout for experience to avoid shrinking */
+    }
+
+    #hero {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        height: 100vh;
+        min-height: 100vh;
     }
 }
 
