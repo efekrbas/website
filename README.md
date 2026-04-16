@@ -18,7 +18,6 @@ Modern, responsive ve premium kişisel portfolio websitesi
 | Özellik | Açıklama |
 |---------|----------|
 | 📊 **Live Status Dashboard** | Discord varlığı, anlık hava durumu ve sistem stack gösterimi |
-| 🎵 **Spotify Entegrasyonu** | Lanyard API ve Spotify Web API ile gerçek zamanlı müzik takibi |
 | ⛅ **Canlı Hava Durumu** | Open-Meteo API kullanılarak anlık İstanbul sıcaklığı ve dinamik ikonlar |
 | 🌍 **Akıllı Dil Algılama** | Tarayıcı diline göre otomatik Türkçe veya İngilizce gösterimi |
 | 🎨 **Premium Tasarım** | Tailwind CSS v4, özel Grid sistemi ve Glassmorphism efektleri |
