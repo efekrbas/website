@@ -93,23 +93,6 @@ Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
 
 ---
 
-## 🎵 Spotify Integration Setup
-
-To enable the "Now Playing" feature, follow these steps:
-
-1. Create a Spotify Developer App at [developer.spotify.com/dashboard](https://developer.spotify.com/dashboard).
-2. Set the **Redirect URI** to `http://localhost:3000/callback` in your app settings.
-3. Run the helper script to get your `REFRESH_TOKEN`:
-   ```bash
-   node scripts/spotify-setup.cjs
-   ```
-4. Add the following environment variables to your Vercel project:
-   - `SPOTIFY_CLIENT_ID`
-   - `SPOTIFY_CLIENT_SECRET`
-   - `SPOTIFY_REFRESH_TOKEN`
-
----
-
 ### 👤 İletişim
 
 [![GitHub](https://img.shields.io/badge/GitHub-efekrbas-181717?style=for-the-badge&logo=github)](https://github.com/efekrbas)
