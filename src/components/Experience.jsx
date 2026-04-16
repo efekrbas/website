@@ -17,13 +17,14 @@ const Experience = () => {
             <div className="timeline">
                 <div className="timeline-item">
                     <div className="timeline-date">
-                        {language === 'tr' ? 'Şubat 2026 - Günümüz' : 'February 2026 - Present'}
+                        {language === 'tr' ? 'Şubat 2026 - Devam ediyor' : 'February 2026 - Continuing'}
                     </div>
                     <div className="timeline-content glass-card">
                         <div className="timeline-inner">
                             <div className="text-container">
                                 <h3>{t('campusAmbassador')}</h3>
                                 <h4>{t('hackviser')}</h4>
+                                <p className="location"><i className="fas fa-map-marker-alt"></i> {language === 'tr' ? 'Londra, Birleşik Krallık · Uzaktan' : 'London, United Kingdom · Remote'}</p>
                             </div>
                             <div className="logo-container">
                                 <img src="/images/hackviser.jpg" alt="Hackviser" className="company-logo" loading="lazy" decoding="async" />
@@ -33,7 +34,7 @@ const Experience = () => {
                 </div>
                 <div className="timeline-item">
                     <div className="timeline-date">
-                        {language === 'tr' ? 'Kasım 2025 - Günümüz' : 'November 2025 - Present'}
+                        {language === 'tr' ? 'Kasım 2025 - Devam ediyor' : 'November 2025 - Continuing'}
                     </div>
                     <div className="timeline-content glass-card">
                         <div className="timeline-inner">
@@ -51,7 +52,7 @@ const Experience = () => {
                                 <h3>{t('cyberSecurityStudent')}</h3>
                                 <h4>{t('cyberHomeland')}</h4>
                                 <p className="location"><i className="fas fa-map-marker-alt"></i> Bilecik, {language === 'tr' ? 'Türkiye' : 'Türkiye'}</p>
-
+                                <p className="description">{language === 'tr' ? 'Genel CTF sınavı sonucunda Bilecik\'de ilk 40\'a girerek öğrenci olmaya hak kazandım.' : 'I earned my student spot by placing in the top 40 in Bilecik in the general CTF exam.'}</p>
                             </div>
                         </div>
                     </div>
@@ -65,7 +66,7 @@ const Experience = () => {
                             <div className="text-container">
                                 <h3>{t('itFieldSupportIntern')}</h3>
                                 <h4>{t('medipolHealthGroup')}</h4>
-                                <p className="location"><i className="fas fa-map-marker-alt"></i> Bağcılar, İstanbul, {language === 'tr' ? 'Türkiye' : 'Türkiye'}
+                                <p className="location"><i className="fas fa-map-marker-alt"></i> Bağcılar, İstanbul, {language === 'tr' ? 'Türkiye' : 'Türkiye'} · Ofiste
                                 </p>
                                 <ul>
                                     <li>{t('expItem1')}</li>

@@ -37,9 +37,9 @@ export const translations = {
         // Experience  
         experienceTitle: 'Deneyim',
         present: 'Devam ediyor',
-        expItem1: 'Son kullanıcı donanım-yazılım sorunları çözümü.',
-        expItem2: 'Arıza tespiti ve pratik çözüm üretimi.',
-        expItem3: 'Donanım kurulum ve bakım işlemleri.',
+        expItem1: 'Son kullanıcı desteği verdim.',
+        expItem2: 'Donanım kurulum ve bakım işlemlerini gerçekleştirdim.',
+        expItem3: 'Arıza giderme ve ağ takibi konularında aktif görevler aldım.',
 
         // Skills
         skillsTitle: 'Yetenekler',
@@ -160,9 +160,9 @@ export const translations = {
         // Experience
         experienceTitle: 'Experience',
         present: 'Present',
-        expItem1: 'End-user hardware and software issue resolution.',
-        expItem2: 'Troubleshooting and practical solution development.',
-        expItem3: 'Hardware installation and maintenance.',
+        expItem1: 'Provided end-user support.',
+        expItem2: 'Performed hardware installation and maintenance.',
+        expItem3: 'Took active roles in troubleshooting and network monitoring.',
 
         // Skills
         skillsTitle: 'Skills',
