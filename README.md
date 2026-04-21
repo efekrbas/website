@@ -36,7 +36,7 @@ Modern, responsive ve premium kişisel portfolio websitesi
 | Frontend | Animasyon | API / Entegrasyon | Araçlar |
 |:--------:|:---------:|:---:|:-------:|
 | React 19 | Framer Motion | Lanyard API (Discord) | Vite 7 |
-| Vanilla CSS | Hover Effects | Spotify Web API | Vercel Serverless |
+| Vanilla CSS | Hover Effects | YouTube API | Vercel Serverless |
 | HTML5 | Micro-interactions | GitHub API | ESLint |
 | Grid & Flexbox | Smooth Scroll | Open-Meteo API | PostCSS |
 
@@ -70,7 +70,7 @@ src/
 │   ├── Header.jsx          # Navigasyon
 │   ├── Hero.jsx            # Ana bölüm (ASCII Art & Intro)
 │   ├── About.jsx           # Hakkımda
-│   ├── LiveStatus.jsx      # Dashboard (Discord, Spotify, Tech Stack)
+│   ├── LiveStatus.jsx      # Dashboard (Discord, Hava Durumu, Tech Stack)
 │   ├── Experience.jsx      # Deneyim (Zigzag Timeline)
 │   ├── Education.jsx       # Eğitim
 │   ├── Projects.jsx        # GitHub projeleri
