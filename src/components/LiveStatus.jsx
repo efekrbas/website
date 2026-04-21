@@ -169,14 +169,20 @@ const LiveStatus = () => {
                         <span className="ls-card-label">{t('languages')}</span>
                     </div>
                     <div className="ls-langs-list">
-                        {langs.map((lang) => (
+                        {langs.map((lang, index) => (
                             <div key={lang.name} className="ls-lang-item">
                                 <div className="ls-lang-top">
                                     <span className="ls-lang-name">{lang.name}</span>
                                     <span className="ls-lang-level">{lang.level}</span>
                                 </div>
                                 <div className="ls-progress-bar">
-                                    <div className="ls-progress" style={{ width: `${lang.pct}%` }}></div>
+                                    <motion.div 
+                                        className="ls-progress" 
+                                        initial={{ width: "0%" }}
+                                        whileInView={{ width: `${lang.pct}%` }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 1.5, ease: "easeOut", delay: index * 0.3 }}
+                                    />
                                 </div>
                             </div>
                         ))}

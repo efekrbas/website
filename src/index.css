@@ -719,6 +719,10 @@ section {
     transform: none;
 }
 
+#education .section-title:hover {
+    transform: scale(1.02);
+}
+
 .education-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));

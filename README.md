@@ -20,7 +20,7 @@ Modern, responsive ve premium kişisel portfolio websitesi
 | 📊 **Live Status Dashboard** | Discord varlığı, anlık hava durumu ve sistem stack gösterimi |
 | ⛅ **Canlı Hava Durumu** | Open-Meteo API kullanılarak anlık İstanbul sıcaklığı ve dinamik ikonlar |
 | 🌍 **Akıllı Dil Algılama** | Tarayıcı diline göre otomatik Türkçe veya İngilizce gösterimi |
-| 🎨 **Premium Tasarım** | Tailwind CSS v4, özel Grid sistemi ve Glassmorphism efektleri |
+| 🎨 **Premium Tasarım** | Özel Grid sistemi, Glassmorphism efektleri ve custom cursor |
 | 💻 **Tech Stack Kartları** | Kullanılan diller ve teknolojilerin interaktif gösterimi |
 | ⌨️ **Dinamik Typewriter** | Hero bölümünde sonsuz döngülü terminal daktilo efekti |
 | 📱 **Tam Responsive** | Tüm cihazlar için optimize edilmiş akıcı layout |
@@ -36,8 +36,8 @@ Modern, responsive ve premium kişisel portfolio websitesi
 | Frontend | Animasyon | API / Entegrasyon | Araçlar |
 |:--------:|:---------:|:---:|:-------:|
 | React 19 | Framer Motion | Lanyard API (Discord) | Vite 7 |
-| Tailwind CSS v4 | Hover Effects | Spotify Web API | Vercel Serverless |
-| HTML5 / CSS3 | Micro-interactions | GitHub API | ESLint |
+| Vanilla CSS | Hover Effects | Spotify Web API | Vercel Serverless |
+| HTML5 | Micro-interactions | GitHub API | ESLint |
 | Grid & Flexbox | Smooth Scroll | Open-Meteo API | PostCSS |
 
 </div>
@@ -75,14 +75,13 @@ src/
 │   ├── Education.jsx       # Eğitim
 │   ├── Projects.jsx        # GitHub projeleri
 │   ├── Youtube.jsx         # YouTube içerikleri
-│   ├── Contact.jsx         # İletişim bölümü
 │   ├── Cursor.jsx          # Custom premium cursor
 │   └── Footer.jsx          # Alt bilgi
 ├── context/
-│   └── LanguageContext.jsx # Dil yönetimi & çeviriler
-├── App.jsx                 # Ana uygulama yapısı
-├── main.jsx                # Giriş noktası
-└── index.css               # Global tasarım sistemi & stiller
+│   └── LanguageContext.jsx  # Dil yönetimi & çeviriler
+├── App.jsx                  # Ana uygulama yapısı
+├── main.jsx                 # Giriş noktası
+└── index.css                # Global tasarım sistemi & stiller
 ```
 
 ---
