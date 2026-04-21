@@ -127,6 +127,8 @@ export const translations = {
         location: 'Konum',
         discordOffline: 'Çevrimdışı',
         discordOnline: 'Çevrimiçi',
+        discordIdle: 'Boşta',
+        discordDnd: 'Rahatsız Etmeyin',
 
         // Youtube
         youtube: 'YouTube',
@@ -250,6 +252,8 @@ export const translations = {
         location: 'Location',
         discordOffline: 'Offline',
         discordOnline: 'Online',
+        discordIdle: 'Idle',
+        discordDnd: 'Do Not Disturb',
 
         // Youtube
         youtube: 'YouTube',

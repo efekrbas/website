@@ -102,7 +102,7 @@ const LiveStatus = () => {
 
 
     const statusColors = { online: '#3ba55d', idle: '#faa81a', dnd: '#ed4245', offline: '#747f8d' };
-    const statusTexts = { online: t('discordOnline'), idle: 'Idle', dnd: 'DND', offline: t('discordOffline') };
+    const statusTexts = { online: t('discordOnline'), idle: t('discordIdle'), dnd: t('discordDnd'), offline: t('discordOffline') };
 
     return (
         <motion.section
