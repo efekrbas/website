@@ -1,4 +1,6 @@
-import React, { createContext, useContext, useState } from 'react';
+'use client';
+
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const LanguageContext = createContext();
 
@@ -9,6 +11,7 @@ export const useLanguage = () => {
     }
     return context;
 };
+
 
 export const translations = {
     tr: {
@@ -264,16 +267,19 @@ export const translations = {
 };
 
 export const LanguageProvider = ({ children }) => {
-    const [language] = useState(() => {
-        // Tarayıcı dil ayarlarına göre dil belirle
+    const [language, setLanguage] = useState('en');
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
         const browserLang = navigator.language || navigator.userLanguage;
         if (browserLang && browserLang.toLowerCase().startsWith('tr')) {
-            return 'tr';
+            setLanguage('tr');
         }
-        return 'en';
-    });
+        setMounted(true);
+    }, []);
 
     const t = (key) => {
+        if (!mounted) return translations['en'][key] || key;
         return translations[language][key] || key;
     };
 

@@ -6,7 +6,7 @@ Modern, responsive ve premium kişisel portfolio websitesi
 
 [![Live Demo](https://img.shields.io/badge/🚀_Demo-efekrbs.com.tr-blue?style=for-the-badge)](https://efekrbs.com.tr)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react)](https://react.dev)
-[![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite)](https://vitejs.dev)
+[![Next.js](https://img.shields.io/badge/Next.js-15-000000?style=flat-square&logo=nextdotjs)](https://nextjs.org)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
 </div>
@@ -35,7 +35,7 @@ Modern, responsive ve premium kişisel portfolio websitesi
 
 | Frontend | Animasyon | API / Entegrasyon | Araçlar |
 |:--------:|:---------:|:---:|:-------:|
-| React 19 | Framer Motion | Lanyard API (Discord) | Vite 7 |
+| React 19 | Framer Motion | Lanyard API (Discord) | Next.js 15 |
 | Vanilla CSS | Hover Effects | YouTube API | Vercel Serverless |
 | HTML5 | Micro-interactions | GitHub API | ESLint |
 | Grid & Flexbox | Smooth Scroll | Open-Meteo API | PostCSS |
@@ -66,22 +66,23 @@ npm run dev
 
 ```
 src/
+├── app/
+│   ├── layout.jsx          # Root layout
+│   └── page.jsx            # Ana sayfa
 ├── components/
 │   ├── Header.jsx          # Navigasyon
-│   ├── Hero.jsx            # Ana bölüm (ASCII Art & Intro)
+│   ├── Hero.jsx            # Ana bölüm
 │   ├── About.jsx           # Hakkımda
-│   ├── LiveStatus.jsx      # Dashboard (Discord, Hava Durumu, Tech Stack)
-│   ├── Experience.jsx      # Deneyim (Zigzag Timeline)
+│   ├── LiveStatus.jsx      # Dashboard
+│   ├── Experience.jsx      # Deneyim
 │   ├── Education.jsx       # Eğitim
 │   ├── Projects.jsx        # GitHub projeleri
-│   ├── Youtube.jsx         # YouTube içerikleri
-│   ├── Cursor.jsx          # Custom premium cursor
+│   ├── Youtube.jsx         # YouTube
+│   ├── Cursor.jsx          # Custom cursor
 │   └── Footer.jsx          # Alt bilgi
 ├── context/
-│   └── LanguageContext.jsx  # Dil yönetimi & çeviriler
-├── App.jsx                  # Ana uygulama yapısı
-├── main.jsx                 # Giriş noktası
-└── index.css                # Global tasarım sistemi & stiller
+│   └── LanguageContext.jsx  # Dil yönetimi
+└── index.css                # Tasarım sistemi & stiller
 ```
 
 ---

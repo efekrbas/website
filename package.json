@@ -4,14 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "framer-motion": "^12.26.2",
     "lucide-react": "^0.562.0",
+    "next": "latest",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
@@ -20,14 +21,12 @@
     "@tailwindcss/postcss": "^4.2.2",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.27",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "postcss": "^8.5.8",
-    "tailwindcss": "^4.2.2",
-    "vite": "^7.2.4"
+    "tailwindcss": "^4.2.2"
   }
 }
