@@ -69,7 +69,6 @@ const Header = () => {
                 return;
             }
 
-            window.history.pushState({}, '', `/#${id}`);
             window.scrollTo({
                 top: targetPosition,
                 behavior: "smooth"

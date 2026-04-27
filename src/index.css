@@ -1600,6 +1600,11 @@ footer {
     box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
 }
 
+.ls-social-item.tg:hover {
+    color: #0088cc;
+    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+}
+
 /* Weather */
 .ls-weather-top {
     display: flex;
