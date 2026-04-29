@@ -60,93 +60,78 @@ const Cursor = () => {
             follower.style.top = `${rect.top + rect.height / 2}px`;
         };
 
-        const handleLinkHover = (e) => {
-            isHovering.current = true;
-            hoveredEl.current = e.currentTarget;
+        const handleMouseOver = (e) => {
+            const target = e.target.closest('a, button');
+            const videoTarget = e.target.closest('.video-container');
 
-            // Clear inline opacity so CSS classes take effect
-            cursor.style.opacity = '';
-            follower.style.opacity = '';
+            if (target) {
+                if (hoveredEl.current === target) return;
+                
+                isHovering.current = true;
+                hoveredEl.current = target;
 
-            cursor.classList.add('cursor--hidden');
-            follower.classList.add('cursor-follower--wrapping');
-            wrapElement(e.currentTarget);
+                cursor.style.opacity = '';
+                follower.style.opacity = '';
+                cursor.classList.add('cursor--hidden');
+                follower.classList.add('cursor-follower--wrapping');
+                wrapElement(target);
+            } else if (videoTarget) {
+                cursor.style.opacity = '0';
+                follower.style.opacity = '0';
+            }
         };
 
-        const handleLinkLeave = () => {
-            isHovering.current = false;
-            hoveredEl.current = null;
+        const handleMouseOut = (e) => {
+            const target = e.target.closest('a, button');
+            const videoTarget = e.target.closest('.video-container');
+            const related = e.relatedTarget;
 
-            cursor.classList.remove('cursor--hidden');
-            follower.classList.remove('cursor-follower--wrapping');
-            follower.style.width = '';
-            follower.style.height = '';
-            follower.style.borderRadius = '';
+            if (target && (!related || !target.contains(related))) {
+                isHovering.current = false;
+                hoveredEl.current = null;
+
+                cursor.classList.remove('cursor--hidden');
+                follower.classList.remove('cursor-follower--wrapping');
+                follower.style.width = '';
+                follower.style.height = '';
+                follower.style.borderRadius = '';
+            } else if (videoTarget && (!related || !videoTarget.contains(related))) {
+                cursor.style.opacity = '';
+                follower.style.opacity = '';
+            }
         };
 
         const handleScroll = () => {
             if (isHovering.current && hoveredEl.current) {
-                // Check if cursor is still over the element
                 const rect = hoveredEl.current.getBoundingClientRect();
                 const mx = mousePos.current.x;
                 const my = mousePos.current.y;
 
                 if (mx >= rect.left && mx <= rect.right && my >= rect.top && my <= rect.bottom) {
-                    // Still over the element, update position
                     wrapElement(hoveredEl.current);
                 } else {
-                    // Scrolled away, release
-                    handleLinkLeave();
+                    isHovering.current = false;
+                    hoveredEl.current = null;
+                    cursor.classList.remove('cursor--hidden');
+                    follower.classList.remove('cursor-follower--wrapping');
+                    follower.style.width = '';
+                    follower.style.height = '';
+                    follower.style.borderRadius = '';
                 }
             }
         };
 
         document.addEventListener('mousemove', moveCursor);
+        document.addEventListener('mouseover', handleMouseOver);
+        document.addEventListener('mouseout', handleMouseOut);
         window.addEventListener('scroll', handleScroll, true);
-
-        const handleVideoHover = () => {
-            cursor.style.opacity = '0';
-            follower.style.opacity = '0';
-        };
-
-        const handleVideoLeave = () => {
-            cursor.style.opacity = '';
-            follower.style.opacity = '';
-        };
-
-        const attachListeners = () => {
-            // Original links and buttons
-            const links = document.querySelectorAll('a, button');
-            links.forEach(link => {
-                link.removeEventListener('mouseenter', handleLinkHover);
-                link.removeEventListener('mouseleave', handleLinkLeave);
-                link.addEventListener('mouseenter', handleLinkHover);
-                link.addEventListener('mouseleave', handleLinkLeave);
-            });
-
-            // Video containers
-            const videos = document.querySelectorAll('.video-container');
-            videos.forEach(video => {
-                video.removeEventListener('mouseenter', handleVideoHover);
-                video.removeEventListener('mouseleave', handleVideoLeave);
-                video.addEventListener('mouseenter', handleVideoHover);
-                video.addEventListener('mouseleave', handleVideoLeave);
-            });
-        };
-
-        attachListeners();
-
-        // MutationObserver to attach listeners to new elements
-        const observer = new MutationObserver(() => {
-            attachListeners();
-        });
-        observer.observe(document.body, { childList: true, subtree: true });
 
         return () => {
             document.removeEventListener('mousemove', moveCursor);
+            document.removeEventListener('mouseover', handleMouseOver);
+            document.removeEventListener('mouseout', handleMouseOut);
             window.removeEventListener('scroll', handleScroll, true);
             cancelAnimationFrame(rafId.current);
-            observer.disconnect();
         };
     }, []);
 

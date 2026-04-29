@@ -7,14 +7,17 @@ const DISCORD_USER_ID = '378501743366897675';
 
 const LiveStatus = () => {
     const { t } = useLanguage();
+    const [mounted, setMounted] = useState(false);
     const [time, setTime] = useState(new Date());
     const [lanyard, setLanyard] = useState(null);
     const [weather, setWeather] = useState({ temp: null, code: null });
 
     useEffect(() => {
+        setMounted(true);
         const timer = setInterval(() => setTime(new Date()), 1000);
         return () => clearInterval(timer);
     }, []);
+
 
     useEffect(() => {
         let ws;
@@ -141,9 +144,10 @@ const LiveStatus = () => {
                         <span className="ls-card-label">{t('istanbul')}</span>
                     </div>
                     <div className="ls-clock-content">
-                        <div className="ls-clock">{formatTime(time)}</div>
-                        <div className="ls-date">{formatDate(time)}</div>
+                        <div className="ls-clock">{mounted ? formatTime(time) : '--:--:--'}</div>
+                        <div className="ls-date">{mounted ? formatDate(time) : '--'}</div>
                     </div>
+
                 </motion.div>
 
                 {/* Stack — col 6-12, row 2 */}

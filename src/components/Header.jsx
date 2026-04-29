@@ -38,17 +38,11 @@ const Header = () => {
         // Initial observe after a short delay so lazy components mount
         const timer = setTimeout(observeAll, 800);
 
-        // Re-observe when new sections appear in the DOM
-        const mutationObs = new MutationObserver(() => {
-            observeAll();
-        });
-        mutationObs.observe(document.body, { childList: true, subtree: true });
-
         return () => {
             clearTimeout(timer);
             observer.disconnect();
-            mutationObs.disconnect();
         };
+
     }, []);
 
     const toggleNav = () => {
