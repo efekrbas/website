@@ -273,8 +273,10 @@ export const LanguageProvider = ({ children }) => {
     useEffect(() => {
         const browserLang = navigator.language || navigator.userLanguage;
         if (browserLang && browserLang.toLowerCase().startsWith('tr')) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setLanguage('tr');
         }
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 

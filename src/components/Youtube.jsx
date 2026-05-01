@@ -4,24 +4,8 @@ import { useLanguage } from '../context/LanguageContext';
 
 const VideoCard = ({ video }) => {
     const [isPlaying, setIsPlaying] = React.useState(false);
-    const [isPaused, setIsPaused] = React.useState(false);
-    const iframeRef = React.useRef(null);
-
-    const togglePlay = () => {
-        if (!iframeRef.current) return;
-
-        const action = isPaused ? 'playVideo' : 'pauseVideo';
-        iframeRef.current.contentWindow.postMessage(JSON.stringify({
-            event: 'command',
-            func: action,
-            args: []
-        }), '*');
-        setIsPaused(!isPaused);
-    };
-
     const handleThumbnailClick = () => {
         setIsPlaying(true);
-        setIsPaused(false);
     };
 
     return (

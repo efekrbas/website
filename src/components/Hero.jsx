@@ -4,36 +4,40 @@ import { useLanguage } from '../context/LanguageContext';
 
 const Hero = () => {
     const { t } = useLanguage();
-    const [typedText, setTypedText] = useState('');
-    const fullText = "Efe Kırbaş";
+    const TypewriterText = () => {
+        const [typedText, setTypedText] = useState('');
+        const fullText = "Efe Kırbaş";
 
-    useEffect(() => {
-        let i = 0;
-        let isDeleting = false;
-        let timer;
+        useEffect(() => {
+            let i = 0;
+            let isDeleting = false;
+            let timer;
 
-        const loop = () => {
-            if (!isDeleting && i <= fullText.length) {
-                setTypedText(fullText.slice(0, i));
-                i++;
-                timer = setTimeout(loop, i > fullText.length ? 2000 : 150);
-            } else if (isDeleting && i >= 0) {
-                setTypedText(fullText.slice(0, i));
-                i--;
-                timer = setTimeout(loop, i < 0 ? 500 : 80);
-            } else if (i > fullText.length) {
-                isDeleting = true;
-                timer = setTimeout(loop, 0); 
-            } else if (i < 0) {
-                isDeleting = false;
-                i = 0;
-                timer = setTimeout(loop, 0);
-            }
-        };
+            const loop = () => {
+                if (!isDeleting && i <= fullText.length) {
+                    setTypedText(fullText.slice(0, i));
+                    i++;
+                    timer = setTimeout(loop, i > fullText.length ? 2000 : 150);
+                } else if (isDeleting && i >= 0) {
+                    setTypedText(fullText.slice(0, i));
+                    i--;
+                    timer = setTimeout(loop, i < 0 ? 500 : 80);
+                } else if (i > fullText.length) {
+                    isDeleting = true;
+                    timer = setTimeout(loop, 0); 
+                } else if (i < 0) {
+                    isDeleting = false;
+                    i = 0;
+                    timer = setTimeout(loop, 0);
+                }
+            };
 
-        timer = setTimeout(loop, 150);
-        return () => clearTimeout(timer);
-    }, []);
+            timer = setTimeout(loop, 150);
+            return () => clearTimeout(timer);
+        }, []);
+
+        return <>{typedText}</>;
+    };
 
     return (
         <section id="hero">
@@ -53,7 +57,7 @@ const Hero = () => {
                         margin: '0 0 10px 0'
                     }}
                 >
-                    {typedText}
+                    <TypewriterText />
                     <motion.span
                         animate={{ opacity: [1, 0, 1] }}
                         transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}

@@ -8,14 +8,11 @@ const DISCORD_USER_ID = '378501743366897675';
 const LiveStatus = () => {
     const { t } = useLanguage();
     const [mounted, setMounted] = useState(false);
-    const [time, setTime] = useState(new Date());
     const [lanyard, setLanyard] = useState(null);
     const [weather, setWeather] = useState({ temp: null, code: null });
 
     useEffect(() => {
         setMounted(true);
-        const timer = setInterval(() => setTime(new Date()), 1000);
-        return () => clearInterval(timer);
     }, []);
 
 
@@ -73,8 +70,24 @@ const LiveStatus = () => {
         return <Cloud size={28} className="ls-weather-icon" />;
     };
 
-    const formatTime = (d) => d.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
-    const formatDate = (d) => d.toLocaleDateString('tr-TR', { weekday: 'long', day: 'numeric', month: 'long' });
+    const ClockWidget = () => {
+        const [time, setTime] = useState(new Date());
+
+        useEffect(() => {
+            const timer = setInterval(() => setTime(new Date()), 1000);
+            return () => clearInterval(timer);
+        }, []);
+
+        const formatTime = (d) => d.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+        const formatDate = (d) => d.toLocaleDateString('tr-TR', { weekday: 'long', day: 'numeric', month: 'long' });
+
+        return (
+            <div className="ls-clock-content">
+                <div className="ls-clock">{mounted ? formatTime(time) : '--:--:--'}</div>
+                <div className="ls-date">{mounted ? formatDate(time) : '--'}</div>
+            </div>
+        );
+    };
 
     const techStack = [
         { name: t('penetrationTesting'), color: '#ef4444' },
@@ -143,10 +156,7 @@ const LiveStatus = () => {
                         <MapPin size={12} className="ls-icon ls-icon-blue" />
                         <span className="ls-card-label">{t('istanbul')}</span>
                     </div>
-                    <div className="ls-clock-content">
-                        <div className="ls-clock">{mounted ? formatTime(time) : '--:--:--'}</div>
-                        <div className="ls-date">{mounted ? formatDate(time) : '--'}</div>
-                    </div>
+                    <ClockWidget />
 
                 </motion.div>
 

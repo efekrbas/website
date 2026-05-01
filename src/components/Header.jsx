@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
+const sections = ['about', 'live-status', 'experience', 'education', 'projects', 'youtube'];
+
 const Header = () => {
 
     const [navOpen, setNavOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('hero');
     const { t } = useLanguage();
-
-    const sections = ['about', 'live-status', 'experience', 'education', 'projects', 'youtube'];
 
     useEffect(() => {
         const observerOptions = {

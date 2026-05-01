@@ -2,33 +2,33 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
+const fallbackProjects = [
+    {
+        name: "Automation-Scripts",
+        description: "Collection of Python scripts for daily task automation.",
+        html_url: "https://github.com/efekrbas",
+        language: "Python",
+        stargazers_count: 12,
+        forks_count: 3,
+        updated_at: new Date().toISOString()
+    },
+    {
+        name: "Portfolio",
+        description: "Personal portfolio website built with HTML, CSS, and JS.",
+        html_url: "https://github.com/efekrbas/website",
+        language: "HTML",
+        stargazers_count: 5,
+        forks_count: 2,
+        updated_at: new Date(Date.now() - 86400000).toISOString()
+    }
+];
+
 const Projects = () => {
     const { t } = useLanguage();
     const [originalProjects, setOriginalProjects] = useState([]);
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
     const [sortBy, setSortBy] = useState('stars'); // 'stars' or 'updated'
-
-    const fallbackProjects = [
-        {
-            name: "Automation-Scripts",
-            description: "Collection of Python scripts for daily task automation.",
-            html_url: "https://github.com/efekrbas",
-            language: "Python",
-            stargazers_count: 12,
-            forks_count: 3,
-            updated_at: new Date().toISOString()
-        },
-        {
-            name: "Portfolio",
-            description: "Personal portfolio website built with HTML, CSS, and JS.",
-            html_url: "https://github.com/efekrbas/efekrbas.github.io",
-            language: "HTML",
-            stargazers_count: 5,
-            forks_count: 2,
-            updated_at: new Date(Date.now() - 86400000).toISOString()
-        }
-    ];
 
     useEffect(() => {
         const fetchProjects = async () => {
