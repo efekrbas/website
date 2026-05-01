@@ -107,7 +107,8 @@ const Cursor = () => {
                 const mx = mousePos.current.x;
                 const my = mousePos.current.y;
 
-                if (mx >= rect.left && mx <= rect.right && my >= rect.top && my <= rect.bottom) {
+                const tolerance = 2;
+                if (mx >= rect.left - tolerance && mx <= rect.right + tolerance && my >= rect.top - tolerance && my <= rect.bottom + tolerance) {
                     wrapElement(hoveredEl.current);
                 } else {
                     isHovering.current = false;
