@@ -26,6 +26,7 @@ Modern, responsive ve premium kişisel portfolio websitesi
 | 📱 **Tam Responsive** | Tüm cihazlar için optimize edilmiş akıcı layout |
 | 📂 **GitHub API** | Projelerin yıldız ve güncelleme tarihine göre dinamik çekilmesi |
 | ✨ **Micro-Animations** | Framer Motion ile premium kullanıcı deneyimi |
+| ⚡ **Yüksek Performans** | Optimize edilmiş Next.js App Router mimarisi ve temiz kod yapısı |
 
 ---
 
