@@ -18,15 +18,14 @@ Modern, responsive ve premium kişisel portfolio websitesi
 | Özellik | Açıklama |
 |---------|----------|
 | 📊 **Live Status Dashboard** | Discord varlığı, anlık hava durumu ve sistem stack gösterimi |
+| ✨ **Advanced Custom Cursor** | LERP tabanlı akıcı takip, akıllı element sarma (wrapping) ve medya duyarlı gizlenme |
+| ⏳ **Deneyim Progress Bar** | Sayfa kaydırıldıkça dinamik olarak dolan senkronize zaman çizelgesi hattı |
 | ⛅ **Canlı Hava Durumu** | Open-Meteo API kullanılarak anlık İstanbul sıcaklığı ve dinamik ikonlar |
 | 🌍 **Akıllı Dil Algılama** | Tarayıcı diline göre otomatik Türkçe veya İngilizce gösterimi |
-| 🎨 **Premium Tasarım** | Özel Grid sistemi, Glassmorphism efektleri ve custom cursor |
-| 💻 **Tech Stack Kartları** | Kullanılan diller ve teknolojilerin interaktif gösterimi |
-| ⌨️ **Dinamik Typewriter** | Hero bölümünde sonsuz döngülü terminal daktilo efekti |
-| 📱 **Tam Responsive** | Tüm cihazlar için optimize edilmiş akıcı layout |
+| 🎨 **Premium Tasarım** | Özel Grid sistemi, Glassmorphism efektleri ve ultra-modern estetik |
 | 📂 **GitHub API** | Projelerin yıldız ve güncelleme tarihine göre dinamik çekilmesi |
-| ✨ **Micro-Animations** | Framer Motion ile premium kullanıcı deneyimi |
-| ⚡ **Yüksek Performans** | Optimize edilmiş Next.js App Router mimarisi ve temiz kod yapısı |
+| ✨ **Micro-Animations** | Framer Motion ile 60fps premium kullanıcı deneyimi |
+| ⚡ **Yüksek Performans** | Optimize edilmiş LERP döngüleri ve temiz React mimarisi |
 
 ---
 
