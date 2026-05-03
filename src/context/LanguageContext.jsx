@@ -48,6 +48,9 @@ export const translations = {
         expItem1: 'Son kullanıcı desteği verdim.',
         expItem2: 'Donanım kurulum ve bakım işlemlerini gerçekleştirdim.',
         expItem3: 'Arıza giderme ve ağ takibi konularında aktif görevler aldım.',
+        svItem1: 'Genel CTF sınavı sonucunda Bilecik\'de ilk 40\'a girerek öğrenci olmaya hak kazandım.',
+        svItem2: 'Beyaz Şapkalı Hacker Eğitimi, CTF ve Reverse Engineering Eğitimi aldım.',
+        svItem3: 'Aldığım eğitimlerde web güvenliği, ağ güvenliği, sızma testleri, zararlı yazılım analizi gibi birçok alanda bilgi ve beceri kazandım.',
 
         // Skills
         skillsTitle: 'Yetenekler',
@@ -178,6 +181,9 @@ export const translations = {
         expItem1: 'Provided end-user support.',
         expItem2: 'Performed hardware installation and maintenance.',
         expItem3: 'Took active roles in troubleshooting and network monitoring.',
+        svItem1: 'I earned my student spot by placing in the top 40 in Bilecik in the general CTF exam.',
+        svItem2: 'I received training in Ethical Hacking, CTF, and Reverse Engineering.',
+        svItem3: 'In these trainings, I gained knowledge and skills in many areas such as web security, network security, penetration testing, and malware analysis.',
 
         // Skills
         skillsTitle: 'Skills',
