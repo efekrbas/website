@@ -13,6 +13,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: none;
+}
+
+body * {
     cursor: none !important;
 }
 
@@ -51,46 +55,89 @@ a {
     transition: all 0.3s ease;
     text-decoration: none;
     color: inherit;
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: auto !important;
 }
 
-/* Custom Cursor */
-.cursor {
-    width: 10px;
-    height: 10px;
-    border: 1px solid white;
-    background: transparent;
+button, .btn, .segmented-control, .ls-social-item {
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: auto !important;
+}
+
+/* Custom Cursor System */
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #fff;
     border-radius: 50%;
     position: fixed;
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    pointer-events: none !important;
     z-index: 99999;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.25s ease;
+    transition: opacity 0.3s ease;
 }
 
-.cursor.cursor--hidden {
-    opacity: 0;
-}
-
-.cursor-follower {
-    width: 30px;
-    height: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+.cursor-ring {
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     position: fixed;
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    pointer-events: none !important;
     z-index: 99998;
-    transform: translate(-50%, -50%);
-    transition: width 0.35s cubic-bezier(0.25, 0.1, 0.25, 1),
-        height 0.35s cubic-bezier(0.25, 0.1, 0.25, 1),
-        border-radius 0.35s cubic-bezier(0.25, 0.1, 0.25, 1),
-        left 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
-        top 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
-        border-color 0.3s ease,
-        opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                height 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.3s ease,
+                border-radius 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                background-color 0.3s ease;
 }
 
-.cursor-follower.cursor-follower--wrapping {
-    border-color: rgba(255, 255, 255, 0.6);
+/* Hover States */
+.cursor-ring.ring-hover {
+    width: 65px;
+    height: 65px;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cursor-ring.ring-marquee {
+    width: 90px;
+    height: 90px;
+    border-color: #fff;
+}
+
+.cursor-ring.ring-wrap {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.cursor-icon {
+    color: #fff;
+    font-size: 1.8rem;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.ring-marquee .cursor-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@media (max-width: 768px) {
+    .cursor-dot, .cursor-ring {
+        display: none !important;
+    }
+    * {
+        cursor: auto !important;
+    }
 }
 
 /* Header & Nav */
@@ -956,6 +1003,7 @@ footer {
     background: var(--accent-color);
     border-radius: 10px;
     z-index: 0;
+    pointer-events: none !important;
 }
 
 .segment-btn {

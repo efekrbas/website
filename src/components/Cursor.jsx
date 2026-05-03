@@ -1,145 +1,137 @@
 import React, { useEffect, useRef } from 'react';
 
 const Cursor = () => {
-    const cursorRef = useRef(null);
-    const followerRef = useRef(null);
-    const mousePos = useRef({ x: 0, y: 0 });
-    const followerPos = useRef({ x: 0, y: 0 });
-    const isHovering = useRef(false);
-    const hoveredEl = useRef(null);
+    const dotRef = useRef(null);
+    const ringRef = useRef(null);
+    const mousePos = useRef({ x: -100, y: -100 });
+    const ringPos = useRef({ x: -100, y: -100 });
     const rafId = useRef(null);
+    const activeWrapTarget = useRef(null);
 
     useEffect(() => {
-        const cursor = cursorRef.current;
-        const follower = followerRef.current;
-        if (!cursor || !follower) return;
+        const dot = dotRef.current;
+        const ring = ringRef.current;
+        if (!dot || !ring) return;
 
-        // Don't initialize cursor for touch devices (mobile)
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        if (isTouchDevice) {
-            cursor.style.display = 'none';
-            follower.style.display = 'none';
+        if ('ontouchstart' in window || navigator.maxTouchPoints > 0 || window.innerWidth < 768) {
+            dot.style.display = 'none';
+            ring.style.display = 'none';
             return;
         }
 
-        // Smooth lerp for the follower
         const lerp = (start, end, factor) => start + (end - start) * factor;
 
         const animate = () => {
-            if (!isHovering.current) {
-                // Smoothly follow the mouse when not hovering
-                followerPos.current.x = lerp(followerPos.current.x, mousePos.current.x, 0.15);
-                followerPos.current.y = lerp(followerPos.current.y, mousePos.current.y, 0.15);
-
-                follower.style.left = `${followerPos.current.x}px`;
-                follower.style.top = `${followerPos.current.y}px`;
+            if (activeWrapTarget.current) {
+                const rect = activeWrapTarget.current.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                // Release if mouse leaves the general area (handling scroll out)
+                const padding = 30;
+                if (
+                    mousePos.current.x < rect.left - padding || 
+                    mousePos.current.x > rect.right + padding || 
+                    mousePos.current.y < rect.top - padding || 
+                    mousePos.current.y > rect.bottom + padding
+                ) {
+                    releaseWrap();
+                } else {
+                    ring.style.transform = `translate3d(${centerX}px, ${centerY}px, 0) translate(-50%, -50%)`;
+                    // Keep ringPos in sync for smooth transition back
+                    ringPos.current.x = centerX;
+                    ringPos.current.y = centerY;
+                }
+            } else {
+                ringPos.current.x = lerp(ringPos.current.x, mousePos.current.x, 0.15);
+                ringPos.current.y = lerp(ringPos.current.y, mousePos.current.y, 0.15);
+                ring.style.transform = `translate3d(${ringPos.current.x}px, ${ringPos.current.y}px, 0) translate(-50%, -50%)`;
             }
             rafId.current = requestAnimationFrame(animate);
         };
         rafId.current = requestAnimationFrame(animate);
 
         const moveCursor = (e) => {
+            if (e.clientX === undefined) return;
             mousePos.current.x = e.clientX;
             mousePos.current.y = e.clientY;
-
-            // The small dot always follows instantly
-            cursor.style.left = `${e.clientX}px`;
-            cursor.style.top = `${e.clientY}px`;
+            dot.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
         };
 
-        const wrapElement = (target) => {
-            const rect = target.getBoundingClientRect();
-            const computedStyle = window.getComputedStyle(target);
-            const borderRadius = computedStyle.borderRadius;
-            const padding = 4;
-
-            follower.style.width = `${rect.width + padding * 2}px`;
-            follower.style.height = `${rect.height + padding * 2}px`;
-            follower.style.borderRadius = borderRadius;
-            follower.style.left = `${rect.left + rect.width / 2}px`;
-            follower.style.top = `${rect.top + rect.height / 2}px`;
+        const releaseWrap = () => {
+            activeWrapTarget.current = null;
+            dot.style.opacity = '1';
+            ring.classList.remove('ring-wrap');
+            ring.style.width = '';
+            ring.style.height = '';
+            ring.style.borderRadius = '';
         };
 
         const handleMouseOver = (e) => {
-            const target = e.target.closest('a, button');
-            const videoTarget = e.target.closest('.video-container');
+            const target = e.target;
+            
+            // 0. Hide on YouTube Videos
+            if (target.closest('.video-container') || target.tagName === 'IFRAME') {
+                dot.style.opacity = '0';
+                ring.style.opacity = '0';
+                return;
+            } else {
+                ring.style.opacity = '1';
+                if (!activeWrapTarget.current) dot.style.opacity = '1';
+            }
 
-            if (target) {
-                if (hoveredEl.current === target) return;
+            // Priority 1: Wrap Targets (Navbar, Social, Buttons)
+            const wrapTarget = target.closest('.nav-links a, .ls-social-item, button, .btn, .project-links a, .view-certs-btn');
+            if (wrapTarget) {
+                activeWrapTarget.current = wrapTarget;
+                const rect = wrapTarget.getBoundingClientRect();
+                const computedStyle = window.getComputedStyle(wrapTarget);
                 
-                isHovering.current = true;
-                hoveredEl.current = target;
+                ring.classList.add('ring-wrap');
+                dot.style.opacity = '0';
+                
+                ring.style.width = `${rect.width + 12}px`;
+                ring.style.height = `${rect.height + 12}px`;
+                ring.style.borderRadius = computedStyle.borderRadius;
+                return;
+            }
 
-                cursor.style.opacity = '';
-                follower.style.opacity = '';
-                cursor.classList.add('cursor--hidden');
-                follower.classList.add('cursor-follower--wrapping');
-                wrapElement(target);
-            } else if (videoTarget) {
-                cursor.style.opacity = '0';
-                follower.style.opacity = '0';
+            // Priority 2: Marquee
+            if (target.closest('.marquee-container')) {
+                ring.classList.add('ring-marquee');
+                // Keep dot visible, no icon logic needed
+                return;
+            }
+
+            // Priority 3: General Hover
+            if (target.closest('[class*="card"]')) {
+                ring.classList.add('ring-hover');
+                return;
             }
         };
 
         const handleMouseOut = (e) => {
-            const target = e.target.closest('a, button');
-            const videoTarget = e.target.closest('.video-container');
-            const related = e.relatedTarget;
-
-            if (target && (!related || !target.contains(related))) {
-                isHovering.current = false;
-                hoveredEl.current = null;
-
-                cursor.classList.remove('cursor--hidden');
-                follower.classList.remove('cursor-follower--wrapping');
-                follower.style.width = '';
-                follower.style.height = '';
-                follower.style.borderRadius = '';
-            } else if (videoTarget && (!related || !videoTarget.contains(related))) {
-                cursor.style.opacity = '';
-                follower.style.opacity = '';
-            }
-        };
-
-        const handleScroll = () => {
-            if (isHovering.current && hoveredEl.current) {
-                const rect = hoveredEl.current.getBoundingClientRect();
-                const mx = mousePos.current.x;
-                const my = mousePos.current.y;
-
-                const tolerance = 2;
-                if (mx >= rect.left - tolerance && mx <= rect.right + tolerance && my >= rect.top - tolerance && my <= rect.bottom + tolerance) {
-                    wrapElement(hoveredEl.current);
-                } else {
-                    isHovering.current = false;
-                    hoveredEl.current = null;
-                    cursor.classList.remove('cursor--hidden');
-                    follower.classList.remove('cursor-follower--wrapping');
-                    follower.style.width = '';
-                    follower.style.height = '';
-                    follower.style.borderRadius = '';
-                }
+            if (!activeWrapTarget.current) {
+                ring.classList.remove('ring-hover', 'ring-marquee');
             }
         };
 
         document.addEventListener('mousemove', moveCursor);
         document.addEventListener('mouseover', handleMouseOver);
         document.addEventListener('mouseout', handleMouseOut);
-        window.addEventListener('scroll', handleScroll, true);
 
         return () => {
             document.removeEventListener('mousemove', moveCursor);
             document.removeEventListener('mouseover', handleMouseOver);
             document.removeEventListener('mouseout', handleMouseOut);
-            window.removeEventListener('scroll', handleScroll, true);
             cancelAnimationFrame(rafId.current);
         };
     }, []);
 
     return (
         <>
-            <div className="cursor" ref={cursorRef}></div>
-            <div className="cursor-follower" ref={followerRef}></div>
+            <div ref={dotRef} className="cursor-dot"></div>
+            <div ref={ringRef} className="cursor-ring"></div>
         </>
     );
 };
