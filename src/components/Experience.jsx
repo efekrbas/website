@@ -1,9 +1,18 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
 const Experience = () => {
     const { language, t } = useLanguage();
+    const containerRef = useRef(null);
+
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start end", "end start"]
+    });
+
+    const heightScale = useTransform(scrollYProgress, [0.1, 0.9], [0, 1]);
+    const smoothHeight = useSpring(heightScale, { stiffness: 100, damping: 30 });
 
     return (
         <motion.section
@@ -14,7 +23,12 @@ const Experience = () => {
             transition={{ duration: 0.6 }}
         >
             <h2 className="section-title">{t('experienceTitle')}</h2>
-            <div className="timeline">
+            <div className="timeline" ref={containerRef}>
+                <motion.div 
+                    className="timeline-progress-bar"
+                    style={{ scaleY: smoothHeight }}
+                />
+                
                 <div className="timeline-item">
                     <div className="timeline-date">
                         {language === 'tr' ? 'Şubat 2026 - Devam ediyor' : 'February 2026 - Continuing'}
