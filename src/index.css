@@ -426,6 +426,55 @@ section {
     transform: translateY(-5px);
 }
 
+/* Marquee Section */
+.marquee-container {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    overflow: hidden;
+    background-color: transparent;
+    color: #fff;
+    padding: 24px 0;
+    position: relative;
+    display: flex;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 10;
+}
+
+.marquee-content {
+    display: flex;
+    width: max-content;
+    animation: scroll-marquee 40s linear infinite;
+}
+
+.marquee-group {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.marquee-text {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    letter-spacing: -0.02em;
+    text-transform: lowercase;
+    padding: 0 10px;
+}
+
+.marquee-star {
+    font-size: 2rem;
+    color: #888;
+    margin: 0 30px;
+    display: inline-flex;
+    align-items: center;
+}
+
+@keyframes scroll-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
 /* About Section */
 .about-container {
     display: grid;

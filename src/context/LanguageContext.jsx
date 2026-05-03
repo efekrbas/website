@@ -33,6 +33,11 @@ export const translations = {
         codeMission: 'Her Şeyi Otomatikleştir',
         codeHello: 'Merhaba Dünya! Ben Efe.',
 
+        // Marquee
+        marqueeItem1: 'Yazılım Geliştirici',
+        marqueeItem2: 'Bilgisayar Programcılığı Öğrencisi',
+        marqueeItem3: 'Siber Güvenlik & Yapay Zeka Meraklısı',
+
         // About
         aboutTitle: 'Hakkımda',
         aboutText: 'Medipol Sağlık Grubu\'nda Bilgi İşlem Saha Destek Stajyeri olarak çalıştım ve bu süreçte son kullanıcıların donanım-yazılım sorunlarını çözme, arıza giderme konularında pratik deneyim kazandım. Ayrıca bilgisayar, yazıcı ve çevre birimlerinin kurulum–bakım işlemlerini gerçekleştirme konularında aktif görev aldım. Bilecik Şeyh Edebali Üniversitesi\'nde Bilgisayar Programcılığı bölümünde önlisans eğitimime devam ediyor, aynı zamanda siber güvenlik, yazılım geliştirme ve yapay zeka teknolojileri üzerine yoğunlaşıyorum. Üniversitemin Hackviser Kampüs Elçisiyim.',
@@ -157,6 +162,11 @@ export const translations = {
         codeSkills: '["CyberSec", "Linux", "C"]',
         codeMission: 'Automate Everything',
         codeHello: 'Hello World! I\'m Efe.',
+
+        // Marquee
+        marqueeItem1: 'Software Developer',
+        marqueeItem2: 'Computer Programming Student',
+        marqueeItem3: 'Cyber Security & Artificial Intelligence Enthusiast',
 
         // About
         aboutTitle: 'About Me',
