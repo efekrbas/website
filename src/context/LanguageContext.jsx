@@ -49,7 +49,7 @@ export const translations = {
         expItem2: 'Donanım kurulum ve bakım işlemlerini gerçekleştirdim.',
         expItem3: 'Arıza giderme ve ağ takibi konularında aktif görevler aldım.',
         svItem1: 'Genel CTF sınavı sonucunda Bilecik\'de ilk 40\'a girerek öğrenci olmaya hak kazandım.',
-        svItem2: 'Beyaz Şapkalı Hacker Eğitimi, CTF ve Reverse Engineering Eğitimi aldım.',
+        svItem2: 'Beyaz Şapkalı Hacker, CTF ve Reverse Engineering Eğitimi aldım.',
         svItem3: 'Aldığım eğitimlerde web güvenliği, ağ güvenliği, sızma testleri, zararlı yazılım analizi gibi birçok alanda bilgi ve beceri kazandım.',
 
         // Skills
