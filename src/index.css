@@ -447,6 +447,10 @@ section {
     animation: scroll-marquee 40s linear infinite;
 }
 
+.marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+}
+
 .marquee-group {
     display: flex;
     align-items: center;
