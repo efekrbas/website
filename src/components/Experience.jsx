@@ -24,11 +24,11 @@ const Experience = () => {
         >
             <h2 className="section-title">{t('experienceTitle')}</h2>
             <div className="timeline" ref={containerRef}>
-                <motion.div 
+                <motion.div
                     className="timeline-progress-bar"
                     style={{ scaleY: smoothHeight }}
                 />
-                
+
                 <div className="timeline-item">
                     <div className="timeline-date">
                         {language === 'tr' ? 'Şubat 2026 - Devam ediyor' : 'February 2026 - Continuing'}
@@ -66,7 +66,7 @@ const Experience = () => {
                                 <h3>{t('cyberSecurityStudent')}</h3>
                                 <h4>{t('cyberHomeland')}</h4>
                                 <p className="location"><i className="fas fa-map-marker-alt"></i> Bilecik, {language === 'tr' ? 'Türkiye' : 'Türkiye'}</p>
-                                <p className="description">{language === 'tr' ? 'Genel CTF sınavı sonucunda Bilecik\'de ilk 40\'a girerek öğrenci olmaya hak kazandım.' : 'I earned my student spot by placing in the top 40 in Bilecik in the general CTF exam.'}</p>
+                                <p className="description">{language === 'tr' ? 'Genel CTF sınavı sonucunda Bilecik\'de ilk 40\'a girerek öğrenci olmaya hak kazandım. Beyaz Şapkalı Hacker Eğitimi, CTF ve Reverse Engineering Eğitimi aldım. Bu eğitimlerde web güvenliği, ağ güvenliği, sızma testleri, zararlı yazılım analizi gibi birçok alanda bilgi ve beceri kazandım.' : 'I earned my student spot by placing in the top 40 in Bilecik in the general CTF exam. I received training in Ethical Hacking, CTF, and Reverse Engineering. In these trainings, I gained knowledge and skills in many areas such as web security, network security, penetration testing, and malware analysis.'}</p>
                             </div>
                         </div>
                     </div>
