@@ -1171,6 +1171,11 @@ footer {
         left: 16px;
     }
 
+    .timeline-progress-bar {
+        left: 16px;
+        transform: none;
+    }
+
     .timeline-item {
         flex-direction: column !important;
         margin-left: 0;
