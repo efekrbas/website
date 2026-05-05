@@ -378,15 +378,24 @@ pre {
 
 .scroll-down {
     position: absolute;
-    bottom: 40px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    opacity: 0.5;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
     animation: bounce 2s infinite;
+}
+
+@media (max-width: 768px) {
+    .scroll-down {
+        display: none !important;
+    }
 }
 
 @keyframes bounce {
