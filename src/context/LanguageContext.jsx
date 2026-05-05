@@ -29,7 +29,7 @@ export const translations = {
         contactBtn: 'İletişime Geç',
         downloadCV: 'CV İndir',
         scroll: 'Kaydır',
-        codeSkills: '{"Siber G.", "Linux", "C"}',
+        codeSkills: '{"Coding", "CyberSec"}',
         codeMission: 'Her Şeyi Otomatikleştir',
         codeHello: 'Merhaba Dünya! Ben Efe.',
 
@@ -154,9 +154,14 @@ export const translations = {
         chatbotGreeting: 'Merhaba! Ben Efe\'nin yapay zeka asistanıyım. Sana nasıl yardımcı olabilirim?',
         chatSuggestWho: 'Efe Kimdir?',
         chatSuggestExp: 'Efe\'nin Deneyimleri Nelerdir?',
+        chatSuggestEdu: 'Efe\'nin Eğitimi Hakkında Bilgi Alabilir Miyim?',
         chatSuggestProj: 'Efe\'nin Projeleri Nelerdir?',
         chatSuggestContact: 'Efe\'yle Nasıl İletişim Kurabilirim?',
         chatRateLimit: 'Çok hızlı gidiyorsun! 🧊 Biraz soluklanıp bir dakika sonra tekrar deneyebilir misin?',
+        bioTitle: 'Efe Kırbaş - Özet',
+        bioEducation: 'Eğitim',
+        bioExperience: 'Deneyim',
+        bioSkills: 'Yetenekler',
     },
     en: {
         // Navigation
@@ -173,7 +178,7 @@ export const translations = {
         contactBtn: 'Get in Touch',
         downloadCV: 'Download CV',
         scroll: 'Scroll',
-        codeSkills: '["CyberSec", "Linux", "C"]',
+        codeSkills: '{"Coding", "CyberSec"}',
         codeMission: 'Automate Everything',
         codeHello: 'Hello World! I\'m Efe.',
 
@@ -298,9 +303,14 @@ export const translations = {
         chatbotGreeting: 'Hello! I am Efe\'s AI assistant. How can I help you today?',
         chatSuggestWho: 'Who is Efe?',
         chatSuggestExp: 'What are Efe\'s experiences?',
+        chatSuggestEdu: 'Can I get information about Efe\'s education?',
         chatSuggestProj: 'What are Efe\'s projects?',
         chatSuggestContact: 'How can I contact Efe?',
         chatRateLimit: 'Whoa, slow down! 🧊 Take a breather and try again in a minute.',
+        bioTitle: 'Efe Kırbaş - Summary',
+        bioEducation: 'Education',
+        bioExperience: 'Experience',
+        bioSkills: 'Skills',
     }
 };
 

@@ -6,6 +6,29 @@ const Experience = () => {
     const { language, t } = useLanguage();
     const containerRef = useRef(null);
 
+    const calculateDuration = (startYear, startMonth, endYear = null, endMonth = null) => {
+        const start = new Date(startYear, startMonth - 1);
+        const end = endYear && endMonth ? new Date(endYear, endMonth - 1) : new Date();
+        
+        let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+        if (!endYear) months += 1; // Devam eden işler için içinde bulunduğumuz ayı da sayalım
+
+        if (months <= 0) return language === 'tr' ? 'Yeni' : 'New';
+        
+        const years = Math.floor(months / 12);
+        const remainingMonths = months % 12;
+        
+        let result = '';
+        if (years > 0) {
+            result += `${years} ${language === 'tr' ? 'yıl' : 'year'}${years > 1 && language === 'en' ? 's' : ''}`;
+        }
+        if (remainingMonths > 0) {
+            if (result) result += ' ';
+            result += `${remainingMonths} ${language === 'tr' ? 'ay' : 'month'}${remainingMonths > 1 && language === 'en' ? 's' : ''}`;
+        }
+        return result || (language === 'tr' ? '1 ay' : '1 month');
+    };
+
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start end", "end start"]
@@ -31,7 +54,9 @@ const Experience = () => {
 
                 <div className="timeline-item">
                     <div className="timeline-date">
-                        {language === 'tr' ? 'Mayıs 2026 - Devam ediyor · 1 ay' : 'May 2026 - Continuing · 1 month'}
+                        {language === 'tr' 
+                            ? `Mayıs 2026 - Devam ediyor · ${calculateDuration(2026, 5)}` 
+                            : `May 2026 - Continuing · ${calculateDuration(2026, 5)}`}
                     </div>
                     <div className="timeline-content glass-card">
                         <div className="timeline-inner">
@@ -49,7 +74,9 @@ const Experience = () => {
 
                 <div className="timeline-item">
                     <div className="timeline-date">
-                        {language === 'tr' ? 'Şubat 2026 - Devam ediyor' : 'February 2026 - Continuing'}
+                        {language === 'tr' 
+                            ? `Şubat 2026 - Devam ediyor · ${calculateDuration(2026, 2)}` 
+                            : `February 2026 - Continuing · ${calculateDuration(2026, 2)}`}
                     </div>
                     <div className="timeline-content glass-card">
                         <div className="timeline-inner">
@@ -66,7 +93,9 @@ const Experience = () => {
                 </div>
                 <div className="timeline-item">
                     <div className="timeline-date">
-                        {language === 'tr' ? 'Kasım 2025 - Devam ediyor' : 'November 2025 - Continuing'}
+                        {language === 'tr' 
+                            ? `Kasım 2025 - Devam ediyor · ${calculateDuration(2025, 11)}` 
+                            : `November 2025 - Continuing · ${calculateDuration(2025, 11)}`}
                     </div>
                     <div className="timeline-content glass-card">
                         <div className="timeline-inner">
@@ -95,7 +124,9 @@ const Experience = () => {
                 </div>
                 <div className="timeline-item">
                     <div className="timeline-date">
-                        {language === 'tr' ? 'Eylül 2024 - Haziran 2025' : 'September 2024 - June 2025'}
+                        {language === 'tr' 
+                            ? `Eylül 2024 - Haziran 2025 · ${calculateDuration(2024, 9, 2025, 6)}` 
+                            : `September 2024 - June 2025 · ${calculateDuration(2024, 9, 2025, 6)}`}
                     </div>
                     <div className="timeline-content glass-card">
                         <div className="timeline-inner">

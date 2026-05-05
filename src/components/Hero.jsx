@@ -24,7 +24,7 @@ const Hero = () => {
                     timer = setTimeout(loop, i < 0 ? 500 : 80);
                 } else if (i > fullText.length) {
                     isDeleting = true;
-                    timer = setTimeout(loop, 0); 
+                    timer = setTimeout(loop, 0);
                 } else if (i < 0) {
                     isDeleting = false;
                     i = 0;
@@ -37,6 +37,22 @@ const Hero = () => {
         }, []);
 
         return <>{typedText}</>;
+    };
+
+    const CodeTypewriter = ({ code }) => {
+        const [displayedCode, setDisplayedCode] = useState('');
+        
+        useEffect(() => {
+            let i = 0;
+            const timer = setInterval(() => {
+                setDisplayedCode(code.slice(0, i));
+                i++;
+                if (i > code.length) clearInterval(timer);
+            }, 10);
+            return () => clearInterval(timer);
+        }, [code]);
+
+        return <pre><code className="language-c">{displayedCode}</code></pre>;
     };
 
     return (
@@ -69,20 +85,14 @@ const Hero = () => {
                 <h2 className="subtitle">{t('softwareDeveloper')}</h2>
                 <p className="hero-desc">{t('heroDesc')}</p>
             </motion.div>
-            <motion.div
-                className="hero-visual"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-            >
+            <div className="hero-visual">
                 <div className="code-block">
                     <div className="code-header">
                         <span className="dot red"></span>
                         <span className="dot yellow"></span>
                         <span className="dot green"></span>
                     </div>
-                    <pre><code className="language-c">
-                        {`#include <stdio.h>
+                    <CodeTypewriter code={`#include <stdio.h>
 
 int main() {
     char *skills[] = ${t('codeSkills')};
@@ -90,10 +100,9 @@ int main() {
     
     printf("${t('codeHello')}\\n");
     return 0;
-}`}
-                    </code></pre>
+}`} />
                 </div>
-            </motion.div>
+            </div>
             <div className="scroll-down">
                 <span>{t('scroll')}</span>
                 <i className="fas fa-chevron-down"></i>

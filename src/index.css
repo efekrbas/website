@@ -60,7 +60,10 @@ a {
     pointer-events: auto !important;
 }
 
-button, .btn, .segmented-control, .ls-social-item {
+button,
+.btn,
+.segmented-control,
+.ls-social-item {
     user-select: none;
     -webkit-user-select: none;
     pointer-events: auto !important;
@@ -93,11 +96,11 @@ button, .btn, .segmented-control, .ls-social-item {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-                height 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-                border-color 0.3s ease,
-                border-radius 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-                background-color 0.3s ease;
+    transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        height 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        border-color 0.3s ease,
+        border-radius 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        background-color 0.3s ease;
 }
 
 /* Hover States */
@@ -132,9 +135,12 @@ button, .btn, .segmented-control, .ls-social-item {
 }
 
 @media (max-width: 768px) {
-    .cursor-dot, .cursor-ring {
+
+    .cursor-dot,
+    .cursor-ring {
         display: none !important;
     }
+
     * {
         cursor: auto !important;
     }
@@ -329,7 +335,15 @@ h1 {
     border-radius: 10px;
     padding: 20px;
     width: 400px;
+    min-height: 280px; /* İçerik yazılırken zıplamaması için sabit yükseklik */
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.code-block code {
+    font-size: 0.9rem;
+    line-height: 1.6;
 }
 
 .code-header {
@@ -409,14 +423,19 @@ section {
         min-height: 100vh;
     }
 
-    #about, #live-status, #education, #projects, #youtube {
+    #about,
+    #live-status,
+    #education,
+    #projects,
+    #youtube {
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
 
     #experience {
-        display: block; /* Restore default layout for experience to avoid shrinking */
+        display: block;
+        /* Restore default layout for experience to avoid shrinking */
     }
 
     #hero {
@@ -522,8 +541,13 @@ section {
 }
 
 @keyframes scroll-marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* About Section */
@@ -631,22 +655,23 @@ section {
 .timeline-date {
     position: absolute;
     left: 50%;
-    top: 24px;
+    top: 22px; /* Biraz daha yukarı aldık */
     transform: translateX(-50%);
     background: #0a0a0a;
-    padding: 5px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 20px;
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.35);
-    z-index: 2;
+    color: rgba(255, 255, 255, 0.4);
+    z-index: 5;
     white-space: nowrap;
     letter-spacing: 0.02em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .timeline-content {
-    width: 42%;
+    width: 40%; /* 42%'den 40%'a çektik, merkezde daha fazla boşluk bıraktık */
     position: relative;
     height: fit-content;
 }
@@ -1873,7 +1898,7 @@ footer {
 }
 
 .chat-header {
-    padding: 20px;
+    padding: 15px 20px;
     background: rgba(255, 255, 255, 0.05);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
@@ -1881,7 +1906,13 @@ footer {
     align-items: center;
 }
 
-.chat-header h3 {
+.chat-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-header-left h3 {
     font-size: 1.1rem;
     margin: 0;
     color: #fff;
@@ -1895,7 +1926,103 @@ footer {
     height: 8px;
     border-radius: 50%;
     background: #10b981;
-    display: inline-block;
+}
+
+.chat-header-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.chat-action-btn {
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-action-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+/* Bio Card Styles */
+.bio-card-overlay {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 65px);
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.bio-card-content {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.bio-section {
+    margin-bottom: 20px;
+}
+
+.bio-section h4 {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bio-section p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 5px;
+}
+
+.bio-skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.bio-skill-tags span {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+}
+
+.bio-close-btn {
+    width: 100%;
+    margin-top: auto;
+    padding: 12px;
+    background: var(--accent-color);
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.bio-close-btn:hover {
+    transform: scale(1.02);
 }
 
 .chat-messages {
@@ -1911,6 +2038,7 @@ footer {
 .chat-messages::-webkit-scrollbar {
     width: 4px;
 }
+
 .chat-messages::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;

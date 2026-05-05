@@ -134,6 +134,7 @@ const Chatbot = () => {
                             {[
                                 t('chatSuggestWho'),
                                 t('chatSuggestExp'),
+                                t('chatSuggestEdu'),
                                 t('chatSuggestProj'),
                                 t('chatSuggestContact')
                             ].map((text, i) => (
