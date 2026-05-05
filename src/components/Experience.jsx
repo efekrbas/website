@@ -31,6 +31,24 @@ const Experience = () => {
 
                 <div className="timeline-item">
                     <div className="timeline-date">
+                        {language === 'tr' ? 'Mayıs 2026 - Devam ediyor · 1 ay' : 'May 2026 - Continuing · 1 month'}
+                    </div>
+                    <div className="timeline-content glass-card">
+                        <div className="timeline-inner">
+                            <div className="logo-container">
+                                <img src="/images/siber0x1.png" alt="Siber0x1" className="company-logo" loading="lazy" decoding="async" />
+                            </div>
+                            <div className="text-container">
+                                <h3>{t('founder')}</h3>
+                                <h4>{t('siber0x1')}</h4>
+                                <p className="description">{t('siber0x1Desc')}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="timeline-item">
+                    <div className="timeline-date">
                         {language === 'tr' ? 'Şubat 2026 - Devam ediyor' : 'February 2026 - Continuing'}
                     </div>
                     <div className="timeline-content glass-card">

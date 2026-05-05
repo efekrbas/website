@@ -37,6 +37,7 @@ export const translations = {
         marqueeItem1: 'Yazılım Geliştirici',
         marqueeItem2: 'Bilgisayar Programcılığı Öğrencisi',
         marqueeItem3: 'Siber Güvenlik & Yapay Zeka Meraklısı',
+        marqueeItem4: 'İstanbul, TR',
 
         // About
         aboutTitle: 'Hakkımda',
@@ -51,6 +52,7 @@ export const translations = {
         svItem1: 'Genel CTF sınavı sonucunda Bilecik\'de ilk 40\'a girerek öğrenci olmaya hak kazandım.',
         svItem2: 'Beyaz Şapkalı Hacker, CTF ve Reverse Engineering Eğitimi aldım.',
         svItem3: 'Aldığım eğitimlerde web güvenliği, ağ güvenliği, sızma testleri, zararlı yazılım analizi gibi birçok alanda bilgi ve beceri kazandım.',
+        siber0x1Desc: 'Siber0x1 LinkedIn hesabının yönetilmesinden sorumluyum; diğer iki yönetici Instagram ve TikTok hesaplarını yönetiyor.',
 
         // Skills
         skillsTitle: 'Yetenekler',
@@ -107,6 +109,8 @@ export const translations = {
         bilecikUniversity: 'Bilecik Şeyh Edebali Üniversitesi',
         dundarUcarHighSchool: 'Dündar Uçar Mesleki Ve Teknik Anadolu Lisesi',
         Congenital: 'Doğuştan',
+        founder: 'Sosyal Medya Yöneticisi',
+        siber0x1: 'Siber0x1',
         certAIMiniBootcamp: 'Yapay Zeka Mini Bootcamp',
         certComputerOperator: 'Bilgisayar İşletmenliği (Operatörlüğü)',
         certOOP: 'Nesneye Dayalı Programlama',
@@ -170,6 +174,7 @@ export const translations = {
         marqueeItem1: 'Software Developer',
         marqueeItem2: 'Computer Programming Student',
         marqueeItem3: 'Cyber Security & Artificial Intelligence Enthusiast',
+        marqueeItem4: 'Istanbul, TR',
 
         // About
         aboutTitle: 'About Me',
@@ -184,6 +189,7 @@ export const translations = {
         svItem1: 'I earned my student spot by placing in the top 40 in Bilecik in the general CTF exam.',
         svItem2: 'I received training in Ethical Hacking, CTF, and Reverse Engineering.',
         svItem3: 'In these trainings, I gained knowledge and skills in many areas such as web security, network security, penetration testing, and malware analysis.',
+        siber0x1Desc: 'I am responsible for managing the Siber0x1 LinkedIn account; the other two managers handle Instagram and TikTok accounts.',
 
         // Skills
         skillsTitle: 'Skills',
@@ -240,6 +246,8 @@ export const translations = {
         bilecikUniversity: 'Bilecik Şeyh Edebali University',
         dundarUcarHighSchool: 'Dündar Uçar Vocational and Technical High School',
         Congenital: 'Congenital',
+        founder: 'Social Media Manager',
+        siber0x1: 'Siber0x1',
         certAIMiniBootcamp: 'Artificial Intelligence Mini Bootcamp',
         certComputerOperator: 'Computer Operator',
         certOOP: 'Object Oriented Programming',

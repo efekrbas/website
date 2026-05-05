@@ -7,7 +7,8 @@ const Marquee = () => {
     const items = [
         t('marqueeItem1'),
         t('marqueeItem2'),
-        t('marqueeItem3')
+        t('marqueeItem3'),
+        t('marqueeItem4')
     ];
 
     // Create a group of items with stars
