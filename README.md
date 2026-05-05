@@ -26,6 +26,7 @@ Modern, responsive ve premium kişisel portfolio websitesi
 | 📂 **GitHub API** | Projelerin yıldız ve güncelleme tarihine göre dinamik çekilmesi |
 | ✨ **Micro-Animations** | Framer Motion ile 60fps premium kullanıcı deneyimi |
 | ⚡ **Yüksek Performans** | Optimize edilmiş LERP döngüleri ve temiz React mimarisi |
+| 🤖 **Native AI Chatbot** | Groq & Llama 3 destekli, akıllı dil özellikli ve siber güvenlik korumalı asistan |
 
 ---
 
@@ -38,7 +39,8 @@ Modern, responsive ve premium kişisel portfolio websitesi
 | React 19 | Framer Motion | Lanyard API (Discord) | Next.js 15 |
 | Vanilla CSS | Hover Effects | YouTube API | Vercel Serverless |
 | HTML5 | Micro-interactions | GitHub API | ESLint |
-| Grid & Flexbox | Smooth Scroll | Open-Meteo API | PostCSS |
+| Grid & Flexbox | Smooth Scroll | Groq Cloud (AI) | PostCSS |
+| Lucide Icons | Glassmorphism | Llama 3 (LLM) | Git |
 
 </div>
 
@@ -67,9 +69,11 @@ npm run dev
 ```
 src/
 ├── app/
+│   ├── api/chat/route.js   # AI Backend
 │   ├── layout.jsx          # Root layout
 │   └── page.jsx            # Ana sayfa
 ├── components/
+│   ├── Chatbot.jsx         # AI Asistan
 │   ├── Header.jsx          # Navigasyon
 │   ├── Hero.jsx            # Ana bölüm
 │   ├── About.jsx           # Hakkımda
