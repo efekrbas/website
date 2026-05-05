@@ -100,7 +100,7 @@ const Cursor = () => {
             }
 
             // Priority 1: Wrap Targets
-            const wrapTarget = target.closest('.nav-links a, .ls-social-item, button, .btn, .project-links a, .view-certs-btn');
+            const wrapTarget = target.closest('.nav-links a, .ls-social-item, button, .btn, .project-links a, .view-certs-btn, .chatbot-bubble');
             
             // If we're already wrapping this exact target, don't do anything
             if (wrapTarget && activeWrapTarget.current === wrapTarget) return;

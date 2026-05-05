@@ -1,5 +1,6 @@
 import '../index.css';
 import { LanguageProvider } from '../context/LanguageContext';
+import Chatbot from '../components/Chatbot';
 
 export const metadata = {
   title: 'Efe Kırbaş',
@@ -51,6 +52,7 @@ export default function RootLayout({ children }) {
       <body>
         <LanguageProvider>
           {children}
+          <Chatbot />
         </LanguageProvider>
       </body>
     </html>

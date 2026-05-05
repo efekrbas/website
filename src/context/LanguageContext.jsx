@@ -150,6 +150,13 @@ export const translations = {
         youtubeTitle: 'YouTube Videolarım',
         watchVideo: 'İzle',
         visitChannel: 'Kanalı Ziyaret Et',
+        chatbotHeader: 'Efe\'nin AI Asistanı',
+        chatbotGreeting: 'Merhaba! Ben Efe\'nin yapay zeka asistanıyım. Sana nasıl yardımcı olabilirim?',
+        chatSuggestWho: 'Efe Kimdir?',
+        chatSuggestExp: 'Efe\'nin Deneyimleri Nelerdir?',
+        chatSuggestProj: 'Efe\'nin Projeleri Nelerdir?',
+        chatSuggestContact: 'Efe\'yle Nasıl İletişim Kurabilirim?',
+        chatRateLimit: 'Çok hızlı gidiyorsun! 🧊 Biraz soluklanıp bir dakika sonra tekrar deneyebilir misin?',
     },
     en: {
         // Navigation
@@ -287,6 +294,13 @@ export const translations = {
         youtubeTitle: 'My YouTube Videos',
         watchVideo: 'Watch',
         visitChannel: 'Visit Channel',
+        chatbotHeader: 'Efe\'s AI Assistant',
+        chatbotGreeting: 'Hello! I am Efe\'s AI assistant. How can I help you today?',
+        chatSuggestWho: 'Who is Efe?',
+        chatSuggestExp: 'What are Efe\'s experiences?',
+        chatSuggestProj: 'What are Efe\'s projects?',
+        chatSuggestContact: 'How can I contact Efe?',
+        chatRateLimit: 'Whoa, slow down! 🧊 Take a breather and try again in a minute.',
     }
 };
 
