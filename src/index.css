@@ -1954,7 +1954,15 @@ footer {
     display: flex;
     gap: 8px;
     padding: 0 20px 15px 20px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+}
+
+.chat-suggestions::-webkit-scrollbar {
+    display: none;
 }
 
 .suggestion-btn {
