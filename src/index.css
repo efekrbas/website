@@ -2096,6 +2096,8 @@ footer {
     scrollbar-width: none;
     -ms-overflow-style: none;
     mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .chat-suggestions::-webkit-scrollbar {

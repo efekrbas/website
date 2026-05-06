@@ -14,7 +14,62 @@ const Chatbot = () => {
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef(null);
+    const suggestionsRef = useRef(null);
+    const isDragging = useRef(false);
     const sessionId = useRef(typeof window !== 'undefined' ? crypto.randomUUID() : 'default-session');
+
+    // Drag-to-scroll for suggestions on desktop
+    useEffect(() => {
+        const el = suggestionsRef.current;
+        if (!el) return;
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        const onMouseDown = (e) => {
+            isDown = true;
+            isDragging.current = false;
+            el.style.cursor = 'grabbing';
+            startX = e.pageX - el.offsetLeft;
+            scrollLeft = el.scrollLeft;
+        };
+
+        const onMouseLeave = () => {
+            isDown = false;
+            el.style.cursor = 'grab';
+        };
+
+        const onMouseUp = () => {
+            isDown = false;
+            el.style.cursor = 'grab';
+        };
+
+        const onMouseMove = (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - el.offsetLeft;
+            const walk = (x - startX) * 2;
+            // Mark as dragging only if moved more than 5px
+            if (Math.abs(walk) > 5) {
+                isDragging.current = true;
+            }
+            el.scrollLeft = scrollLeft - walk;
+        };
+
+        el.style.cursor = 'grab';
+        el.addEventListener('mousedown', onMouseDown);
+        el.addEventListener('mouseleave', onMouseLeave);
+        el.addEventListener('mouseup', onMouseUp);
+        el.addEventListener('mousemove', onMouseMove);
+
+        return () => {
+            el.removeEventListener('mousedown', onMouseDown);
+            el.removeEventListener('mouseleave', onMouseLeave);
+            el.removeEventListener('mouseup', onMouseUp);
+            el.removeEventListener('mousemove', onMouseMove);
+        };
+    }, [isOpen]);
 
     // Update greeting when language changes
     useEffect(() => {
@@ -57,7 +112,7 @@ const Chatbot = () => {
             });
 
             const data = await response.json();
-            
+
             if (response.status === 429) {
                 throw new Error('RATE_LIMIT');
             }
@@ -77,8 +132,8 @@ const Chatbot = () => {
             }
         } catch (error) {
             console.error('Chat Error:', error);
-            let errorMessage = language === 'tr' 
-                ? `Hata: ${error.message || 'Bilinmeyen bir sorun oluştu.'}` 
+            let errorMessage = language === 'tr'
+                ? `Hata: ${error.message || 'Bilinmeyen bir sorun oluştu.'}`
                 : `Error: ${error.message || 'An unknown error occurred.'}`;
 
             if (error.message === 'RATE_LIMIT') {
@@ -99,7 +154,7 @@ const Chatbot = () => {
         <div className="chatbot-container">
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div 
+                    <motion.div
                         className="chatbot-window"
                         initial={{ opacity: 0, y: 20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -130,18 +185,22 @@ const Chatbot = () => {
                             <div ref={messagesEndRef} />
                         </div>
 
-                        <div className="chat-suggestions">
+                        <div className="chat-suggestions" ref={suggestionsRef}>
                             {[
                                 t('chatSuggestWho'),
                                 t('chatSuggestExp'),
                                 t('chatSuggestEdu'),
                                 t('chatSuggestProj'),
-                                t('chatSuggestContact')
+                                t('chatSuggestContact'),
+                                t('chatSuggestTech')
                             ].map((text, i) => (
-                                <button 
-                                    key={i} 
+                                <button
+                                    key={i}
                                     className="suggestion-btn"
-                                    onClick={() => handleSend(null, text)}
+                                    onClick={() => {
+                                        if (isDragging.current) return;
+                                        handleSend(null, text);
+                                    }}
                                 >
                                     {text}
                                 </button>
@@ -149,9 +208,9 @@ const Chatbot = () => {
                         </div>
 
                         <form className="chat-input-area" onSubmit={handleSend}>
-                            <input 
-                                type="text" 
-                                className="chat-input" 
+                            <input
+                                type="text"
+                                className="chat-input"
                                 placeholder={language === 'tr' ? 'Mesajınızı yazın...' : 'Type your message...'}
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
@@ -165,7 +224,7 @@ const Chatbot = () => {
                 )}
             </AnimatePresence>
 
-            <motion.div 
+            <motion.div
                 className="chatbot-bubble"
                 onClick={() => setIsOpen(!isOpen)}
                 whileHover={{ scale: 1.1 }}
