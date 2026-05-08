@@ -52,7 +52,7 @@ export const translations = {
         svItem1: 'Genel CTF sınavı sonucunda Bilecik\'de ilk 40\'a girerek öğrenci olmaya hak kazandım.',
         svItem2: 'Beyaz Şapkalı Hacker, CTF ve Reverse Engineering Eğitimi aldım.',
         svItem3: 'Aldığım eğitimlerde web güvenliği, ağ güvenliği, sızma testleri, zararlı yazılım analizi gibi birçok alanda bilgi ve beceri kazandım.',
-        siber0x1Desc: 'Siber0x1 LinkedIn hesabının yönetilmesinden sorumluyum; diğer iki yönetici Instagram ve TikTok hesaplarını yönetiyor.',
+        siber0x1Desc: 'Siber0x1 LinkedIn hesabının yönetilmesinden sorumluyum.',
 
         // Skills
         skillsTitle: 'Yetenekler',
