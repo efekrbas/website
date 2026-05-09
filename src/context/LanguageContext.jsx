@@ -144,8 +144,6 @@ export const translations = {
         discordOnline: 'Çevrimiçi',
         discordIdle: 'Boşta',
         discordDnd: 'Rahatsız Etmeyin',
-        spotifyNotPlaying: 'Şu an çalmıyor',
-        spotifyLastPlayed: 'Son çalınan',
 
         // Youtube
         youtube: 'YouTube',
@@ -296,8 +294,6 @@ export const translations = {
         discordOnline: 'Online',
         discordIdle: 'Idle',
         discordDnd: 'Do Not Disturb',
-        spotifyNotPlaying: 'Not playing',
-        spotifyLastPlayed: 'Last played',
 
         // Youtube
         youtube: 'YouTube',

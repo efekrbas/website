@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, CloudSun, Music, Code2, MapPin, ExternalLink, Languages, Sun, Cloud, CloudRain, CloudSnow, CloudLightning, CloudFog, CloudDrizzle, Instagram, Twitter, Linkedin, Mail, MessageSquare, Share2 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import SpotifyWidget from './SpotifyWidget';
 
 const DISCORD_USER_ID = '378501743366897675';
 
@@ -177,10 +176,7 @@ const LiveStatus = () => {
                     </div>
                 </motion.div>
 
-                {/* Spotify — col 1-12, row 3 */}
-                <SpotifyWidget />
-
-                {/* Languages — col 1-3, row 4 */}
+                {/* Languages — col 1-3, row 3 */}
                 <motion.div className="ls-card ls-area-langs" whileHover={{ y: -3 }} transition={{ duration: 0.2 }}>
                     <div className="ls-card-header">
                         <Languages size={12} className="ls-icon ls-icon-blue" />
