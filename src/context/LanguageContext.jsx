@@ -34,10 +34,10 @@ export const translations = {
         codeHello: 'Merhaba Dünya! Ben Efe.',
 
         // Marquee
-        marqueeItem1: 'Yazılım Geliştirici',
-        marqueeItem2: 'Bilgisayar Programcılığı Öğrencisi',
-        marqueeItem3: 'Siber Güvenlik & Yapay Zeka Meraklısı',
-        marqueeItem4: 'İstanbul, TR',
+        marqueeItem1: 'yazılım geliştirici',
+        marqueeItem2: 'bilgisayar programcılığı öğrencisi',
+        marqueeItem3: 'siber güvenlik & yapay zeka meraklısı',
+        marqueeItem4: 'istanbul, tr',
 
         // About
         aboutTitle: 'Hakkımda',
@@ -184,10 +184,10 @@ export const translations = {
         codeHello: 'Hello World! I\'m Efe.',
 
         // Marquee
-        marqueeItem1: 'Software Developer',
-        marqueeItem2: 'Computer Programming Student',
-        marqueeItem3: 'Cyber Security & Artificial Intelligence Enthusiast',
-        marqueeItem4: 'Istanbul, TR',
+        marqueeItem1: 'software developer',
+        marqueeItem2: 'computer programming student',
+        marqueeItem3: 'cyber security & artificial intelligence enthusiast',
+        marqueeItem4: 'istanbul, tr',
 
         // About
         aboutTitle: 'About Me',
