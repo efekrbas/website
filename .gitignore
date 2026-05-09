@@ -29,4 +29,8 @@ dist/
 *.njsproj
 *.sln
 *.sw?
-. e n v  
+
+# Environment variables
+.env
+.env.local
+.env*.local
