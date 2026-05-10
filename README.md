@@ -18,13 +18,14 @@ Modern, responsive ve premium kişisel portfolio websitesi
 | Özellik | Açıklama |
 |---------|----------|
 | 📊 **Live Status Dashboard** | Discord varlığı, anlık hava durumu ve sistem stack gösterimi |
-| ✨ **Advanced Custom Cursor** | LERP tabanlı akıcı takip, akıllı element sarma (wrapping) ve medya duyarlı gizlenme |
+| 🎵 **Spotify Entegrasyonu** | Spotify API üzerinden o an dinlenen şarkının canlı gösterimi |
+| ✨ **Advanced Custom Cursor** | Akıcı LERP animasyonlu ve duruma göre şekil değiştiren özel imleç |
 | ⏳ **Deneyim Progress Bar** | Sayfa kaydırıldıkça dinamik olarak dolan senkronize zaman çizelgesi hattı |
 | ⛅ **Canlı Hava Durumu** | Open-Meteo API kullanılarak anlık İstanbul sıcaklığı ve dinamik ikonlar |
 | 🌍 **Akıllı Dil Algılama** | Tarayıcı diline göre otomatik Türkçe veya İngilizce gösterimi |
-| 🎨 **Premium Tasarım** | Özel Grid sistemi, Glassmorphism efektleri ve ultra-modern estetik |
+| 🎨 **Premium Tasarım** | Minimalist navbar, özel Grid sistemi, Glassmorphism ve ultra-modern estetik |
 | 📂 **GitHub API** | Projelerin yıldız ve güncelleme tarihine göre dinamik çekilmesi |
-| ✨ **Micro-Animations** | Framer Motion ile 60fps premium kullanıcı deneyimi |
+| ✨ **Micro-Animations** | Gelişmiş CSS geçişleri ve 60fps premium etkileşimler |
 | ⚡ **Yüksek Performans** | Optimize edilmiş LERP döngüleri ve temiz React mimarisi |
 | 🤖 **Native AI Chatbot** | Groq & Llama 3 destekli, akıllı dil özellikli ve siber güvenlik korumalı asistan |
 
@@ -37,10 +38,10 @@ Modern, responsive ve premium kişisel portfolio websitesi
 | Frontend | Animasyon | API / Entegrasyon | Araçlar |
 |:--------:|:---------:|:---:|:-------:|
 | React 19 | Framer Motion | Lanyard API (Discord) | Next.js 15 |
-| Vanilla CSS | Hover Effects | YouTube API | Vercel Serverless |
-| HTML5 | Micro-interactions | GitHub API | ESLint |
-| Grid & Flexbox | Smooth Scroll | Groq Cloud (AI) | PostCSS |
-| Lucide Icons | Glassmorphism | Llama 3 (LLM) | Git |
+| Vanilla CSS | Hover Effects | Spotify Web API | Vercel Serverless |
+| HTML5 | Micro-interactions | YouTube API | ESLint |
+| Grid & Flexbox | Smooth Scroll | GitHub API | PostCSS |
+| Lucide Icons | Glassmorphism | Groq Cloud & Llama 3 | Git |
 
 </div>
 
@@ -58,6 +59,7 @@ cd website
 # Bağımlılıkları yükle
 npm install
 
+# Ortam değişkenlerini (.env.local) yapılandırın (Groq, Spotify API, vb.)
 # Geliştirme sunucusunu başlat
 npm run dev
 ```
@@ -74,10 +76,11 @@ src/
 │   └── page.jsx            # Ana sayfa
 ├── components/
 │   ├── Chatbot.jsx         # AI Asistan
-│   ├── Header.jsx          # Navigasyon
+│   ├── Header.jsx          # Minimalist Navigasyon
 │   ├── Hero.jsx            # Ana bölüm
 │   ├── About.jsx           # Hakkımda
 │   ├── LiveStatus.jsx      # Dashboard
+│   ├── SpotifyWidget.jsx   # Canlı Spotify verisi
 │   ├── Experience.jsx      # Deneyim
 │   ├── Education.jsx       # Eğitim
 │   ├── Projects.jsx        # GitHub projeleri
