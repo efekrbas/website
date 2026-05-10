@@ -100,7 +100,7 @@ const Cursor = () => {
             }
 
             // Priority 1: Wrap Targets
-            const wrapTarget = target.closest('.nav-links a, .ls-social-item, button, .btn, .project-links a, .view-certs-btn, .chatbot-bubble');
+            const wrapTarget = target.closest('.ls-social-item, button, .btn, .project-links a, .view-certs-btn, .chatbot-bubble');
             
             // If we're already wrapping this exact target, don't do anything
             if (wrapTarget && activeWrapTarget.current === wrapTarget) return;
@@ -132,7 +132,7 @@ const Cursor = () => {
             }
 
             // Priority 3: General Hover
-            if (target.closest('[class*="card"]')) {
+            if (target.closest('[class*="card"], .nav-links a')) {
                 ring.classList.add('ring-hover');
                 return;
             }
