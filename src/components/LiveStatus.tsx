@@ -140,7 +140,7 @@ const LiveStatus = () => {
                             <img 
                                 src={avatarUrl} 
                                 alt={username} 
-                                onError={(e) => { e.target.onerror = null; e.target.src = '/images/discord-avatar.gif'; }} 
+                                onError={(e) => { const target = e.target as HTMLImageElement; target.onerror = null; target.src = '/images/discord-avatar.gif'; }} 
                             />
                             <span className="ls-discord-status-dot" style={{ background: statusColors[discordStatus] }}></span>
                         </div>

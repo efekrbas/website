@@ -1,10 +1,17 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-const LanguageContext = createContext();
+// Define the type for the context value
+interface LanguageContextType {
+    language: string;
+    t: (key: string) => string;
+}
 
-export const useLanguage = () => {
+// Create context with a default value of undefined to force type checking
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+export const useLanguage = (): LanguageContextType => {
     const context = useContext(LanguageContext);
     if (!context) {
         throw new Error('useLanguage must be used within a LanguageProvider');
@@ -12,8 +19,7 @@ export const useLanguage = () => {
     return context;
 };
 
-
-export const translations = {
+export const translations: Record<string, Record<string, string>> = {
     tr: {
         // Navigation
         about: 'Hakkımda',
@@ -316,12 +322,12 @@ export const translations = {
     }
 };
 
-export const LanguageProvider = ({ children }) => {
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     const [language, setLanguage] = useState('en');
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        const browserLang = navigator.language || navigator.userLanguage;
+        const browserLang = navigator.language || (navigator as any).userLanguage;
         if (browserLang && browserLang.toLowerCase().startsWith('tr')) {
             // eslint-disable-next-line react-hooks/set-state-in-effect
             setLanguage('tr');

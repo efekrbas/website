@@ -1,0 +1,19 @@
+src/components/About.tsx(6,13): error TS2339: Property 't' does not exist on type '{}'.
+src/components/Chatbot.tsx(9,13): error TS2339: Property 'language' does not exist on type '{}'.
+src/components/Chatbot.tsx(9,23): error TS2339: Property 't' does not exist on type '{}'.
+src/components/Education.tsx(6,13): error TS2339: Property 't' does not exist on type '{}'.
+src/components/Experience.tsx(6,13): error TS2339: Property 'language' does not exist on type '{}'.
+src/components/Experience.tsx(6,23): error TS2339: Property 't' does not exist on type '{}'.
+src/components/Footer.tsx(5,13): error TS2339: Property 't' does not exist on type '{}'.
+src/components/Header.tsx(10,13): error TS2339: Property 't' does not exist on type '{}'.
+src/components/Hero.tsx(6,13): error TS2339: Property 't' does not exist on type '{}'.
+src/components/LiveStatus.tsx(10,13): error TS2339: Property 't' does not exist on type '{}'.
+src/components/LiveStatus.tsx(143,60): error TS2339: Property 'onerror' does not exist on type 'EventTarget'.
+src/components/LiveStatus.tsx(143,85): error TS2339: Property 'src' does not exist on type 'EventTarget'.
+src/components/Marquee.tsx(5,13): error TS2339: Property 't' does not exist on type '{}'.
+src/components/Projects.tsx(27,13): error TS2339: Property 't' does not exist on type '{}'.
+src/components/Projects.tsx(59,28): error TS2362: The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+src/components/Projects.tsx(59,36): error TS2363: The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+src/components/Youtube.tsx(41,13): error TS2339: Property 't' does not exist on type '{}'.
+src/context/LanguageContext.tsx(5,25): error TS2554: Expected 1 arguments, but got 0.
+src/context/LanguageContext.tsx(324,61): error TS2551: Property 'userLanguage' does not exist on type 'Navigator'. Did you mean 'language'?

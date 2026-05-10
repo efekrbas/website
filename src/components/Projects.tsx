@@ -25,8 +25,8 @@ const fallbackProjects = [
 
 const Projects = () => {
     const { t } = useLanguage();
-    const [originalProjects, setOriginalProjects] = useState([]);
-    const [projects, setProjects] = useState([]);
+    const [originalProjects, setOriginalProjects] = useState<any[]>([]);
+    const [projects, setProjects] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [sortBy, setSortBy] = useState('stars'); // 'stars' or 'updated'
 
@@ -56,7 +56,7 @@ const Projects = () => {
                 } else {
                     const dateB = new Date(b.pushed_at || b.updated_at);
                     const dateA = new Date(a.pushed_at || a.updated_at);
-                    return dateB - dateA;
+                    return dateB.getTime() - dateA.getTime();
                 }
             });
             setProjects(sorted.slice(0, 6));
