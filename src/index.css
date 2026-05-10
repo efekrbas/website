@@ -1442,7 +1442,7 @@ footer {
 .ls-grid-12 {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto auto auto;
     gap: 16px;
     max-width: 1024px;
     margin: 0 auto;
@@ -1476,6 +1476,11 @@ footer {
 .ls-area-weather {
     grid-column: 10 / 13;
     grid-row: 3 / 4;
+}
+
+.ls-area-spotify {
+    grid-column: 1 / 13;
+    grid-row: 4 / 5;
 }
 
 .ls-card {
@@ -1794,6 +1799,159 @@ footer {
     color: rgba(255, 255, 255, 0.3);
 }
 
+/* ============================================= */
+/* Spotify Widget                                */
+/* ============================================= */
+.spotify-widget {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: inherit;
+    min-height: 64px;
+}
+
+.spotify-widget.spotify-playing {
+    cursor: pointer;
+}
+
+.spotify-idle {
+    opacity: 0.5;
+}
+
+.spotify-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: rgba(30, 215, 96, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.spotify-icon-wrapper .spotify-logo {
+    color: #1db954;
+}
+
+.spotify-album-art {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.spotify-album-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.spotify-eq {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 14px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 3px;
+    padding: 2px 3px;
+}
+
+.spotify-eq span {
+    display: block;
+    width: 3px;
+    background: #1db954;
+    border-radius: 1px;
+    animation: spotify-eq-bar 0.8s ease-in-out infinite;
+}
+
+.spotify-eq span:nth-child(1) {
+    animation-delay: 0s;
+    height: 60%;
+}
+
+.spotify-eq span:nth-child(2) {
+    animation-delay: 0.2s;
+    height: 100%;
+}
+
+.spotify-eq span:nth-child(3) {
+    animation-delay: 0.4s;
+    height: 40%;
+}
+
+@keyframes spotify-eq-bar {
+    0%, 100% { height: 30%; }
+    50% { height: 100%; }
+}
+
+.spotify-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.spotify-track {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.spotify-artist {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.4);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.spotify-not-playing {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.spotify-sublabel {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.spotify-progress-bar {
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    margin-top: 4px;
+    overflow: hidden;
+}
+
+.spotify-progress {
+    height: 100%;
+    background: #1db954;
+    border-radius: 2px;
+    transition: width 1s linear;
+}
+
+.spotify-logo-small {
+    color: #1db954;
+    opacity: 0.5;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+}
+
+.spotify-widget:hover .spotify-logo-small {
+    opacity: 1;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
     .ls-grid-12 {
@@ -1830,6 +1988,11 @@ footer {
         grid-column: 1 / 3;
         grid-row: auto;
     }
+
+    .ls-area-spotify {
+        grid-column: 1 / 3;
+        grid-row: auto;
+    }
 }
 
 @media (max-width: 560px) {
@@ -1843,7 +2006,8 @@ footer {
     .ls-area-stack,
     .ls-area-langs,
     .ls-area-socials,
-    .ls-area-weather {
+    .ls-area-weather,
+    .ls-area-spotify {
         grid-column: 1 / -1;
         grid-row: auto;
     }

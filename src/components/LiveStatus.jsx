@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, CloudSun, Music, Code2, MapPin, ExternalLink, Languages, Sun, Cloud, CloudRain, CloudSnow, CloudLightning, CloudFog, CloudDrizzle, Instagram, Twitter, Linkedin, Mail, MessageSquare, Share2 } from 'lucide-react';
+import SpotifyWidget from './SpotifyWidget';
 import { useLanguage } from '../context/LanguageContext';
 
 const DISCORD_USER_ID = '378501743366897675';
@@ -246,6 +247,15 @@ const LiveStatus = () => {
                         </div>
                         {getWeatherIcon(weather.code)}
                     </div>
+                </motion.div>
+
+                {/* Spotify — col 1-12, row 4 */}
+                <motion.div className="ls-card ls-area-spotify" whileHover={{ y: -3 }} transition={{ duration: 0.2 }}>
+                    <div className="ls-card-header">
+                        <Music size={12} className="ls-icon" style={{ color: '#1db954' }} />
+                        <span className="ls-card-label">Spotify</span>
+                    </div>
+                    <SpotifyWidget />
                 </motion.div>
             </div>
         </motion.section>
