@@ -1463,23 +1463,23 @@ footer {
     grid-row: 2 / 3;
 }
 
-.ls-area-spotify {
-    grid-column: 1 / 13;
-    grid-row: 3 / 4;
-}
-
 .ls-area-langs {
     grid-column: 1 / 4;
-    grid-row: 4 / 5;
+    grid-row: 3 / 4;
 }
 
 .ls-area-socials {
     grid-column: 4 / 10;
-    grid-row: 4 / 5;
+    grid-row: 3 / 4;
 }
 
 .ls-area-weather {
     grid-column: 10 / 13;
+    grid-row: 3 / 4;
+}
+
+.ls-area-spotify {
+    grid-column: 1 / 13;
     grid-row: 4 / 5;
 }
 

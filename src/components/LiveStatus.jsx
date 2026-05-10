@@ -177,16 +177,7 @@ const LiveStatus = () => {
                     </div>
                 </motion.div>
 
-                {/* Spotify — col 1-12, row 3 */}
-                <motion.div className="ls-card ls-area-spotify" whileHover={{ y: -3 }} transition={{ duration: 0.2 }}>
-                    <div className="ls-card-header">
-                        <Music size={12} className="ls-icon" style={{ color: '#1db954' }} />
-                        <span className="ls-card-label">Spotify</span>
-                    </div>
-                    <SpotifyWidget />
-                </motion.div>
-
-                {/* Languages — col 1-3, row 4 */}
+                {/* Languages — col 1-3, row 3 */}
                 <motion.div className="ls-card ls-area-langs" whileHover={{ y: -3 }} transition={{ duration: 0.2 }}>
                     <div className="ls-card-header">
                         <Languages size={12} className="ls-icon ls-icon-blue" />
@@ -256,6 +247,15 @@ const LiveStatus = () => {
                         </div>
                         {getWeatherIcon(weather.code)}
                     </div>
+                </motion.div>
+
+                {/* Spotify — col 1-12, row 4 */}
+                <motion.div className="ls-card ls-area-spotify" whileHover={{ y: -3 }} transition={{ duration: 0.2 }}>
+                    <div className="ls-card-header">
+                        <Music size={12} className="ls-icon" style={{ color: '#1db954' }} />
+                        <span className="ls-card-label">Spotify</span>
+                    </div>
+                    <SpotifyWidget />
                 </motion.div>
             </div>
         </motion.section>
