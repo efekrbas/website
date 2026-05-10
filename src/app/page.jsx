@@ -23,6 +23,28 @@ export default function Home() {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }
+
+    // Scroll animation for section titles
+    const titleObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          entry.target.classList.remove('in-view'); // Re-animate every time it scrolls into view
+        }
+      });
+    }, { threshold: 0.5 });
+
+    // We need a small timeout to let children mount properly before observing
+    const timer = setTimeout(() => {
+      const titles = document.querySelectorAll('.section-title');
+      titles.forEach(title => titleObserver.observe(title));
+    }, 100);
+
+    return () => {
+      titleObserver.disconnect();
+      clearTimeout(timer);
+    };
   }, []);
 
   return (

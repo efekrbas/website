@@ -152,23 +152,22 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
-    padding: 20px 50px;
+    padding: 0;
 }
 
 .glass-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(5, 5, 5, 0.7);
-    backdrop-filter: blur(10px);
-    padding: 15px 30px;
-    border-radius: 20px;
-    border: 1px solid var(--glass-border);
+    background: #050505;
+    padding: 14px 40px;
+    border-radius: 0;
+    border: none;
     position: relative;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 800;
     letter-spacing: 2px;
 }
@@ -176,31 +175,30 @@ header {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 10px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    gap: 4px;
 }
 
 .nav-links a {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     font-weight: 500;
-    opacity: 0.4;
-    transition: all 0.4s ease;
+    opacity: 0.35;
+    transition: all 0.3s ease;
     display: inline-block;
-    padding: 8px 16px;
-    border-radius: 8px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    position: relative;
 }
 
 .nav-links a:hover {
-    opacity: 0.8;
+    opacity: 0.65;
 }
 
 .nav-links a.active {
     opacity: 1;
     color: #fff;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
 }
+
+
 
 
 .burger {
@@ -477,13 +475,18 @@ section {
 
 .section-title::after {
     content: '';
-    width: 50px;
-    height: 3px;
-    background: var(--accent-color);
     position: absolute;
     bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: calc(50% - 25px);
+    width: 0;
+    height: 3px;
+    background: var(--accent-color);
+    transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-title:hover::after,
+.section-title.in-view::after {
+    width: 50px;
 }
 
 .glass-card {
@@ -1077,7 +1080,11 @@ footer {
 /* Responsive */
 @media (max-width: 1024px) {
     header {
-        padding: 15px;
+        padding: 0;
+    }
+    
+    .glass-nav {
+        padding: 14px 24px;
     }
 
     .nav-links {
@@ -1270,13 +1277,18 @@ footer {
     }
 
     /* Performance Optimizations for Mobile */
-    .glass-nav,
     .glass-card,
-    .nav-links.nav-active,
     .ls-card {
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
         background: rgba(10, 10, 10, 0.9) !important;
+    }
+
+    .glass-nav,
+    .nav-links.nav-active {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: #050505 !important;
     }
 
     #hero::before {
