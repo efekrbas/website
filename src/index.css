@@ -1490,6 +1490,8 @@ footer {
     padding: 20px;
     transition: all 0.25s ease;
     backdrop-filter: blur(8px);
+    overflow: hidden;
+    min-width: 0;
 }
 
 .ls-card:hover {
@@ -1809,6 +1811,8 @@ footer {
     text-decoration: none;
     color: inherit;
     min-height: 64px;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .spotify-widget.spotify-playing {
