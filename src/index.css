@@ -333,7 +333,8 @@ h1 {
     border-radius: 10px;
     padding: 20px;
     width: 400px;
-    min-height: 280px; /* İçerik yazılırken zıplamaması için sabit yükseklik */
+    min-height: 280px;
+    /* İçerik yazılırken zıplamaması için sabit yükseklik */
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
@@ -666,7 +667,8 @@ section {
 .timeline-date {
     position: absolute;
     left: 50%;
-    top: 22px; /* Biraz daha yukarı aldık */
+    top: 22px;
+    /* Biraz daha yukarı aldık */
     transform: translateX(-50%);
     background: #0a0a0a;
     padding: 6px 14px;
@@ -682,7 +684,8 @@ section {
 }
 
 .timeline-content {
-    width: 40%; /* 42%'den 40%'a çektik, merkezde daha fazla boşluk bıraktık */
+    width: 40%;
+    /* 42%'den 40%'a çektik, merkezde daha fazla boşluk bıraktık */
     position: relative;
     height: fit-content;
 }
@@ -1082,7 +1085,7 @@ footer {
     header {
         padding: 0;
     }
-    
+
     .glass-nav {
         padding: 14px 24px;
     }
@@ -1902,8 +1905,15 @@ footer {
 }
 
 @keyframes spotify-eq-bar {
-    0%, 100% { height: 30%; }
-    50% { height: 100%; }
+
+    0%,
+    100% {
+        height: 30%;
+    }
+
+    50% {
+        height: 100%;
+    }
 }
 
 .spotify-info {

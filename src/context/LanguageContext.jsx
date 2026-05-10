@@ -56,8 +56,8 @@ export const translations = {
 
         // Skills
         skillsTitle: 'Yetenekler',
-        technicalSkills: 'Teknik Yetenekler',
-        languages: 'Diller',
+        technicalSkills: 'TEKNİK YETENEKLER',
+        languages: 'DİLLER',
         english: 'İngilizce',
         turkish: 'Türkçe',
         certificates: 'Sertifikalar',
@@ -108,7 +108,7 @@ export const translations = {
         viewAll: 'Tümünü Gör',
         bilecikUniversity: 'Bilecik Şeyh Edebali Üniversitesi',
         dundarUcarHighSchool: 'Dündar Uçar Mesleki Ve Teknik Anadolu Lisesi',
-        Congenital: 'Doğuştan',
+        Congenital: 'Anadil',
         founder: 'Sosyal Medya Yöneticisi',
         siber0x1: 'Siber0x1',
         certAIMiniBootcamp: 'Yapay Zeka Mini Bootcamp',
