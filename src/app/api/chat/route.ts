@@ -1,9 +1,9 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 
 // Basit bir in-memory rate limiter (Sunucu her başladığında sıfırlanır)
 const rateLimitMap = new Map();
 
-export async function POST(req) {
+export async function POST(req: NextRequest) {
     try {
         // IP adresini al (Vercel veya yerel ortam için)
         const ip = req.headers.get('x-forwarded-for') || 'anonymous';
@@ -12,7 +12,7 @@ export async function POST(req) {
         const maxRequests = 10; // Dakikada max 10 istek
 
         const userRequests = rateLimitMap.get(ip) || [];
-        const recentRequests = userRequests.filter(timestamp => now - timestamp < windowMs);
+        const recentRequests = userRequests.filter((timestamp: number) => now - timestamp < windowMs);
 
         if (recentRequests.length >= maxRequests) {
             return NextResponse.json(
@@ -90,7 +90,7 @@ export async function POST(req) {
             content: data.choices[0].message.content 
         });
 
-    } catch (error) {
+    } catch (error: any) {
         console.error('Full API Error:', error);
         return NextResponse.json({ error: error.message || 'Chat failed' }, { status: 500 });
     }

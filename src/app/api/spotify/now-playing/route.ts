@@ -71,7 +71,7 @@ export async function GET() {
         }
 
         return NextResponse.json({ isPlaying: false });
-    } catch (err) {
+    } catch (err: any) {
         console.error('Spotify API error:', err);
         return NextResponse.json({ isPlaying: false, error: err.message }, { status: 500 });
     }
