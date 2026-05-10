@@ -1,6 +1,8 @@
 import '../index.css';
 import { LanguageProvider } from '../context/LanguageContext';
 import Chatbot from '../components/Chatbot';
+import { Analytics } from '@vercel/analytics/react';
+import React from 'react';
 
 export const metadata = {
   title: 'Efe Kırbaş',
@@ -23,7 +25,7 @@ export const viewport = {
   initialScale: 1.0,
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -54,6 +56,7 @@ export default function RootLayout({ children }) {
           {children}
           <Chatbot />
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );
