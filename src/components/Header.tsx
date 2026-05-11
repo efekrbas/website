@@ -56,7 +56,12 @@ const Header = () => {
         const element = document.getElementById(id);
         if (element) {
             // CSS'te section padding-top 80px olduğu için offsetTop tam olarak header'ın bittiği yere denk gelir
-            const targetPosition = element.offsetTop;
+            let targetPosition = element.offsetTop;
+            
+            // Laptop ekranlarında başlığın üstündeki boşluğu azaltıp içeriği daha iyi göstermek için ofset ekliyoruz
+            if (['live-status', 'experience', 'projects'].includes(id) && window.innerWidth > 1024) {
+                targetPosition += 60; // 60px daha aşağı kaydırır
+            }
 
             // Zaten o hizada mıyız? (10px tolerans)
             if (Math.abs(window.scrollY - targetPosition) < 10) {
