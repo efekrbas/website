@@ -12,6 +12,7 @@ import Experience from '../components/Experience';
 import Education from '../components/Education';
 import Projects from '../components/Projects';
 import Youtube from '../components/Youtube';
+import Medium from '../components/Medium';
 
 export default function Home() {
   useEffect(() => {
@@ -38,6 +39,7 @@ export default function Home() {
         <Education />
         <Projects />
         <Youtube />
+        <Medium />
       </main>
       <Footer />
     </>

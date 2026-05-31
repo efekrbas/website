@@ -20,7 +20,7 @@ const LiveStatus = () => {
     useEffect(() => {
         let ws;
         let heartbeatInterval;
-        const connect = () => {
+        const connect = () => { 
             ws = new WebSocket('wss://api.lanyard.rest/socket');
             ws.onopen = () => {
                 ws.send(JSON.stringify({ op: 2, d: { subscribe_to_id: DISCORD_USER_ID } }));

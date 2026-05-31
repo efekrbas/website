@@ -1788,6 +1788,11 @@ footer {
     box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
 }
 
+.ls-social-item.md:hover {
+    color: #00ab6c;
+    box-shadow: 0 4px 15px rgba(0, 171, 108, 0.3);
+}
+
 /* Weather */
 .ls-weather-top {
     display: flex;
@@ -2117,7 +2122,7 @@ footer {
     gap: 10px;
 }
 
-.chat-header-left h3 {
+.chat-header h3 {
     font-size: 1.1rem;
     margin: 0;
     color: #fff;
@@ -2131,6 +2136,19 @@ footer {
     height: 8px;
     border-radius: 50%;
     background: #10b981;
+    animation: chat-status-pulse 2s ease-in-out infinite;
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+}
+
+@keyframes chat-status-pulse {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+    }
+    50% {
+        opacity: 0.4;
+        box-shadow: 0 0 2px rgba(16, 185, 129, 0.2);
+    }
 }
 
 .chat-header-actions {

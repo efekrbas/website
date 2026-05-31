@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
-const sections = ['about', 'live-status', 'experience', 'education', 'projects', 'youtube'];
+const sections = ['about', 'live-status', 'experience', 'education', 'projects', 'youtube', 'medium'];
 
 const Header = () => {
 

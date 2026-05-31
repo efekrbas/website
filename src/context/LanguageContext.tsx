@@ -156,6 +156,14 @@ export const translations: Record<string, Record<string, string>> = {
         youtubeTitle: 'YouTube Videolarım',
         watchVideo: 'İzle',
         visitChannel: 'Kanalı Ziyaret Et',
+
+        // Medium
+        medium: 'Medium',
+        mediumTitle: 'Medium Yazılarım',
+        readMore: 'Devamını Oku',
+        visitMedium: 'Medium Profilimi Ziyaret Et',
+        loadingPosts: 'Yazılar yükleniyor...',
+        noPostsYet: 'Henüz yazı yok.',
         chatbotHeader: 'Efe\'nin AI Asistanı',
         chatbotGreeting: 'Merhaba! Ben Efe\'nin yapay zeka asistanıyım. Sana nasıl yardımcı olabilirim?',
         chatSuggestWho: 'Efe Kimdir?',
@@ -306,6 +314,14 @@ export const translations: Record<string, Record<string, string>> = {
         youtubeTitle: 'My YouTube Videos',
         watchVideo: 'Watch',
         visitChannel: 'Visit Channel',
+
+        // Medium
+        medium: 'Medium',
+        mediumTitle: 'My Medium Posts',
+        readMore: 'Read More',
+        visitMedium: 'Visit My Medium Profile',
+        loadingPosts: 'Loading posts...',
+        noPostsYet: 'No posts yet.',
         chatbotHeader: 'Efe\'s AI Assistant',
         chatbotGreeting: 'Hello! I am Efe\'s AI assistant. How can I help you today?',
         chatSuggestWho: 'Who is Efe?',
