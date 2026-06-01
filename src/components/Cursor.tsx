@@ -100,12 +100,7 @@ const Cursor = () => {
             }
 
             // Priority 1: Wrap Targets
-            let wrapTarget = target.closest('.ls-social-item, button, .btn, .project-links a, .view-certs-btn, .chatbot-bubble');
-            
-            // Exclude specific buttons from wrapping effect
-            if (wrapTarget && (wrapTarget.closest('#medium') || wrapTarget.closest('.chatbot-window'))) {
-                wrapTarget = null;
-            }
+            const wrapTarget = target.closest('.ls-social-item, button, .btn, .project-links a, .view-certs-btn, .chatbot-bubble');
             
             // If we're already wrapping this exact target, don't do anything
             if (wrapTarget && activeWrapTarget.current === wrapTarget) return;
