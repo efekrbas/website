@@ -2097,6 +2097,24 @@ footer {
     transform: scale(1.1);
 }
 
+.chatbot-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+    z-index: 9999;
+}
+
+@media (max-width: 768px) {
+    .chatbot-overlay {
+        display: block;
+    }
+}
+
 .chatbot-window {
     position: absolute;
     bottom: 80px;

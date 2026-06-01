@@ -166,8 +166,17 @@ const Chatbot = () => {
         <div className="chatbot-container">
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div
-                        className="chatbot-window"
+                    <>
+                        <motion.div 
+                            className="chatbot-overlay"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            onClick={() => setIsOpen(false)}
+                        />
+                        <motion.div
+                            className="chatbot-window"
                         initial={{ opacity: 0, y: 20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.95 }}
