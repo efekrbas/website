@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { MousePointerClick } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 interface MediumPost {
@@ -61,8 +62,9 @@ const MediumCard = ({ post, index }: { post: MediumPost; index: number }) => {
                     )}
                 </div>
                 <h3 className="medium-card-title">{post.title}</h3>
-                <span className="medium-read-more">
-                    {t('readMore')} →
+                <span className="medium-read-more" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <MousePointerClick size={14} />
+                    {t('readMore')}
                 </span>
             </div>
         </motion.a>

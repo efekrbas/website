@@ -160,7 +160,7 @@ export const translations: Record<string, Record<string, string>> = {
         // Medium
         medium: 'Medium',
         mediumTitle: 'Medium Yazılarım',
-        readMore: 'Devamını Oku',
+        readMore: 'Okumak için karta tıkla',
         visitMedium: 'Medium Profilimi Ziyaret Et',
         loadingPosts: 'Yazılar yükleniyor...',
         noPostsYet: 'Henüz yazı yok.',
@@ -318,7 +318,7 @@ export const translations: Record<string, Record<string, string>> = {
         // Medium
         medium: 'Medium',
         mediumTitle: 'My Medium Posts',
-        readMore: 'Read More',
+        readMore: 'Click card to read',
         visitMedium: 'Visit My Medium Profile',
         loadingPosts: 'Loading posts...',
         noPostsYet: 'No posts yet.',
