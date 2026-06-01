@@ -35,21 +35,7 @@ const Cursor = () => {
                     mousePos.current.y >= rect.top - padding && 
                     mousePos.current.y <= rect.bottom + padding;
 
-                // Ultimate Sync Check: Verify if the element under the mouse is still our target (or its child)
-                // We only do this check every few frames or if we are outside the immediate rect to save performance
-                let isElementUnder = true;
                 if (!isStillOver) {
-                    isElementUnder = false;
-                } else {
-                    // Check if the actual element under the mouse matches our target
-                    const elAtPoint = document.elementFromPoint(mousePos.current.x, mousePos.current.y);
-                    if (elAtPoint && !activeWrapTarget.current.contains(elAtPoint) && elAtPoint !== activeWrapTarget.current) {
-                        // Allow a small "grace" period or check if it's just a tiny gap
-                        isElementUnder = false;
-                    }
-                }
-
-                if (!isStillOver || !isElementUnder) {
                     releaseWrap();
                 } else {
                     ring.style.transform = `translate3d(${centerX}px, ${centerY}px, 0) translate(-50%, -50%)`;
