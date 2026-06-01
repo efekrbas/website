@@ -18,6 +18,18 @@ const Chatbot = () => {
     const isDragging = useRef(false);
     const sessionId = useRef(typeof window !== 'undefined' ? crypto.randomUUID() : 'default-session');
 
+    // Prevent body scroll on mobile when chat is open to avoid address bar shifting
+    useEffect(() => {
+        if (isOpen && window.innerWidth <= 768) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isOpen]);
+
     // Drag-to-scroll for suggestions on desktop
     useEffect(() => {
         const el = suggestionsRef.current;
