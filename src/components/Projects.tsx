@@ -97,9 +97,9 @@ const Projects = () => {
 
             <div id="projects-container" className="projects-grid">
                 {loading ? (
-                    <div className="loading-projects">
-                        <i className="fas fa-circle-notch fa-spin"></i> {t('loadingProjects')}
-                    </div>
+                    Array.from({ length: 6 }).map((_, i) => (
+                        <div key={`skeleton-${i}`} className="project-card glass-card skeleton-card" style={{ height: '220px', animation: 'skeleton-pulse 1.5s infinite' }}></div>
+                    ))
                 ) : (
                     projects.map((project, index) => (
                         <motion.div

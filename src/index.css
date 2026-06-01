@@ -1033,6 +1033,12 @@ footer {
     margin-bottom: 24px;
 }
 
+@keyframes skeleton-pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 0.3; }
+    100% { opacity: 0.6; }
+}
+
 .filter-container {
     display: flex;
     justify-content: center;
