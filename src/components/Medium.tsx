@@ -33,7 +33,7 @@ const MediumCard = ({ post, index }: { post: MediumPost; index: number }) => {
             href={post.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="medium-card glass-card"
+            className="medium-card"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -134,15 +134,15 @@ const Medium = () => {
                     background: rgba(255, 255, 255, 0.05);
                     backdrop-filter: blur(10px);
                     border: 1px solid rgba(255, 255, 255, 0.1);
-                    transition: all 0.3s ease;
+                    transition: background 0.3s ease, border-color 0.3s ease;
                     text-decoration: none;
                     color: inherit;
                     cursor: pointer;
                 }
 
                 .medium-card:hover {
-                    border-color: rgba(0, 171, 108, 0.3);
-                    box-shadow: 0 8px 30px rgba(0, 171, 108, 0.1);
+                    border-color: rgba(255, 255, 255, 0.2);
+                    background: rgba(255, 255, 255, 0.08);
                 }
 
                 .medium-card-thumbnail {
