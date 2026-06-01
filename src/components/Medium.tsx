@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { MousePointerClick } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -73,27 +73,25 @@ const MediumCard = ({ post, index }: { post: MediumPost; index: number }) => {
 
 const Medium = () => {
     const { t } = useLanguage();
-    const [posts, setPosts] = useState<MediumPost[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
-
-    useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const res = await fetch('/api/medium');
-                const data = await res.json();
-                if (data.posts && data.posts.length > 0) {
-                    setPosts(data.posts);
-                }
-            } catch (err) {
-                console.error('Failed to fetch Medium posts:', err);
-                setError(true);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchPosts();
-    }, []);
+    
+    const posts: MediumPost[] = [
+        {
+            title: "Custom Windows XP Zafiyet Analizi",
+            description: "",
+            pubDate: "2026-05-31",
+            link: "https://medium.com/@efekk/custom-windows-xp-zafiyet-analizi-af6f1af27df3",
+            thumbnail: "https://cdn-images-1.medium.com/max/945/0*p4PsNjLZBsJd9PWM",
+            categories: []
+        },
+        {
+            title: "Custom Metasploitable2 Zafiyet Analizi",
+            description: "",
+            pubDate: "2026-05-31",
+            link: "https://medium.com/@efekk/custom-metasploitable2-zafiyet-analizi-f4132060ca17",
+            thumbnail: "https://cdn-images-1.medium.com/max/945/0*My_f2lA9Jppb4Tcd",
+            categories: []
+        }
+    ];
 
     return (
         <motion.section
@@ -105,26 +103,11 @@ const Medium = () => {
         >
             <h2 className="section-title">{t('mediumTitle')}</h2>
 
-            {loading && (
-                <div className="medium-loading">
-                    <div className="medium-loading-spinner"></div>
-                    <p>{t('loadingPosts')}</p>
-                </div>
-            )}
-
-            {!loading && !error && posts.length === 0 && (
-                <div className="medium-empty">
-                    <p>{t('noPostsYet')}</p>
-                </div>
-            )}
-
-            {!loading && posts.length > 0 && (
-                <div className="medium-grid">
-                    {posts.map((post, index) => (
-                        <MediumCard key={post.link} post={post} index={index} />
-                    ))}
-                </div>
-            )}
+            <div className="medium-grid">
+                {posts.map((post, index) => (
+                    <MediumCard key={post.link} post={post} index={index} />
+                ))}
+            </div>
 
             <div className="github-more" style={{ marginTop: '16px' }}>
                 <a href="https://medium.com/@efekk" target="_blank" rel="noopener noreferrer" className="btn secondary">
