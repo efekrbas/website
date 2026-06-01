@@ -2329,7 +2329,7 @@ footer {
 .chat-suggestions {
     display: flex;
     gap: 8px;
-    padding: 0 20px 15px 20px;
+    padding: 2px 20px 15px 20px;
     flex-wrap: nowrap;
     overflow-x: auto;
     scrollbar-width: none;
