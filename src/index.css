@@ -2252,6 +2252,7 @@ footer {
     flex: 1;
     padding: 20px;
     overflow-y: auto;
+    overscroll-behavior-y: contain; /* Prevents scroll propagation to body */
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -2379,7 +2380,7 @@ footer {
 @media (max-width: 480px) {
     .chatbot-window {
         width: calc(100vw - 40px);
-        height: calc(100vh - 120px);
+        height: calc(100dvh - 120px);
         bottom: 70px;
         right: -10px;
     }
