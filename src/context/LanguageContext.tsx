@@ -47,7 +47,7 @@ export const translations: Record<string, Record<string, string>> = {
 
         // About
         aboutTitle: 'Hakkımda',
-        aboutText: 'Medipol Sağlık Grubu\'nda Bilgi İşlem Saha Destek Stajyeri olarak çalıştım ve bu süreçte son kullanıcıların donanım-yazılım sorunlarını çözme, arıza giderme konularında pratik deneyim kazandım. Ayrıca bilgisayar, yazıcı ve çevre birimlerinin kurulum–bakım işlemlerini gerçekleştirme konularında aktif görev aldım. Bilecik Şeyh Edebali Üniversitesi\'nde Bilgisayar Programcılığı bölümünde önlisans eğitimime devam ediyor, aynı zamanda siber güvenlik, yazılım geliştirme ve yapay zeka teknolojileri üzerine yoğunlaşıyorum. Üniversitemin Hackviser Kampüs Elçisiyim.',
+        aboutText: 'Medipol Sağlık Grubu\'nda Bilgi İşlem Saha Destek Stajyeri olarak çalıştım ve bu süreçte son kullanıcıların donanım-yazılım sorunlarını çözme, arıza giderme konularında pratik deneyim kazandım. Ayrıca bilgisayar, yazıcı ve çevre birimlerinin kurulum–bakım işlemlerini gerçekleştirme konularında aktif görev aldım. Bilecik Şeyh Edebali Üniversitesi\'nde Bilgisayar Programcılığı bölümünde önlisans eğitimime devam ediyor, aynı zamanda siber güvenlik, yazılım geliştirme ve yapay zeka teknolojileri üzerine yoğunlaşıyorum. Hackviser\'ın Kampüs Elçisiyim.',
 
         // Experience  
         experienceTitle: 'Deneyim',
