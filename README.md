@@ -27,6 +27,7 @@ Modern, Serverless Full-Stack ve premium kişisel portfolio websitesi
 | 🌍 **Akıllı Dil Algılama** | Tarayıcı diline göre otomatik Türkçe veya İngilizce gösterimi |
 | 🎨 **Premium Tasarım** | Minimalist navbar, özel Grid sistemi, Glassmorphism ve ultra-modern estetik |
 | 📂 **GitHub API** | Projelerin yıldız ve güncelleme tarihine göre dinamik çekilmesi |
+| 📝 **Medium Entegrasyonu** | Medium makalelerinin premium kart tasarımıyla güncel listelenmesi |
 | ✨ **Micro-Animations** | Gelişmiş CSS geçişleri ve 60fps premium etkileşimler |
 | ⚡ **Yüksek Performans** | TypeScript destekli tip güvenliği, optimize edilmiş LERP döngüleri ve temiz React mimarisi |
 | 🤖 **Native AI Chatbot** | Groq & Llama 3 destekli, akıllı dil özellikli ve siber güvenlik korumalı asistan |
@@ -87,6 +88,7 @@ src/
 │   ├── Education.tsx       # Eğitim
 │   ├── Projects.tsx        # GitHub projeleri
 │   ├── Youtube.tsx         # YouTube
+│   ├── Medium.tsx          # Medium makaleleri
 │   ├── Cursor.tsx          # Custom cursor
 │   └── Footer.tsx          # Alt bilgi
 ├── context/
