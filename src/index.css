@@ -445,7 +445,7 @@ section {
 @media (min-width: 1024px) {
     section {
         padding: 120px 64px;
-        min-height: 100vh;
+        min-height: calc(100vh - 140px);
     }
 
     #about,
@@ -623,7 +623,7 @@ section {
 .timeline {
     position: relative;
     max-width: 1000px;
-    margin: 24px auto 0;
+    margin: 16px auto 0;
     padding: 10px 0;
 }
 
@@ -1465,6 +1465,19 @@ footer {
 /* ============================================= */
 .live-status-section {
     background: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Üst menüyü dengelemek ve alt kısma nefes payı bırakmak için padding */
+    padding-top: 140px !important; 
+    padding-bottom: 80px !important;
+}
+
+.live-status-section .section-title {
+    /* Başlığın üstünde ve altında tam simetrik boşluk */
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .ls-grid-12 {
@@ -1474,6 +1487,17 @@ footer {
     gap: 16px;
     max-width: 1024px;
     margin: 0 auto;
+}
+
+@media (max-height: 900px) {
+    .ls-grid-12 {
+        transform: scale(0.9);
+        transform-origin: center top;
+    }
+    .live-status-section .section-title {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 }
 
 .ls-area-discord {

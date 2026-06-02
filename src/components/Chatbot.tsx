@@ -45,21 +45,15 @@ const Chatbot = () => {
             el.style.cursor = 'grabbing';
             startX = e.pageX - el.offsetLeft;
             scrollLeft = el.scrollLeft;
-        };
-
-        const onMouseLeave = () => {
-            isDown = false;
-            el.style.cursor = 'grab';
-        };
-
-        const onMouseUp = () => {
-            isDown = false;
-            el.style.cursor = 'grab';
+            
+            // Prevent text selection during drag
+            document.body.style.userSelect = 'none';
+            document.body.style.webkitUserSelect = 'none';
         };
 
         const onMouseMove = (e) => {
             if (!isDown) return;
-            e.preventDefault();
+            e.preventDefault(); // Prevent default text selection behavior
             const x = e.pageX - el.offsetLeft;
             const walk = (x - startX) * 2;
             // Mark as dragging only if moved more than 5px
@@ -69,17 +63,30 @@ const Chatbot = () => {
             el.scrollLeft = scrollLeft - walk;
         };
 
+        const onMouseUp = () => {
+            if (!isDown) return;
+            isDown = false;
+            el.style.cursor = 'grab';
+            
+            // Restore text selection
+            document.body.style.userSelect = '';
+            document.body.style.webkitUserSelect = '';
+            
+            // Use setTimeout to ensure click handler checks isDragging before it resets
+            setTimeout(() => {
+                isDragging.current = false;
+            }, 50);
+        };
+
         el.style.cursor = 'grab';
         el.addEventListener('mousedown', onMouseDown);
-        el.addEventListener('mouseleave', onMouseLeave);
-        el.addEventListener('mouseup', onMouseUp);
-        el.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mouseup', onMouseUp);
 
         return () => {
             el.removeEventListener('mousedown', onMouseDown);
-            el.removeEventListener('mouseleave', onMouseLeave);
-            el.removeEventListener('mouseup', onMouseUp);
-            el.removeEventListener('mousemove', onMouseMove);
+            window.removeEventListener('mousemove', onMouseMove);
+            window.removeEventListener('mouseup', onMouseUp);
         };
     }, [isOpen]);
 

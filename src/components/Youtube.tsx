@@ -76,7 +76,7 @@ const Youtube = () => {
                     </motion.div>
                 ))}
             </div>
-            <div className="github-more" style={{ marginTop: '32px', marginBottom: '24px' }}>
+            <div className="github-more" style={{ marginTop: '8px', marginBottom: '24px' }}>
                 <a href="https://www.youtube.com/@efekrbs" target="_blank" rel="noopener noreferrer" className="btn secondary">
                     <i className="fab fa-youtube"></i> {t('visitChannel')}
                 </a>
