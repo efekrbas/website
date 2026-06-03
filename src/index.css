@@ -144,7 +144,9 @@
 }
 
 [data-theme="light"] .about-profile-img {
-    border-color: rgba(0, 0, 0, 0.1);
+    border-color: var(--border-subtle);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    background: transparent;
 }
 
 [data-theme="light"] .company-logo {
