@@ -59,7 +59,11 @@ const Header = () => {
         if (element) {
             let targetPosition = element.offsetTop;
             
-            // Offset logic removed to prevent sections from being too close to the navbar
+            // Canlı durum (Live Status) içeriği uzun olduğu için laptoplarda içeriği ortalamak adına ofset ekliyoruz
+            // (Kullanıcı Spotify kartının aşağıya yapışmasını istemedi)
+            if (id === 'live-status' && window.innerWidth > 1024) {
+                targetPosition += 60;
+            }
 
             // Zaten o hizada mıyız? (10px tolerans)
             if (Math.abs(window.scrollY - targetPosition) < 10) {
