@@ -59,6 +59,8 @@ export const translations: Record<string, Record<string, string>> = {
         svItem2: 'Beyaz Şapkalı Hacker, CTF ve Reverse Engineering Eğitimi aldım.',
         svItem3: 'Aldığım eğitimlerde web güvenliği, ağ güvenliği, sızma testleri, zararlı yazılım analizi gibi birçok alanda bilgi ve beceri kazandım.',
         siber0x1Desc: 'Siber0x1 LinkedIn hesabının yönetilmesinden sorumluyum.',
+        kariyerPusulan: 'Kariyer Pusulan',
+        kariyerPusulanRole: 'Takım Üyesi',
 
         // Skills
         skillsTitle: 'Yetenekler',
@@ -217,6 +219,8 @@ export const translations: Record<string, Record<string, string>> = {
         svItem2: 'I received training in Ethical Hacking, CTF, and Reverse Engineering.',
         svItem3: 'In these trainings, I gained knowledge and skills in many areas such as web security, network security, penetration testing, and malware analysis.',
         siber0x1Desc: 'I am responsible for managing the Siber0x1 LinkedIn account; the other two managers handle Instagram and TikTok accounts.',
+        kariyerPusulan: 'Kariyer Pusulan',
+        kariyerPusulanRole: 'Team Member',
 
         // Skills
         skillsTitle: 'Skills',

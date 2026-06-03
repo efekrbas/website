@@ -17,7 +17,9 @@ const SpotifyWidget = () => {
                     setProgress((json.progress / json.duration) * 100);
                 }
             } catch (err) {
-                console.error('Spotify fetch error:', err);
+                // Use console.warn instead of console.error to prevent Next.js dev overlay
+                // from popping up when browser extensions (like adblockers) block the request.
+                console.warn('Spotify fetch error:', err);
             }
         };
 

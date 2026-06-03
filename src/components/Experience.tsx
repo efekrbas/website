@@ -75,6 +75,25 @@ const Experience = () => {
                 <div className="timeline-item">
                     <div className="timeline-date">
                         {language === 'tr' 
+                            ? `Mayıs 2026 - Devam ediyor · ${calculateDuration(2026, 5)}` 
+                            : `May 2026 - Continuing · ${calculateDuration(2026, 5)}`}
+                    </div>
+                    <div className="timeline-content glass-card">
+                        <div className="timeline-inner">
+                            <div className="text-container">
+                                <h3>{t('kariyerPusulanRole')}</h3>
+                                <h4>{t('kariyerPusulan')}</h4>
+                            </div>
+                            <div className="logo-container">
+                                <img src="/images/kariyerpusulan.jpg" alt="Kariyer Pusulan" className="company-logo" loading="lazy" decoding="async" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="timeline-item">
+                    <div className="timeline-date">
+                        {language === 'tr' 
                             ? `Şubat 2026 - Devam ediyor · ${calculateDuration(2026, 2)}` 
                             : `February 2026 - Continuing · ${calculateDuration(2026, 2)}`}
                     </div>
