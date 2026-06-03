@@ -196,7 +196,9 @@ body * {
 }
 
 .video-thumbnail,
-.video-thumbnail * {
+.video-thumbnail *,
+.medium-card,
+.medium-card * {
     cursor: pointer !important;
 }
 

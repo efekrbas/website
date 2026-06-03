@@ -75,8 +75,8 @@ const Cursor = () => {
         const handleMouseOver = (e) => {
             const target = e.target;
             
-            // 0. Hide on YouTube Videos
-            if (target.closest('.video-container') || target.tagName === 'IFRAME') {
+            // 0. Hide on YouTube Videos and Medium Cards
+            if (target.closest('.video-container') || target.closest('.medium-card') || target.tagName === 'IFRAME') {
                 dot.style.opacity = '0';
                 ring.style.opacity = '0';
                 return;
