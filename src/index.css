@@ -114,7 +114,7 @@
     --social-color: rgba(0, 0, 0, 0.4);
     --progress-bg: rgba(0, 0, 0, 0.06);
     --progress-fill: rgba(0, 0, 0, 0.35);
-    --chat-window-bg: rgba(255, 255, 255, 0.92);
+    --chat-window-bg: #ffffff;
     --chat-header-bg: rgba(0, 0, 0, 0.03);
     --chat-msg-bot-bg: rgba(0, 0, 0, 0.06);
     --chat-input-bg: rgba(0, 0, 0, 0.04);
