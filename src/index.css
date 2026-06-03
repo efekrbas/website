@@ -737,6 +737,13 @@ section {
     margin-bottom: 10px;
 }
 
+.timeline-content .description {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
 .timeline-content .location {
     font-size: 0.7rem;
     color: rgba(255, 255, 255, 0.25);

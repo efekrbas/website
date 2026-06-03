@@ -61,6 +61,8 @@ export const translations: Record<string, Record<string, string>> = {
         siber0x1Desc: 'Siber0x1 LinkedIn hesabının yönetilmesinden sorumluyum.',
         kariyerPusulan: 'Kariyer Pusulan',
         kariyerPusulanRole: 'Takım Üyesi',
+        kariyerPusulanDesc: 'Teknik hata ve eksikliklerin tespit edilmesi, raporlanması ve çözüm süreçlerinin yönetilmesinde aktif görev alarak topluluğun teknik altyapısına katkıda bulunuyorum; aynı zamanda topluluk yönetimi ve içerik paylaşımı süreçlerini yürütüyorum.',
+        hackviserDesc: 'Siber güvenlik alanında gelişmek isteyen kişilere, Hackviser\'ı tavsiye ederek öğrenme süreçlerine rehberlik ediyorum.',
 
         // Skills
         skillsTitle: 'Yetenekler',
@@ -221,6 +223,8 @@ export const translations: Record<string, Record<string, string>> = {
         siber0x1Desc: 'I am responsible for managing the Siber0x1 LinkedIn account; the other two managers handle Instagram and TikTok accounts.',
         kariyerPusulan: 'Kariyer Pusulan',
         kariyerPusulanRole: 'Team Member',
+        kariyerPusulanDesc: 'I actively contribute to the community\'s technical infrastructure by identifying, reporting, and managing the resolution of technical errors and deficiencies; I also handle community management and content sharing processes.',
+        hackviserDesc: 'I guide people who want to develop in the field of cybersecurity by recommending Hackviser to support their learning journey.',
 
         // Skills
         skillsTitle: 'Skills',

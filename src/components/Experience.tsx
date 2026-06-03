@@ -83,6 +83,7 @@ const Experience = () => {
                             <div className="text-container">
                                 <h3>{t('kariyerPusulanRole')}</h3>
                                 <h4>{t('kariyerPusulan')}</h4>
+                                <p className="description">{t('kariyerPusulanDesc')}</p>
                             </div>
                             <div className="logo-container">
                                 <img src="/images/kariyerpusulan.jpg" alt="Kariyer Pusulan" className="company-logo" loading="lazy" decoding="async" />
@@ -102,6 +103,7 @@ const Experience = () => {
                             <div className="text-container">
                                 <h3>{t('campusAmbassador')}</h3>
                                 <h4>{t('hackviser')}</h4>
+                                <p className="description">{t('hackviserDesc')}</p>
                                 <p className="location"><i className="fas fa-map-marker-alt"></i> {language === 'tr' ? 'Londra, Birleşik Krallık · Uzaktan' : 'London, United Kingdom · Remote'}</p>
                             </div>
                             <div className="logo-container">
