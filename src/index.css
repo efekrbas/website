@@ -166,9 +166,17 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
-[data-theme="light"] .dot.red { background: #ff5f56; }
-[data-theme="light"] .dot.yellow { background: #ffbd2e; }
-[data-theme="light"] .dot.green { background: #27c93f; }
+[data-theme="light"] .dot.red {
+    background: #ff5f56;
+}
+
+[data-theme="light"] .dot.yellow {
+    background: #ffbd2e;
+}
+
+[data-theme="light"] .dot.green {
+    background: #27c93f;
+}
 
 [data-theme="light"] .spotify-eq {
     background: rgba(255, 255, 255, 0.7);
@@ -198,7 +206,9 @@ body * {
 .video-thumbnail,
 .video-thumbnail *,
 .medium-card,
-.medium-card * {
+.medium-card *,
+.suggestion-btn,
+.suggestion-btn * {
     cursor: pointer !important;
 }
 
@@ -1245,9 +1255,17 @@ footer {
 }
 
 @keyframes skeleton-pulse {
-    0% { opacity: 0.6; }
-    50% { opacity: 0.3; }
-    100% { opacity: 0.6; }
+    0% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
 }
 
 .filter-container {
@@ -1681,7 +1699,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     /* Üst menüyü dengelemek ve alt kısma nefes payı bırakmak için padding */
-    padding-top: 140px !important; 
+    padding-top: 140px !important;
     padding-bottom: 80px !important;
 }
 
@@ -1705,6 +1723,7 @@ footer {
         transform: scale(0.9);
         transform-origin: center top;
     }
+
     .live-status-section .section-title {
         margin-top: 20px;
         margin-bottom: 20px;
@@ -2400,10 +2419,13 @@ footer {
 }
 
 @keyframes chat-status-pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
         box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
     }
+
     50% {
         opacity: 0.4;
         box-shadow: 0 0 2px rgba(16, 185, 129, 0.2);
@@ -2511,7 +2533,8 @@ footer {
     flex: 1;
     padding: 20px;
     overflow-y: auto;
-    overscroll-behavior-y: contain; /* Prevents scroll propagation to body */
+    overscroll-behavior-y: contain;
+    /* Prevents scroll propagation to body */
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -2588,6 +2611,7 @@ footer {
     cursor: pointer;
     transition: all 0.2s ease;
     white-space: nowrap;
+    outline: none;
 }
 
 .suggestion-btn:hover {

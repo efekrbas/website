@@ -75,8 +75,9 @@ const Cursor = () => {
         const handleMouseOver = (e) => {
             const target = e.target;
             
-            // 0. Hide on YouTube Videos and Medium Cards
-            if (target.closest('.video-container') || target.closest('.medium-card') || target.tagName === 'IFRAME') {
+            // 0. Hide on YouTube Videos, Medium Cards, and Suggestion Buttons
+            if (target.closest('.video-container') || target.closest('.medium-card') || target.closest('.suggestion-btn') || target.tagName === 'IFRAME') {
+                releaseWrap();
                 dot.style.opacity = '0';
                 ring.style.opacity = '0';
                 return;
@@ -86,7 +87,7 @@ const Cursor = () => {
             }
 
             // Priority 1: Wrap Targets
-            const wrapTarget = target.closest('.ls-social-item, button, .btn, .project-links a, .view-certs-btn, .chatbot-bubble');
+            const wrapTarget = target.closest('.ls-social-item, button:not(.suggestion-btn), .btn, .project-links a, .view-certs-btn, .chatbot-bubble');
             
             // If we're already wrapping this exact target, don't do anything
             if (wrapTarget && activeWrapTarget.current === wrapTarget) return;
@@ -118,7 +119,7 @@ const Cursor = () => {
             }
 
             // Priority 3: General Hover
-            if (target.closest('[class*="card"], .nav-links a')) {
+            if (target.closest('[class*="card"], .nav-links a, .suggestion-btn, .chat-header button, .send-btn')) {
                 ring.classList.add('ring-hover');
                 return;
             }
