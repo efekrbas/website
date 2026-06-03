@@ -91,9 +91,9 @@ const Youtube = () => {
                 .youtube-card {
                     overflow: hidden;
                     border-radius: 15px;
-                    background: rgba(255, 255, 255, 0.05);
+                    background: var(--card-bg);
                     backdrop-filter: blur(10px);
-                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border: 1px solid var(--card-border);
                     transition: transform 0.3s ease;
                 }
                 .youtube-card:hover {
@@ -164,7 +164,7 @@ const Youtube = () => {
                 .youtube-video-title {
                     font-size: 1.1rem;
                     margin: 0;
-                    color: #fff;
+                    color: var(--text-primary);
                     white-space: normal;
                     overflow: visible;
                 }

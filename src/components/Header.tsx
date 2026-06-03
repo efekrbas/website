@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { useTheme } from '../context/ThemeContext';
 
 const sections = ['about', 'live-status', 'experience', 'education', 'projects', 'youtube', 'medium'];
 
@@ -8,6 +9,7 @@ const Header = () => {
     const [navOpen, setNavOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('hero');
     const { t } = useLanguage();
+    const { theme, toggleTheme } = useTheme();
 
     useEffect(() => {
         const observerOptions = {
@@ -55,13 +57,9 @@ const Header = () => {
 
         const element = document.getElementById(id);
         if (element) {
-            // CSS'te section padding-top 80px olduğu için offsetTop tam olarak header'ın bittiği yere denk gelir
             let targetPosition = element.offsetTop;
             
-            // Laptop ekranlarında başlığın üstündeki boşluğu azaltıp içeriği daha iyi göstermek için ofset ekliyoruz
-            if (['live-status', 'experience', 'projects'].includes(id) && window.innerWidth > 1024) {
-                targetPosition += 60; // 60px daha aşağı kaydırır
-            }
+            // Offset logic removed to prevent sections from being too close to the navbar
 
             // Zaten o hizada mıyız? (10px tolerans)
             if (Math.abs(window.scrollY - targetPosition) < 10) {
@@ -94,10 +92,24 @@ const Header = () => {
                         </li>
                     ))}
                 </ul>
-                <div className={`burger ${navOpen ? 'toggle' : ''}`} onClick={toggleNav}>
-                    <div className="line1"></div>
-                    <div className="line2"></div>
-                    <div className="line3"></div>
+                <div className="nav-actions">
+                    <button
+                        className="theme-toggle-btn"
+                        onClick={toggleTheme}
+                        aria-label="Toggle theme"
+                        id="theme-toggle"
+                    >
+                        {theme === 'dark' ? (
+                            <i className="fas fa-sun"></i>
+                        ) : (
+                            <i className="fas fa-moon"></i>
+                        )}
+                    </button>
+                    <div className={`burger ${navOpen ? 'toggle' : ''}`} onClick={toggleNav}>
+                        <div className="line1"></div>
+                        <div className="line2"></div>
+                        <div className="line3"></div>
+                    </div>
                 </div>
             </nav>
         </header>

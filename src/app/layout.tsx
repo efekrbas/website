@@ -1,5 +1,6 @@
 import '../index.css';
 import { LanguageProvider } from '../context/LanguageContext';
+import { ThemeProvider } from '../context/ThemeContext';
 import Chatbot from '../components/Chatbot';
 import { Analytics } from '@vercel/analytics/react';
 import React from 'react';
@@ -52,10 +53,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <LanguageProvider>
-          {children}
-          <Chatbot />
-        </LanguageProvider>
+        <ThemeProvider>
+          <LanguageProvider>
+            {children}
+            <Chatbot />
+          </LanguageProvider>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

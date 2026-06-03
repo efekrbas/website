@@ -131,9 +131,9 @@ const Medium = () => {
                     flex-direction: column;
                     overflow: hidden;
                     border-radius: 15px;
-                    background: rgba(255, 255, 255, 0.05);
+                    background: var(--card-bg);
                     backdrop-filter: blur(10px);
-                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border: 1px solid var(--card-border);
                     transition: background 0.3s ease, border-color 0.3s ease;
                     text-decoration: none;
                     color: inherit;
@@ -141,8 +141,8 @@ const Medium = () => {
                 }
 
                 .medium-card:hover {
-                    border-color: rgba(255, 255, 255, 0.2);
-                    background: rgba(255, 255, 255, 0.08);
+                    border-color: var(--border-hover);
+                    background: var(--card-hover);
                 }
 
                 .medium-card-thumbnail {
@@ -202,7 +202,7 @@ const Medium = () => {
 
                 .medium-card-date {
                     font-size: 0.72rem;
-                    color: rgba(255, 255, 255, 0.35);
+                    color: var(--text-subtle);
                     font-weight: 500;
                 }
 
@@ -226,7 +226,7 @@ const Medium = () => {
                 .medium-card-title {
                     font-size: 1.1rem;
                     font-weight: 700;
-                    color: #fff;
+                    color: var(--text-primary);
                     line-height: 1.4;
                     margin: 0;
                     display: -webkit-box;
@@ -237,7 +237,7 @@ const Medium = () => {
 
                 .medium-card-desc {
                     font-size: 0.82rem;
-                    color: rgba(255, 255, 255, 0.45);
+                    color: var(--secondary-text);
                     line-height: 1.6;
                     margin: 0;
                     display: -webkit-box;
@@ -266,13 +266,13 @@ const Medium = () => {
                     align-items: center;
                     gap: 1rem;
                     padding: 3rem;
-                    color: rgba(255, 255, 255, 0.4);
+                    color: var(--text-subtle);
                 }
 
                 .medium-loading-spinner {
                     width: 32px;
                     height: 32px;
-                    border: 2px solid rgba(255, 255, 255, 0.1);
+                    border: 2px solid var(--border-default);
                     border-top-color: #00ab6c;
                     border-radius: 50%;
                     animation: medium-spin 0.8s linear infinite;
@@ -285,7 +285,7 @@ const Medium = () => {
                 .medium-empty {
                     text-align: center;
                     padding: 3rem;
-                    color: rgba(255, 255, 255, 0.35);
+                    color: var(--text-subtle);
                     font-size: 0.9rem;
                 }
 
