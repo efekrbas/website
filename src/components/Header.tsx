@@ -152,6 +152,11 @@ const Header = () => {
                         onClick={toggleTheme}
                         aria-label="Toggle theme"
                         id="theme-toggle"
+                        style={{ 
+                            opacity: chatbotOpen ? 0 : 1, 
+                            pointerEvents: chatbotOpen ? 'none' : 'auto',
+                            transition: 'opacity 0.3s ease'
+                        }}
                     >
                         {theme === 'dark' ? (
                             <i className="fas fa-sun"></i>
@@ -164,6 +169,11 @@ const Header = () => {
                         onClick={toggleChatbotVisibility}
                         title={chatbotHidden ? t('showAiAssistant') : t('hideAiAssistant')}
                         aria-label={chatbotHidden ? t('showAiAssistant') : t('hideAiAssistant')}
+                        style={{ 
+                            opacity: chatbotOpen ? 0 : 1, 
+                            pointerEvents: chatbotOpen ? 'none' : 'auto',
+                            transition: 'opacity 0.3s ease'
+                        }}
                     >
                         {chatbotHidden ? <BotOff size={18} /> : <Bot size={18} />}
                     </button>
