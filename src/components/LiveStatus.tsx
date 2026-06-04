@@ -10,7 +10,20 @@ const LiveStatus = () => {
     const { t } = useLanguage();
     const [mounted, setMounted] = useState(false);
     const [lanyard, setLanyard] = useState(null);
-    const [weather, setWeather] = useState({ temp: null, code: null });
+    const [weather, setWeather] = useState(() => {
+        if (typeof window !== 'undefined') {
+            try {
+                const cached = localStorage.getItem('weatherCache');
+                if (cached) {
+                    const parsed = JSON.parse(cached);
+                    if (Date.now() - parsed.timestamp < 3600000) {
+                        return { temp: parsed.temp, code: parsed.code };
+                    }
+                }
+            } catch {}
+        }
+        return { temp: null, code: null };
+    });
 
     useEffect(() => {
         setMounted(true);
@@ -52,10 +65,14 @@ const LiveStatus = () => {
                     );
                     if (!res.ok) throw new Error(`HTTP ${res.status}`);
                     const data = await res.json();
-                    setWeather({
+                    const weatherData = {
                         temp: Math.round(data.current.temperature_2m),
                         code: data.current.weather_code
-                    });
+                    };
+                    setWeather(weatherData);
+                    try {
+                        localStorage.setItem('weatherCache', JSON.stringify({ ...weatherData, timestamp: Date.now() }));
+                    } catch {}
                     return; // success, exit retry loop
                 } catch (err) {
                     if (err.name === 'AbortError') return;
