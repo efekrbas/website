@@ -23,7 +23,6 @@ Modern, Serverless Full-Stack ve premium kişisel portfolio websitesi
 | 🎵 **Spotify Entegrasyonu** | Spotify API üzerinden o an dinlenen şarkının canlı gösterimi |
 | ✨ **Advanced Custom Cursor** | Akıcı LERP animasyonlu ve duruma göre şekil değiştiren özel imleç |
 | ⏳ **Deneyim Progress Bar** | Sayfa kaydırıldıkça dinamik olarak dolan senkronize zaman çizelgesi hattı |
-| ⛅ **Canlı Hava Durumu** | Open-Meteo API kullanılarak anlık İstanbul sıcaklığı ve dinamik ikonlar |
 | 🌓 **Light & Dark Mode** | Kusursuz renk geçişleri ve sisteme duyarlı tam uyumlu tema yönetimi |
 | 🌍 **Akıllı Dil Algılama** | Tarayıcı diline göre otomatik Türkçe veya İngilizce gösterimi |
 | 🎨 **Premium Tasarım** | Minimalist navbar, özel Grid sistemi, Glassmorphism ve ultra-modern estetik |
@@ -31,7 +30,9 @@ Modern, Serverless Full-Stack ve premium kişisel portfolio websitesi
 | 📝 **Medium Entegrasyonu** | Medium makalelerinin premium kart tasarımıyla güncel listelenmesi |
 | ✨ **Micro-Animations** | Gelişmiş CSS geçişleri ve 60fps premium etkileşimler |
 | ⚡ **Yüksek Performans** | TypeScript destekli tip güvenliği, optimize edilmiş LERP döngüleri ve temiz React mimarisi |
-| 🤖 **Native AI Chatbot** | Groq & Llama 3 destekli, akıllı dil özellikli ve siber güvenlik korumalı asistan |
+| 🤖 **Efek - AI Asistan** | Groq & Llama 3 destekli, samimi kişilikli, "beep boop" konuşma balonlu ve siber güvenlik korumalı akıllı asistan |
+| 💬 **Beep Boop Balonu** | Robot ikonunun üzerinde periyodik olarak beliren eğlenceli konuşma balonu animasyonu |
+| ⛅ **Akıllı Hava Durumu** | Open-Meteo API + localStorage cache ile anlık İstanbul sıcaklığı, kesintisiz gösterim |
 
 ---
 
@@ -79,7 +80,7 @@ src/
 │   ├── layout.tsx          # Root layout
 │   └── page.tsx            # Ana sayfa
 ├── components/
-│   ├── Chatbot.tsx         # AI Asistan
+│   ├── Chatbot.tsx         # Efek 🤖 AI Asistan
 │   ├── Header.tsx          # Minimalist Navigasyon
 │   ├── Hero.tsx            # Ana bölüm
 │   ├── About.tsx           # Hakkımda
