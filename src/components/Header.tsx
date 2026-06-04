@@ -113,7 +113,7 @@ const Header = () => {
 
     return (
         <header>
-            <nav className="glass-nav">
+            <nav className={`glass-nav ${chatbotOpen ? 'chatbot-is-open' : ''}`}>
                 <div className="logo" style={{ transition: 'opacity 0.3s ease' }}>
                     EFE KIRBAŞ
                 </div>

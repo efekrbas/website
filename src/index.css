@@ -255,9 +255,9 @@ body {
 }
 
 /* Hide navbar elements when chatbot is open */
-body.chatbot-is-open .logo,
-body.chatbot-is-open .theme-toggle-btn,
-body.chatbot-is-open .burger {
+.glass-nav.chatbot-is-open .logo,
+.glass-nav.chatbot-is-open .theme-toggle-btn,
+.glass-nav.chatbot-is-open .burger {
     opacity: 0 !important;
     pointer-events: none !important;
 }
