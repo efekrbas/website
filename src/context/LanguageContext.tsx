@@ -91,8 +91,8 @@ export const translations: Record<string, Record<string, string>> = {
 
         // Footer
         footerText: '© 2025 Efe Kırbaş. Tüm Hakları Saklıdır.',
-        hideAiAssistant: 'AI Asistanı Gizle',
-        showAiAssistant: 'AI Asistanı Göster',
+        hideAiAssistant: 'Efek\'i Gizle',
+        showAiAssistant: 'Efek\'i Göster',
 
         // Skills - Certifications accordion items
         certMachineLearning: 'Temel Makine Öğrenmesi',
@@ -170,8 +170,8 @@ export const translations: Record<string, Record<string, string>> = {
         visitMedium: 'Medium Profilimi Ziyaret Et',
         loadingPosts: 'Yazılar yükleniyor...',
         noPostsYet: 'Henüz yazı yok.',
-        chatbotHeader: 'Efe\'nin AI Asistanı',
-        chatbotGreeting: 'Merhaba! Ben Efe\'nin yapay zeka asistanıyım. Sana nasıl yardımcı olabilirim?',
+        chatbotHeader: 'Efek 🤖',
+        chatbotGreeting: 'Selam! Ben Efek, Efe\'nin AI asistanıyım 🤖 Sana nasıl yardımcı olabilirim?',
         chatSuggestWho: 'Efe Kimdir?',
         chatSuggestExp: 'Efe\'nin Deneyimleri Nelerdir?',
         chatSuggestEdu: 'Efe\'nin Eğitimi Hakkında Bilgi Alabilir Miyim?',
@@ -255,8 +255,8 @@ export const translations: Record<string, Record<string, string>> = {
 
         // Footer
         footerText: '© 2025 Efe Kırbaş. All Rights Reserved.',
-        hideAiAssistant: 'Hide AI Assistant',
-        showAiAssistant: 'Show AI Assistant',
+        hideAiAssistant: 'Hide Efek',
+        showAiAssistant: 'Show Efek',
 
         // Skills - Certifications accordion items
         certMachineLearning: 'Basic Machine Learning',
@@ -334,8 +334,8 @@ export const translations: Record<string, Record<string, string>> = {
         visitMedium: 'Visit My Medium Profile',
         loadingPosts: 'Loading posts...',
         noPostsYet: 'No posts yet.',
-        chatbotHeader: 'Efe\'s AI Assistant',
-        chatbotGreeting: 'Hello! I am Efe\'s AI assistant. How can I help you today?',
+        chatbotHeader: 'Efek 🤖',
+        chatbotGreeting: 'Hey there! I\'m Efek, Efe\'s AI assistant 🤖 How can I help you?',
         chatSuggestWho: 'Who is Efe?',
         chatSuggestExp: 'What are Efe\'s experiences?',
         chatSuggestEdu: 'Can I get information about Efe\'s education?',
