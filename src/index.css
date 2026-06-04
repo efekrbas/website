@@ -246,6 +246,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1rem;
+    transform: translateZ(0); /* Force hardware acceleration for iOS Safari repaint */
 }
 
 .theme-toggle-btn:hover {
@@ -390,6 +391,7 @@ header {
     font-size: 1.2rem;
     font-weight: 800;
     letter-spacing: 2px;
+    transform: translateZ(0); /* Force hardware acceleration for iOS Safari repaint */
 }
 
 .nav-links {
@@ -444,6 +446,7 @@ header {
 .burger {
     display: none;
     cursor: pointer;
+    transform: translateZ(0); /* Force hardware acceleration for iOS Safari repaint */
 }
 
 .burger div {
@@ -2639,7 +2642,7 @@ footer {
     border-radius: 12px;
     padding: 10px 15px;
     color: var(--text-primary);
-    font-size: 0.9rem;
+    font-size: 16px; /* Must be at least 16px to prevent iOS Safari auto-zoom */
     outline: none;
     transition: border-color 0.3s ease;
 }
