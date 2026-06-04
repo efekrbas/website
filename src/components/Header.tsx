@@ -124,6 +124,15 @@ const Header = () => {
                 >
                     EFE KIRBAŞ
                 </div>
+                
+                {/* Background overlay for mobile menu */}
+                {navOpen && (
+                    <div 
+                        className="nav-overlay" 
+                        onClick={() => setNavOpen(false)}
+                    />
+                )}
+
                 <ul className={`nav-links ${navOpen ? 'nav-active' : ''}`}>
                     {sections.map(id => (
                         <li key={id}>
