@@ -130,6 +130,11 @@ const Chatbot = () => {
     useEffect(() => {
         if (typeof window !== 'undefined') {
             window.dispatchEvent(new CustomEvent('chatbotStateChange', { detail: isOpen }));
+            if (isOpen) {
+                document.body.classList.add('chatbot-is-open');
+            } else {
+                document.body.classList.remove('chatbot-is-open');
+            }
         }
     }, [isOpen]);
 

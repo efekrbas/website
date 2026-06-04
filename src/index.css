@@ -254,6 +254,14 @@ body {
     transform: scale(1.05);
 }
 
+/* Hide navbar elements when chatbot is open */
+body.chatbot-is-open .logo,
+body.chatbot-is-open .theme-toggle-btn,
+body.chatbot-is-open .burger {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
 h1,
 h2,
 h3,
