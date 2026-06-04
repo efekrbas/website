@@ -288,8 +288,23 @@ const Chatbot = () => {
                 onClick={() => setIsOpen(!isOpen)}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
+                style={{ position: 'relative' }}
             >
-                {isOpen ? <X size={28} /> : <MessageSquare size={28} />}
+                {isOpen ? <X size={28} /> : (
+                    <>
+                        <Bot size={28} />
+                        <span style={{
+                            position: 'absolute',
+                            bottom: '14px',
+                            right: '14px',
+                            width: '10px',
+                            height: '10px',
+                            backgroundColor: '#23a559',
+                            borderRadius: '50%',
+                            border: '2px solid var(--accent-color)'
+                        }}></span>
+                    </>
+                )}
             </motion.div>
         </div>
     );
