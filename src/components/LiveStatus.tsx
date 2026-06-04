@@ -42,21 +42,33 @@ const LiveStatus = () => {
     }, []);
 
     useEffect(() => {
-        const fetchWeather = async () => {
-            try {
-                const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=41.0082&longitude=28.9784&current=temperature_2m,weather_code');
-                const data = await res.json();
-                setWeather({
-                    temp: Math.round(data.current.temperature_2m),
-                    code: data.current.weather_code
-                });
-            } catch (err) {
-                console.error('Weather fetch error:', err);
+        const controller = new AbortController();
+        const fetchWeather = async (retries = 3) => {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const res = await fetch(
+                        'https://api.open-meteo.com/v1/forecast?latitude=41.0082&longitude=28.9784&current=temperature_2m,weather_code',
+                        { signal: controller.signal }
+                    );
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    const data = await res.json();
+                    setWeather({
+                        temp: Math.round(data.current.temperature_2m),
+                        code: data.current.weather_code
+                    });
+                    return; // success, exit retry loop
+                } catch (err) {
+                    if (err.name === 'AbortError') return;
+                    console.warn(`Weather fetch attempt ${i + 1}/${retries} failed:`, err.message);
+                    if (i < retries - 1) {
+                        await new Promise(r => setTimeout(r, 2000 * (i + 1)));
+                    }
+                }
             }
         };
         fetchWeather();
-        const interval = setInterval(fetchWeather, 1800000); // 30 minutes
-        return () => clearInterval(interval);
+        const interval = setInterval(() => fetchWeather(), 1800000); // 30 minutes
+        return () => { controller.abort(); clearInterval(interval); };
     }, []);
 
     const getWeatherIcon = (code) => {
