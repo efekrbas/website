@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Bot, BotOff } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 
@@ -9,8 +10,26 @@ const Header = () => {
     const [navOpen, setNavOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('hero');
     const [chatbotOpen, setChatbotOpen] = useState(false);
+    const [chatbotHidden, setChatbotHidden] = useState(false);
     const { t } = useLanguage();
     const { theme, toggleTheme } = useTheme();
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const stored = localStorage.getItem('chatbotHidden');
+            if (stored === 'true') {
+                setChatbotHidden(true);
+            }
+        }
+    }, []);
+
+    const toggleChatbotVisibility = () => {
+        const newState = !chatbotHidden;
+        setChatbotHidden(newState);
+        if (typeof window !== 'undefined') {
+            window.dispatchEvent(new CustomEvent('setChatbotVisibility', { detail: { visible: !newState } }));
+        }
+    };
 
     useEffect(() => {
         const handleChatbotState = (e) => setChatbotOpen(e.detail);
@@ -130,6 +149,14 @@ const Header = () => {
                         ) : (
                             <i className="fas fa-moon"></i>
                         )}
+                    </button>
+                    <button
+                        className="theme-toggle-btn"
+                        onClick={toggleChatbotVisibility}
+                        title={chatbotHidden ? t('showAiAssistant') : t('hideAiAssistant')}
+                        aria-label={chatbotHidden ? t('showAiAssistant') : t('hideAiAssistant')}
+                    >
+                        {chatbotHidden ? <BotOff size={18} /> : <Bot size={18} />}
                     </button>
                     <div 
                         className={`burger ${navOpen ? 'toggle' : ''}`} 

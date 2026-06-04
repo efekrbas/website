@@ -90,7 +90,9 @@ export const translations: Record<string, Record<string, string>> = {
         errorMessage: 'Bir hata oluştu. Lütfen tekrar deneyin.',
 
         // Footer
-        footerText: '© 2026 Efe Kırbaş. Tüm hakları saklıdır.',
+        footerText: '© 2025 Efe Kırbaş. Tüm Hakları Saklıdır.',
+        hideAiAssistant: 'AI Asistanı Gizle',
+        showAiAssistant: 'AI Asistanı Göster',
 
         // Skills - Certifications accordion items
         certMachineLearning: 'Temel Makine Öğrenmesi',
@@ -252,7 +254,9 @@ export const translations: Record<string, Record<string, string>> = {
         errorMessage: 'An error occurred. Please try again.',
 
         // Footer
-        footerText: '© 2026 Efe Kırbaş. All rights reserved.',
+        footerText: '© 2025 Efe Kırbaş. All Rights Reserved.',
+        hideAiAssistant: 'Hide AI Assistant',
+        showAiAssistant: 'Show AI Assistant',
 
         // Skills - Certifications accordion items
         certMachineLearning: 'Basic Machine Learning',

@@ -13,6 +13,7 @@ const Chatbot = () => {
     ]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
     const messagesEndRef = useRef(null);
     const suggestionsRef = useRef(null);
     const isDragging = useRef(false);
@@ -107,6 +108,27 @@ const Chatbot = () => {
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
+            const stored = localStorage.getItem('chatbotHidden');
+            if (stored === 'true') {
+                setIsVisible(false);
+            }
+
+            const handleToggle = (e) => {
+                setIsVisible(e.detail.visible);
+                if (e.detail.visible) {
+                    localStorage.removeItem('chatbotHidden');
+                } else {
+                    localStorage.setItem('chatbotHidden', 'true');
+                }
+            };
+
+            window.addEventListener('setChatbotVisibility', handleToggle);
+            return () => window.removeEventListener('setChatbotVisibility', handleToggle);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
             window.dispatchEvent(new CustomEvent('chatbotStateChange', { detail: isOpen }));
         }
     }, [isOpen]);
@@ -174,6 +196,8 @@ const Chatbot = () => {
             setIsLoading(false);
         }
     };
+
+    if (!isVisible) return null;
 
     return (
         <div className="chatbot-container">
