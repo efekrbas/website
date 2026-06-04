@@ -127,6 +127,7 @@ const LiveStatus = () => {
         { name: 'C++', color: '#00599c' },
         { name: 'Python', color: '#3776ab' },
         { name: 'JavaScript', color: '#f7df1e' },
+        { name: 'TypeScript', color: '#3178c6' },
         { name: 'HTML', color: '#e34f26' },
         { name: 'CSS', color: '#1572b6' },
         { name: 'Node.js', color: '#339933' },
