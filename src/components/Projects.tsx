@@ -38,7 +38,7 @@ const Projects = () => {
                 const data = await response.json();
                 setOriginalProjects(data);
             } catch (error) {
-                console.error("Error fetching projects:", error);
+                console.warn("GitHub API rate limit exceeded or network error, using fallback projects.");
                 setOriginalProjects(fallbackProjects);
             } finally {
                 setLoading(false);
