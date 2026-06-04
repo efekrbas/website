@@ -386,6 +386,7 @@ header {
 
 .nav-links {
     display: flex;
+    align-items: center;
     list-style: none;
     gap: 4px;
     margin-left: auto;
@@ -441,7 +442,7 @@ header {
     width: 25px;
     height: 3px;
     background-color: var(--text-color);
-    margin: 5px;
+    margin: 4px 0;
     transition: all 0.3s ease;
 }
 
