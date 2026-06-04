@@ -24,6 +24,7 @@ Modern, Serverless Full-Stack ve premium kişisel portfolio websitesi
 | ✨ **Advanced Custom Cursor** | Akıcı LERP animasyonlu ve duruma göre şekil değiştiren özel imleç |
 | ⏳ **Deneyim Progress Bar** | Sayfa kaydırıldıkça dinamik olarak dolan senkronize zaman çizelgesi hattı |
 | ⛅ **Canlı Hava Durumu** | Open-Meteo API kullanılarak anlık İstanbul sıcaklığı ve dinamik ikonlar |
+| 🌓 **Light & Dark Mode** | Kusursuz renk geçişleri ve sisteme duyarlı tam uyumlu tema yönetimi |
 | 🌍 **Akıllı Dil Algılama** | Tarayıcı diline göre otomatik Türkçe veya İngilizce gösterimi |
 | 🎨 **Premium Tasarım** | Minimalist navbar, özel Grid sistemi, Glassmorphism ve ultra-modern estetik |
 | 📂 **GitHub API** | Projelerin yıldız ve güncelleme tarihine göre dinamik çekilmesi |
