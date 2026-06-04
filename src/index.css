@@ -212,6 +212,10 @@ body * {
     cursor: pointer !important;
 }
 
+.chat-suggestions {
+    cursor: default !important;
+}
+
 html {
     scroll-padding-top: 140px;
 }

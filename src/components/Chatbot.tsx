@@ -113,7 +113,7 @@ const Chatbot = () => {
         const onMouseUp = () => {
             if (!isDown) return;
             isDown = false;
-            el.style.cursor = 'grab';
+            el.style.cursor = '';
             
             // Restore text selection
             document.body.style.userSelect = '';
@@ -125,7 +125,7 @@ const Chatbot = () => {
             }, 50);
         };
 
-        el.style.cursor = 'grab';
+
         el.addEventListener('mousedown', onMouseDown);
         window.addEventListener('mousemove', onMouseMove);
         window.addEventListener('mouseup', onMouseUp);

@@ -75,8 +75,8 @@ const Cursor = () => {
         const handleMouseOver = (e) => {
             const target = e.target;
             
-            // 0. Hide on YouTube Videos, Medium Cards, and Suggestion Buttons
-            if (target.closest('.video-container') || target.closest('.medium-card') || target.closest('.suggestion-btn') || target.tagName === 'IFRAME') {
+            // 0. Hide on YouTube Videos, Medium Cards, Suggestion area, and Suggestion Buttons
+            if (target.closest('.video-container') || target.closest('.medium-card') || target.closest('.chat-suggestions') || target.tagName === 'IFRAME') {
                 releaseWrap();
                 dot.style.opacity = '0';
                 ring.style.opacity = '0';
