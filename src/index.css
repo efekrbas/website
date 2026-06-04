@@ -1361,10 +1361,10 @@ footer {
         position: fixed;
         top: 0;
         right: 0;
-        left: auto;
+        left: 0;
         transform: none;
         height: 100vh;
-        width: 60%;
+        width: 100%;
         background: var(--surface-overlay);
         backdrop-filter: blur(10px);
         padding-top: 100px;
