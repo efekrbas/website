@@ -10,30 +10,12 @@ const Hero = () => {
 
         useEffect(() => {
             let i = 0;
-            let isDeleting = false;
-            let timer;
-
-            const loop = () => {
-                if (!isDeleting && i <= fullText.length) {
-                    setTypedText(fullText.slice(0, i));
-                    i++;
-                    timer = setTimeout(loop, i > fullText.length ? 2000 : 150);
-                } else if (isDeleting && i >= 0) {
-                    setTypedText(fullText.slice(0, i));
-                    i--;
-                    timer = setTimeout(loop, i < 0 ? 500 : 80);
-                } else if (i > fullText.length) {
-                    isDeleting = true;
-                    timer = setTimeout(loop, 0);
-                } else if (i < 0) {
-                    isDeleting = false;
-                    i = 0;
-                    timer = setTimeout(loop, 0);
-                }
-            };
-
-            timer = setTimeout(loop, 150);
-            return () => clearTimeout(timer);
+            const timer = setInterval(() => {
+                i++;
+                setTypedText(fullText.slice(0, i));
+                if (i >= fullText.length) clearInterval(timer);
+            }, 150);
+            return () => clearInterval(timer);
         }, []);
 
         return <>{typedText}</>;
