@@ -106,6 +106,12 @@ const Chatbot = () => {
     };
 
     useEffect(() => {
+        if (typeof window !== 'undefined') {
+            window.dispatchEvent(new CustomEvent('chatbotStateChange', { detail: isOpen }));
+        }
+    }, [isOpen]);
+
+    useEffect(() => {
         scrollToBottom();
     }, [messages]);
 

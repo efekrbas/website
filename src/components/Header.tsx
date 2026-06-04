@@ -8,8 +8,21 @@ const Header = () => {
 
     const [navOpen, setNavOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('hero');
+    const [chatbotOpen, setChatbotOpen] = useState(false);
     const { t } = useLanguage();
     const { theme, toggleTheme } = useTheme();
+
+    useEffect(() => {
+        const handleChatbotState = (e) => setChatbotOpen(e.detail);
+        if (typeof window !== 'undefined') {
+            window.addEventListener('chatbotStateChange', handleChatbotState);
+        }
+        return () => {
+            if (typeof window !== 'undefined') {
+                window.removeEventListener('chatbotStateChange', handleChatbotState);
+            }
+        };
+    }, []);
 
     useEffect(() => {
         const observerOptions = {
@@ -82,7 +95,16 @@ const Header = () => {
     return (
         <header>
             <nav className="glass-nav">
-                <div className="logo">EFE KIRBAŞ</div>
+                <div 
+                    className="logo" 
+                    style={{ 
+                        opacity: chatbotOpen ? 0 : 1, 
+                        pointerEvents: chatbotOpen ? 'none' : 'auto',
+                        transition: 'opacity 0.3s ease'
+                    }}
+                >
+                    EFE KIRBAŞ
+                </div>
                 <ul className={`nav-links ${navOpen ? 'nav-active' : ''}`}>
                     {sections.map(id => (
                         <li key={id}>
@@ -109,7 +131,15 @@ const Header = () => {
                             <i className="fas fa-moon"></i>
                         )}
                     </button>
-                    <div className={`burger ${navOpen ? 'toggle' : ''}`} onClick={toggleNav}>
+                    <div 
+                        className={`burger ${navOpen ? 'toggle' : ''}`} 
+                        onClick={toggleNav}
+                        style={{ 
+                            opacity: chatbotOpen ? 0 : 1, 
+                            pointerEvents: chatbotOpen ? 'none' : 'auto',
+                            transition: 'opacity 0.3s ease'
+                        }}
+                    >
                         <div className="line1"></div>
                         <div className="line2"></div>
                         <div className="line3"></div>
