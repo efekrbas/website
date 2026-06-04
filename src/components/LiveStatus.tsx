@@ -131,6 +131,7 @@ const LiveStatus = () => {
         { name: 'CSS', color: '#1572b6' },
         { name: 'Node.js', color: '#339933' },
         { name: 'SQL', color: '#00758f' },
+        { name: t('artificialIntelligence'), color: '#ec4899' },
         { name: t('automation'), color: '#06b6d4' },
     ];
 
