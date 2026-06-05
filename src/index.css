@@ -2429,6 +2429,7 @@ footer {
     height: 100vh;
     background: transparent;
     z-index: 9999;
+    touch-action: none;
 }
 
 @media (max-width: 768px) {
