@@ -832,7 +832,8 @@ section {
 
 .about-text {
     font-size: 1.1rem;
-    color: var(--secondary-text);
+    color: var(--text-color);
+    line-height: 1.8;
 }
 
 .stats-grid {
