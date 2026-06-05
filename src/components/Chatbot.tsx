@@ -68,22 +68,26 @@ const Chatbot = () => {
     // Prevent body scroll on mobile when chat is open to avoid address bar shifting
     useEffect(() => {
         if (isOpen && window.innerWidth <= 768) {
+            const scrollY = window.scrollY;
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.width = '100%';
             document.body.style.overflow = 'hidden';
             document.body.style.overscrollBehavior = 'none';
             document.documentElement.style.overflow = 'hidden';
             document.documentElement.style.overscrollBehavior = 'none';
-        } else {
-            document.body.style.overflow = '';
-            document.body.style.overscrollBehavior = '';
-            document.documentElement.style.overflow = '';
-            document.documentElement.style.overscrollBehavior = '';
+
+            return () => {
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.width = '';
+                document.body.style.overflow = '';
+                document.body.style.overscrollBehavior = '';
+                document.documentElement.style.overflow = '';
+                document.documentElement.style.overscrollBehavior = '';
+                window.scrollTo(0, scrollY);
+            };
         }
-        return () => {
-            document.body.style.overflow = '';
-            document.body.style.overscrollBehavior = '';
-            document.documentElement.style.overflow = '';
-            document.documentElement.style.overscrollBehavior = '';
-        };
     }, [isOpen]);
 
     // Drag-to-scroll for suggestions on desktop
