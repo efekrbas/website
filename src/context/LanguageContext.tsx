@@ -42,7 +42,7 @@ export const translations: Record<string, Record<string, string>> = {
         // Marquee
         marqueeItem1: 'yazılım geliştirici',
         marqueeItem2: 'bilgisayar programcılığı öğrencisi',
-        marqueeItem3: 'siber güvenlik & yapay zeka meraklısı',
+        marqueeItem3: 'siber güvenlik & yapay zeka',
         marqueeItem4: 'istanbul, tr',
 
         // About
@@ -207,7 +207,7 @@ export const translations: Record<string, Record<string, string>> = {
         // Marquee
         marqueeItem1: 'software developer',
         marqueeItem2: 'computer programming student',
-        marqueeItem3: 'cyber security & artificial intelligence enthusiast',
+        marqueeItem3: 'cyber security & artificial intelligence',
         marqueeItem4: 'istanbul, tr',
 
         // About
