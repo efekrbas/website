@@ -234,13 +234,15 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    transition: opacity 0.4s ease;
+    visibility: visible;
+    transition: opacity 0.4s ease, visibility 0s linear 0s;
 }
 
 @media (min-width: 1025px) {
     .glass-nav.chatbot-is-open .nav-actions {
         opacity: 0;
-        pointer-events: none;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0s linear 0.4s;
     }
 }
 
@@ -273,7 +275,7 @@ body {
     .glass-nav.chatbot-is-open .theme-toggle-btn,
     .glass-nav.chatbot-is-open .burger {
         opacity: 0 !important;
-        pointer-events: none !important;
+        visibility: hidden;
     }
 }
 
