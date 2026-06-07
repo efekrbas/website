@@ -234,6 +234,14 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
+    transition: opacity 0.4s ease;
+}
+
+@media (min-width: 1025px) {
+    .glass-nav.chatbot-is-open .nav-actions {
+        opacity: 0;
+        pointer-events: none;
+    }
 }
 
 /* Theme Toggle Button */
@@ -259,12 +267,14 @@ body {
     transform: scale(1.05);
 }
 
-/* Hide navbar elements when chatbot is open */
-.glass-nav.chatbot-is-open .logo,
-.glass-nav.chatbot-is-open .theme-toggle-btn,
-.glass-nav.chatbot-is-open .burger {
-    opacity: 0 !important;
-    pointer-events: none !important;
+/* Hide navbar elements when chatbot is open (only on mobile/tablet) */
+@media (max-width: 1024px) {
+    .glass-nav.chatbot-is-open .logo,
+    .glass-nav.chatbot-is-open .theme-toggle-btn,
+    .glass-nav.chatbot-is-open .burger {
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
 }
 
 h1,
@@ -405,6 +415,13 @@ header {
     gap: 4px;
     margin-left: auto;
     margin-right: 24px;
+    transition: margin-right 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media (min-width: 1025px) {
+    .glass-nav.chatbot-is-open .nav-links {
+        margin-right: 390px;
+    }
 }
 
 .nav-links a {
