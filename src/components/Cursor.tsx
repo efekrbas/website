@@ -27,15 +27,16 @@ const Cursor = () => {
                 const centerX = rect.left + rect.width / 2;
                 const centerY = rect.top + rect.height / 2;
                 
-                // Release if mouse leaves the general area (handling scroll out)
-                const padding = 10; // Tighten padding
-                const isStillOver = 
-                    mousePos.current.x >= rect.left - padding && 
-                    mousePos.current.x <= rect.right + padding && 
-                    mousePos.current.y >= rect.top - padding && 
-                    mousePos.current.y <= rect.bottom + padding;
+                // Release if mouse leaves the actual hit area (respecting border-radius)
+                // Fallback to strict bounding box if :hover is somehow unreliable, but :hover is preferred
+                const isHovered = activeWrapTarget.current.matches(':hover');
+                const isStillOverBox = 
+                    mousePos.current.x >= rect.left && 
+                    mousePos.current.x <= rect.right && 
+                    mousePos.current.y >= rect.top && 
+                    mousePos.current.y <= rect.bottom;
 
-                if (!isStillOver) {
+                if (!isHovered && !isStillOverBox) {
                     releaseWrap();
                 } else {
                     ring.style.transform = `translate3d(${centerX}px, ${centerY}px, 0) translate(-50%, -50%)`;

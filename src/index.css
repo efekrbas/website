@@ -2384,12 +2384,15 @@ footer {
     align-items: center;
     cursor: pointer;
     box-shadow: 0 8px 32px var(--chatbot-shadow);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 10001;
 }
 
-.chatbot-bubble:hover {
-    transform: scale(1.1);
+.chatbot-bubble::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    z-index: -1;
 }
 
 /* Beep Boop Speech Bubble */
