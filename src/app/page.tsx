@@ -11,6 +11,7 @@ import LiveStatus from '../components/LiveStatus';
 import Experience from '../components/Experience';
 import Education from '../components/Education';
 import Projects from '../components/Projects';
+import OpenSource from '../components/OpenSource';
 import Youtube from '../components/Youtube';
 import Medium from '../components/Medium';
 
@@ -38,6 +39,7 @@ export default function Home() {
         <Experience />
         <Education />
         <Projects />
+        <OpenSource />
         <Youtube />
         <Medium />
       </main>

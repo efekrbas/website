@@ -3,7 +3,7 @@ import { Bot, BotOff } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 
-const sections = ['about', 'live-status', 'experience', 'education', 'projects', 'youtube', 'medium'];
+const sections = ['about', 'live-status', 'experience', 'education', 'projects', 'open-source', 'youtube', 'medium'];
 
 const Header = () => {
 

@@ -27,6 +27,8 @@ export const translations: Record<string, Record<string, string>> = {
         'live-status': 'Canlı Durum',
         education: 'Eğitim',
         projects: 'Projeler',
+        'open-source': 'Açık Kaynak',
+        youtube: 'YouTube',
         contact: 'İletişim',
 
         // Hero
@@ -115,6 +117,7 @@ export const translations: Record<string, Record<string, string>> = {
         campusAmbassador: 'Kampüs Elçisi',
         hackviser: 'Hackviser',
         projectsTitle: 'Projelerim',
+        openSourceTitle: 'Açık Kaynak Katkılarım',
         mostStarred: 'En Çok Yıldız Alanlar',
         recentlyUpdated: 'Son Güncellenenler',
         loadingProjects: 'Projeler yükleniyor...',
@@ -192,6 +195,8 @@ export const translations: Record<string, Record<string, string>> = {
         'live-status': 'Live Status',
         education: 'Education',
         projects: 'Projects',
+        'open-source': 'Open Source',
+        youtube: 'YouTube',
         contact: 'Contact',
 
         // Hero
@@ -280,6 +285,7 @@ export const translations: Record<string, Record<string, string>> = {
         campusAmbassador: 'Campus Ambassador',
         hackviser: 'Hackviser',
         projectsTitle: 'Projects',
+        openSourceTitle: 'Open Source Contributions',
         mostStarred: 'Most Starred',
         recentlyUpdated: 'Recently Updated',
         loadingProjects: 'Loading projects...',
