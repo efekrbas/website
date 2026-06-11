@@ -186,6 +186,16 @@
     color: rgba(0, 0, 0, 0.35);
 }
 
+[data-theme="light"] .tech-icon-card {
+    background: #111111;
+    color: #ffffff;
+    border-color: #333333;
+}
+
+[data-theme="light"] .tech-icon-card:hover {
+    background: #000000;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -771,24 +781,95 @@ section {
 }
 
 /* Marquee Section */
-.marquee-container {
+.marquee-wrapper {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     overflow: hidden;
     background-color: transparent;
-    color: var(--text-primary);
-    padding: 24px 0;
-    position: relative;
     display: flex;
+    flex-direction: column;
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
     z-index: 10;
+}
+
+.marquee-container {
+    width: 100%;
+    color: var(--text-primary);
+    padding: 32px 0 20px 0;
+    position: relative;
+    display: flex;
+}
+
+.tech-marquee-container {
+    width: 100%;
+    padding: 0 0 32px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tech-marquee-row {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+.tech-marquee-row.right {
+    animation: scroll-marquee-reverse 35s linear infinite;
+}
+
+.tech-marquee-row.left {
+    animation: scroll-marquee 40s linear infinite;
+}
+
+.tech-marquee-container:hover .tech-marquee-row {
+    animation-play-state: paused;
+}
+
+.tech-marquee-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 8px;
+}
+
+.tech-icon-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1rem;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.tech-icon-card:hover {
+    background: var(--card-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.tech-icon-card img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
 }
 
 .marquee-content {
     display: flex;
     width: max-content;
     animation: scroll-marquee 40s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 .marquee-container:hover .marquee-content {
@@ -818,13 +899,13 @@ section {
 }
 
 @keyframes scroll-marquee {
-    0% {
-        transform: translateX(0);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
 
-    100% {
-        transform: translateX(-50%);
-    }
+@keyframes scroll-marquee-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
 }
 
 /* About Section */
@@ -1882,8 +1963,8 @@ footer {
 
 .ls-discord-avatar {
     position: relative;
-    width: 64px;
-    height: 64px;
+    width: 80px;
+    height: 80px;
 }
 
 .ls-discord-avatar img {
@@ -1896,10 +1977,10 @@ footer {
 
 .ls-discord-status-dot {
     position: absolute;
-    bottom: 1px;
-    right: 1px;
-    width: 13px;
-    height: 13px;
+    bottom: 2px;
+    right: 2px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     border: 3px solid var(--discord-dot-border);
 }
@@ -2349,7 +2430,9 @@ footer {
 @media (max-width: 560px) {
     .ls-grid-12 {
         grid-template-columns: 1fr;
-        padding: 0 16px;
+        padding: 0;
+        margin: 0 auto;
+        width: 100%;
     }
 
     .ls-area-discord,

@@ -134,6 +134,10 @@ const LiveStatus = () => {
         { name: 'SQL', color: '#00758f' },
         { name: t('artificialIntelligence'), color: '#ec4899' },
         { name: t('automation'), color: '#06b6d4' },
+        { name: 'Blockchain', color: '#f7931a' },
+        { name: 'Smart Contracts', color: '#3498db' },
+        { name: 'Web3', color: '#8a2be2' },
+        { name: 'Ruby', color: '#cc342d' },
     ];
 
     const langs = [
