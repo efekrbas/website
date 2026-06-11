@@ -58,7 +58,7 @@ const Experience = () => {
                             ? `Mayıs 2026 - Devam ediyor · ${calculateDuration(2026, 5)}` 
                             : `May 2026 - Continuing · ${calculateDuration(2026, 5)}`}
                     </div>
-                    <div className="timeline-content glass-card">
+                    <a href="https://siber0x1.gitlab.io/" target="_blank" rel="noopener noreferrer" className="timeline-content glass-card clickable-card">
                         <div className="timeline-inner">
                             <div className="logo-container">
                                 <img src="/images/siber0x1.png" alt="Siber0x1" className="company-logo" loading="lazy" decoding="async" />
@@ -69,7 +69,7 @@ const Experience = () => {
                                 <p className="description">{t('siber0x1Desc')}</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div className="timeline-item">
@@ -78,7 +78,7 @@ const Experience = () => {
                             ? `Mayıs 2026 - Devam ediyor · ${calculateDuration(2026, 5)}` 
                             : `May 2026 - Continuing · ${calculateDuration(2026, 5)}`}
                     </div>
-                    <div className="timeline-content glass-card">
+                    <a href="https://kariyerpusulan.com/" target="_blank" rel="noopener noreferrer" className="timeline-content glass-card clickable-card">
                         <div className="timeline-inner">
                             <div className="text-container">
                                 <h3>{t('kariyerPusulanRole')}</h3>
@@ -89,7 +89,7 @@ const Experience = () => {
                                 <img src="/images/kariyerpusulan.jpg" alt="Kariyer Pusulan" className="company-logo" loading="lazy" decoding="async" />
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div className="timeline-item">
@@ -98,7 +98,7 @@ const Experience = () => {
                             ? `Şubat 2026 - Devam ediyor · ${calculateDuration(2026, 2)}` 
                             : `February 2026 - Continuing · ${calculateDuration(2026, 2)}`}
                     </div>
-                    <div className="timeline-content glass-card">
+                    <a href="https://hackviser.com/" target="_blank" rel="noopener noreferrer" className="timeline-content glass-card clickable-card">
                         <div className="timeline-inner">
                             <div className="text-container">
                                 <h3>{t('campusAmbassador')}</h3>
@@ -110,7 +110,7 @@ const Experience = () => {
                                 <img src="/images/hackviser.jpg" alt="Hackviser" className="company-logo" loading="lazy" decoding="async" />
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div className="timeline-item">
                     <div className="timeline-date">
@@ -118,7 +118,7 @@ const Experience = () => {
                             ? `Kasım 2025 - Devam ediyor · ${calculateDuration(2025, 11)}` 
                             : `November 2025 - Continuing · ${calculateDuration(2025, 11)}`}
                     </div>
-                    <div className="timeline-content glass-card">
+                    <a href="https://www.sibervatan.org/" target="_blank" rel="noopener noreferrer" className="timeline-content glass-card clickable-card">
                         <div className="timeline-inner">
                             <div className="logo-container">
                                 <img
@@ -141,7 +141,7 @@ const Experience = () => {
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div className="timeline-item">
                     <div className="timeline-date">
@@ -149,7 +149,7 @@ const Experience = () => {
                             ? `Eylül 2024 - Haziran 2025 · ${calculateDuration(2024, 9, 2025, 6)}` 
                             : `September 2024 - June 2025 · ${calculateDuration(2024, 9, 2025, 6)}`}
                     </div>
-                    <div className="timeline-content glass-card">
+                    <a href="https://medipol.com.tr/" target="_blank" rel="noopener noreferrer" className="timeline-content glass-card clickable-card">
                         <div className="timeline-inner">
                             <div className="text-container">
                                 <h3>{t('itFieldSupportIntern')}</h3>
@@ -166,7 +166,7 @@ const Experience = () => {
                                 <img src="/images/medipol.png" alt="Medipol Sağlık Grubu" className="company-logo" loading="lazy" decoding="async" />
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </motion.section>

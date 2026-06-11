@@ -208,8 +208,21 @@ body * {
 .medium-card,
 .medium-card *,
 .suggestion-btn,
-.suggestion-btn * {
+.suggestion-btn *,
+.clickable-card,
+.clickable-card * {
     cursor: pointer !important;
+}
+
+.clickable-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.clickable-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .chat-suggestions {

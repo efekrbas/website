@@ -60,7 +60,7 @@ export const translations: Record<string, Record<string, string>> = {
         svItem3: 'Aldığım eğitimlerde web güvenliği, ağ güvenliği, sızma testleri, zararlı yazılım analizi gibi birçok alanda bilgi ve beceri kazandım.',
         siber0x1Desc: 'Siber0x1 LinkedIn hesabının yönetilmesinden sorumluyum.',
         kariyerPusulan: 'Kariyer Pusulan',
-        kariyerPusulanRole: 'Takım Üyesi',
+        kariyerPusulanRole: 'Ekip Üyesi',
         kariyerPusulanDesc: 'Teknik hata ve eksikliklerin tespit edilmesi, raporlanması ve çözüm süreçlerinin yönetilmesinde aktif görev alarak topluluğun teknik altyapısına katkıda bulunuyorum; aynı zamanda topluluk yönetimi ve içerik paylaşımı süreçlerini yürütüyorum.',
         hackviserDesc: 'Siber güvenlik alanında gelişmek isteyen kişilere, Hackviser\'ı tavsiye ederek öğrenme süreçlerine rehberlik ediyorum.',
 
