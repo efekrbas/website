@@ -62,10 +62,6 @@ const MediumCard = ({ post, index }: { post: MediumPost; index: number }) => {
                     )}
                 </div>
                 <h3 className="medium-card-title">{post.title}</h3>
-                <span className="medium-read-more" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <MousePointerClick size={14} />
-                    {t('readMore')}
-                </span>
             </div>
         </motion.a>
     );
