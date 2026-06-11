@@ -28,7 +28,6 @@ export const translations: Record<string, Record<string, string>> = {
         education: 'Eğitim',
         projects: 'Projeler',
         'open-source': 'Açık Kaynak',
-        youtube: 'YouTube',
         contact: 'İletişim',
 
         // Hero
@@ -196,7 +195,6 @@ export const translations: Record<string, Record<string, string>> = {
         education: 'Education',
         projects: 'Projects',
         'open-source': 'Open Source',
-        youtube: 'YouTube',
         contact: 'Contact',
 
         // Hero
