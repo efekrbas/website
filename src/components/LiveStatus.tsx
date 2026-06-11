@@ -138,6 +138,7 @@ const LiveStatus = () => {
         { name: 'Smart Contracts', color: '#3498db' },
         { name: 'Web3', color: '#8a2be2' },
         { name: 'Ruby', color: '#cc342d' },
+        { name: 'PyQt6', color: '#41cd52' },
     ];
 
     const langs = [
