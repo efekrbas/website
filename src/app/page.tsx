@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Marquee from '../components/Marquee';
-import Cursor from '../components/Cursor';
+
 import Footer from '../components/Footer';
 import About from '../components/About';
 import LiveStatus from '../components/LiveStatus';
@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
     <>
-      <Cursor />
+
       <Header />
       <main>
         <Hero />

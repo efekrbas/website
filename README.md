@@ -21,7 +21,6 @@ Modern, Serverless Full-Stack ve premium kişisel portfolio websitesi
 | ⚙️ **Serverless Full-Stack** | Next.js API Routes ile backend işlemleri, güvenli token yönetimi ve sunucu tabanlı Rate-limiting |
 | 📊 **Live Status Dashboard** | Discord varlığı, anlık hava durumu ve sistem stack gösterimi |
 | 🎵 **Spotify Entegrasyonu** | Spotify API üzerinden o an dinlenen şarkının canlı gösterimi |
-| ✨ **Advanced Custom Cursor** | Akıcı LERP animasyonlu ve duruma göre şekil değiştiren özel imleç |
 | ⏳ **Deneyim Progress Bar** | Sayfa kaydırıldıkça dinamik olarak dolan senkronize zaman çizelgesi hattı |
 | 🌓 **Light & Dark Mode** | Kusursuz renk geçişleri ve sisteme duyarlı tam uyumlu tema yönetimi |
 | 🌍 **Akıllı Dil Algılama** | Tarayıcı diline göre otomatik Türkçe veya İngilizce gösterimi |
@@ -91,7 +90,6 @@ src/
 │   ├── Projects.tsx        # GitHub projeleri
 │   ├── Youtube.tsx         # YouTube
 │   ├── Medium.tsx          # Medium makaleleri
-│   ├── Cursor.tsx          # Custom cursor
 │   └── Footer.tsx          # Alt bilgi
 ├── context/
 │   └── LanguageContext.tsx # Dil yönetimi (Type-safe)

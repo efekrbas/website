@@ -200,29 +200,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: none;
 }
 
-body * {
-    cursor: none !important;
-}
 
-/* Override global cursor none only for the actual video player box */
-.video-container,
-.video-container * {
-    cursor: auto !important;
-}
-
-.video-thumbnail,
-.video-thumbnail *,
-.medium-card,
-.medium-card *,
-.suggestion-btn,
-.suggestion-btn *,
-.clickable-card,
-.clickable-card * {
-    cursor: pointer !important;
-}
 
 .clickable-card {
     display: block;
@@ -328,82 +308,6 @@ button,
     pointer-events: auto !important;
 }
 
-/* Custom Cursor System */
-.cursor-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--cursor-color);
-    border-radius: 50%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none !important;
-    z-index: 99999;
-    transition: opacity 0.3s ease, background-color 0.3s ease;
-}
-
-.cursor-ring {
-    width: 34px;
-    height: 34px;
-    border: 1px solid var(--cursor-ring);
-    border-radius: 50%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none !important;
-    z-index: 99998;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-        height 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-        border-color 0.3s ease,
-        border-radius 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-        background-color 0.3s ease;
-}
-
-/* Hover States */
-.cursor-ring.ring-hover {
-    width: 65px;
-    height: 65px;
-    border-color: var(--cursor-ring-hover);
-}
-
-.cursor-ring.ring-marquee {
-    width: 90px;
-    height: 90px;
-    border-color: var(--cursor-color);
-}
-
-.cursor-ring.ring-wrap {
-    background-color: transparent;
-    border-color: var(--cursor-ring);
-}
-
-.cursor-icon {
-    color: var(--cursor-color);
-    font-size: 1.8rem;
-    opacity: 0;
-    transform: scale(0);
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.ring-marquee .cursor-icon {
-    opacity: 1;
-    transform: scale(1);
-}
-
-@media (max-width: 768px) {
-
-    .cursor-dot,
-    .cursor-ring {
-        display: none !important;
-    }
-
-    * {
-        cursor: auto !important;
-    }
-}
 
 /* Header & Nav */
 header {
