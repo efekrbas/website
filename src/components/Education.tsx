@@ -15,7 +15,7 @@ const Education = () => {
         >
             <h2 className="section-title">{t('educationTitle')}</h2>
             <div className="education-grid">
-                <div className="edu-card glass-card">
+                <a href="https://bilecik.edu.tr/" target="_blank" rel="noopener noreferrer" className="edu-card glass-card clickable-card">
                     <div className="edu-inner">
                         <div className="logo-container">
                             <img src="/images/bilecik-universitesi-logo.png" alt="Bilecik Şeyh Edebali University"
@@ -27,8 +27,8 @@ const Education = () => {
                             <p>{t('associateDegree')}</p>
                         </div>
                     </div>
-                </div>
-                <div className="edu-card glass-card">
+                </a>
+                <a href="https://dundarucarmtandl.meb.k12.tr/" target="_blank" rel="noopener noreferrer" className="edu-card glass-card clickable-card">
                     <div className="edu-inner">
                         <div className="logo-container">
                             <img src="/images/dundar-ucar-logo.jpg" alt="Dündar Uçar MTAL" className="company-logo" loading="lazy" decoding="async" />
@@ -39,7 +39,7 @@ const Education = () => {
                             <p>{t('highSchool')}</p>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </motion.section>
     );
