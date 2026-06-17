@@ -128,7 +128,11 @@ const Header = () => {
     return (
         <header>
             <nav className={`glass-nav ${chatbotOpen ? 'chatbot-is-open' : ''}`}>
-                <div className="logo" style={{ transition: 'opacity 0.3s ease' }}>
+                <div 
+                    className="logo" 
+                    style={{ transition: 'opacity 0.3s ease', cursor: 'pointer' }}
+                    onClick={(e) => handleNavClick(e, 'hero')}
+                >
                     EFE KIRBAŞ
                 </div>
                 
