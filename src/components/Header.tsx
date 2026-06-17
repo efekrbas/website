@@ -93,7 +93,6 @@ const Header = () => {
 
         const element = document.getElementById(id);
         if (element) {
-            const headerOffset = window.innerWidth > 1024 ? 0 : 80;
             
             // Animasyonlar (framer-motion vs) transform kullandığı için getBoundingClientRect 
             // ilk tıklamada yanlış değer verebiliyor. Bu yüzden offsetTop ile mutlak konumu buluyoruz.
@@ -104,7 +103,7 @@ const Header = () => {
                 curr = curr.offsetParent as HTMLElement | null;
             }
             
-            let targetPosition = elementPosition - headerOffset;
+            let targetPosition = elementPosition;
             
             // Canlı durum (Live Status) içeriği uzun olduğu için laptoplarda içeriği ortalamak adına ofset ekliyoruz
             // (Kullanıcı Spotify kartının aşağıya yapışmasını istemedi)
