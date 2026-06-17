@@ -25,6 +25,10 @@ const nextConfig = {
             key: 'X-XSS-Protection',
             value: '1; mode=block', // Eski tarayıcılar için ekstra XSS koruması
           },
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; img-src 'self' blob: data: https://i.scdn.co https://cdn-images-1.medium.com https://miro.medium.com https://cdn.simpleicons.org https://avatars.githubusercontent.com https://img.youtube.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self' https://vitals.vercel-insights.com; frame-src 'self' https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
+          },
         ],
       },
     ];
