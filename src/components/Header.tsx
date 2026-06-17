@@ -98,10 +98,10 @@ const Header = () => {
             // Animasyonlar (framer-motion vs) transform kullandığı için getBoundingClientRect 
             // ilk tıklamada yanlış değer verebiliyor. Bu yüzden offsetTop ile mutlak konumu buluyoruz.
             let elementPosition = 0;
-            let curr = element;
+            let curr: HTMLElement | null = element as HTMLElement;
             while (curr) {
                 elementPosition += curr.offsetTop;
-                curr = curr.offsetParent;
+                curr = curr.offsetParent as HTMLElement | null;
             }
             
             let targetPosition = elementPosition - headerOffset;
