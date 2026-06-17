@@ -11,6 +11,7 @@ const Header = () => {
     const [activeSection, setActiveSection] = useState('hero');
     const [chatbotOpen, setChatbotOpen] = useState(false);
     const [chatbotHidden, setChatbotHidden] = useState(false);
+    const [isManualScroll, setIsManualScroll] = useState(false);
     const { t } = useLanguage();
     const { theme, toggleTheme } = useTheme();
 
@@ -46,11 +47,12 @@ const Header = () => {
     useEffect(() => {
         const observerOptions = {
             root: null,
-            rootMargin: '-40% 0px -40% 0px',
+            rootMargin: '-20% 0px -60% 0px',
             threshold: 0
         };
 
         const observerCallback = (entries) => {
+            if (isManualScroll) return;
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     setActiveSection(entry.target.id);
@@ -77,7 +79,7 @@ const Header = () => {
             observer.disconnect();
         };
 
-    }, []);
+    }, [isManualScroll]);
 
     const toggleNav = () => {
         setNavOpen(!navOpen);
@@ -86,10 +88,23 @@ const Header = () => {
     const handleNavClick = (e, id) => {
         e.preventDefault();
         setNavOpen(false);
+        setIsManualScroll(true);
+        setTimeout(() => setIsManualScroll(false), 1000);
 
         const element = document.getElementById(id);
         if (element) {
-            let targetPosition = element.offsetTop;
+            const headerOffset = window.innerWidth > 1024 ? 0 : 80;
+            
+            // Animasyonlar (framer-motion vs) transform kullandığı için getBoundingClientRect 
+            // ilk tıklamada yanlış değer verebiliyor. Bu yüzden offsetTop ile mutlak konumu buluyoruz.
+            let elementPosition = 0;
+            let curr = element;
+            while (curr) {
+                elementPosition += curr.offsetTop;
+                curr = curr.offsetParent;
+            }
+            
+            let targetPosition = elementPosition - headerOffset;
             
             // Canlı durum (Live Status) içeriği uzun olduğu için laptoplarda içeriği ortalamak adına ofset ekliyoruz
             // (Kullanıcı Spotify kartının aşağıya yapışmasını istemedi)
