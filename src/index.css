@@ -419,7 +419,8 @@ header {
     height: 600px;
     background: radial-gradient(circle, var(--hero-blob) 0%, rgba(0, 0, 0, 0) 70%);
     border-radius: 50%;
-    filter: blur(80px);
+    -webkit-filter: blur();
+    filter: blur();
     z-index: -1;
 }
 
@@ -662,7 +663,8 @@ section {
 .glass-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur();
+    backdrop-filter: blur();
     border-radius: 15px;
     padding: 22px;
     transition: all 0.3s ease;
@@ -939,7 +941,8 @@ section {
     border: 1px solid var(--card-border);
     border-radius: 20px;
     padding: 28px;
-    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur();
+    backdrop-filter: blur();
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1310,7 +1313,8 @@ footer {
     width: fit-content;
     min-width: 400px;
     overflow: hidden;
-    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur();
+    backdrop-filter: blur();
 }
 
 .selection-bg {
@@ -1393,7 +1397,8 @@ footer {
         height: 100vh;
         width: 60%;
         background: var(--surface-overlay);
-        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur();
+    backdrop-filter: blur();
         padding-top: 100px;
         z-index: 999;
         animation: slideIn 0.3s ease-in-out;
@@ -1799,7 +1804,8 @@ footer {
     border-radius: 16px;
     padding: 20px;
     transition: all 0.25s ease;
-    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur();
+    backdrop-filter: blur();
     overflow: hidden;
     min-width: 0;
 }
@@ -2401,7 +2407,8 @@ footer {
     cursor: pointer;
     z-index: 10002;
     box-shadow: 0 8px 32px var(--chatbot-shadow);
-    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur();
+    backdrop-filter: blur();
     animation: beepBoopFloat 2s ease-in-out infinite;
     user-select: none;
     transition: background 0.2s ease;
@@ -2545,7 +2552,8 @@ footer {
     width: 100%;
     height: calc(100% - 65px);
     background: var(--bio-overlay-bg);
-    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur();
+    backdrop-filter: blur();
     z-index: 100;
     padding: 20px;
     display: flex;
@@ -2748,5 +2756,12 @@ footer {
         height: calc(100dvh - 120px);
         bottom: 70px;
         right: -10px;
+    }
+}
+
+/* Mobile Optimization to prevent Safari crash */
+@media (max-width: 768px) {
+    #hero::before {
+        display: none !important;
     }
 }

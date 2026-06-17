@@ -33,7 +33,7 @@ const Projects = () => {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const response = await fetch('https://api.github.com/users/efekrbas/repos?per_page=100');
+                const response = await fetch('/api/github');
                 if (!response.ok) throw new Error('Failed to fetch');
                 const data = await response.json();
                 setOriginalProjects(data);
