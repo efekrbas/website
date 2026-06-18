@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MousePointerClick } from 'lucide-react';
+import Image from 'next/image';
 import { useLanguage } from '../context/LanguageContext';
 
 interface MediumPost {
@@ -42,7 +45,7 @@ const MediumCard = ({ post, index }: { post: MediumPost; index: number }) => {
         >
             {post.thumbnail && (
                 <div className="medium-card-thumbnail">
-                    <img src={post.thumbnail} alt={post.title} loading="lazy" />
+                    <Image src={post.thumbnail} alt={post.title} width={400} height={200} loading="lazy" />
                     <div className="medium-card-overlay">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>

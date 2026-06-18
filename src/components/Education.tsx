@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useLanguage } from '../context/LanguageContext';
 
 const Education = () => {
@@ -18,8 +21,8 @@ const Education = () => {
                 <a href="https://bilecik.edu.tr/" target="_blank" rel="noopener noreferrer" className="edu-card glass-card clickable-card">
                     <div className="edu-inner">
                         <div className="logo-container">
-                            <img src="/images/bilecik-universitesi-logo.png" alt="Bilecik Şeyh Edebali University"
-                                className="company-logo" loading="lazy" decoding="async" />
+                            <Image src="/images/bilecik-universitesi-logo.png" alt="Bilecik Şeyh Edebali University"
+                                className="company-logo" width={80} height={80} loading="lazy" decoding="async" />
                         </div>
                         <div className="text-container">
                             <div className="year">2025 - {t('present')}</div>
@@ -31,7 +34,7 @@ const Education = () => {
                 <a href="https://dundarucarmtandl.meb.k12.tr/" target="_blank" rel="noopener noreferrer" className="edu-card glass-card clickable-card">
                     <div className="edu-inner">
                         <div className="logo-container">
-                            <img src="/images/dundar-ucar-logo.jpg" alt="Dündar Uçar MTAL" className="company-logo" loading="lazy" decoding="async" />
+                            <Image src="/images/dundar-ucar-logo.jpg" alt="Dündar Uçar MTAL" className="company-logo" width={80} height={80} loading="lazy" decoding="async" />
                         </div>
                         <div className="text-container">
                             <div className="year">2022 - 2025</div>

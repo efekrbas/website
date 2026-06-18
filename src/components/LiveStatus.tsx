@@ -1,7 +1,10 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, CloudSun, Music, Code2, MapPin, ExternalLink, Languages, Sun, Cloud, CloudRain, CloudSnow, CloudLightning, CloudFog, CloudDrizzle, Instagram, Twitter, Linkedin, Mail, MessageSquare, Share2 } from 'lucide-react';
 import SpotifyWidget from './SpotifyWidget';
+import Image from 'next/image';
 import { useLanguage } from '../context/LanguageContext';
 
 const DISCORD_USER_ID = '378501743366897675';
@@ -84,7 +87,9 @@ const LiveStatus = () => {
             }
         };
         fetchWeather();
-        const interval = setInterval(() => fetchWeather(), 1800000); // 30 minutes
+        const interval = setInterval(() => {
+            if (document.visibilityState === 'visible') fetchWeather();
+        }, 1800000); // 30 minutes
         return () => { controller.abort(); clearInterval(interval); };
     }, []);
 
@@ -104,8 +109,20 @@ const LiveStatus = () => {
         const [time, setTime] = useState(new Date());
 
         useEffect(() => {
-            const timer = setInterval(() => setTime(new Date()), 1000);
-            return () => clearInterval(timer);
+            const updateTime = () => setTime(new Date());
+            const timer = setInterval(() => {
+                if (document.visibilityState === 'visible') updateTime();
+            }, 1000);
+            
+            const handleVisibilityChange = () => {
+                if (document.visibilityState === 'visible') updateTime();
+            };
+            document.addEventListener('visibilitychange', handleVisibilityChange);
+            
+            return () => {
+                clearInterval(timer);
+                document.removeEventListener('visibilitychange', handleVisibilityChange);
+            };
         }, []);
 
         const formatTime = (d) => d.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
@@ -173,9 +190,10 @@ const LiveStatus = () => {
                     <motion.div className="ls-card ls-area-discord" whileHover={{ y: -3 }} transition={{ duration: 0.2 }}>
                         <div className="ls-discord-profile">
                             <div className="ls-discord-avatar">
-                                <img 
+                                <Image 
                                     src={avatarUrl} 
                                     alt={username} 
+                                    width={128} height={128}
                                     onError={(e) => { const target = e.target as HTMLImageElement; target.onerror = null; target.src = '/images/discord-avatar.gif'; }} 
                                 />
                                 <span className="ls-discord-status-dot" style={{ background: statusColors[discordStatus] }}></span>

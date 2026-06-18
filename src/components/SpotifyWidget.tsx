@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Music } from 'lucide-react';
+import Image from 'next/image';
 
 const SpotifyWidget = () => {
     const [data, setData] = useState(null);
@@ -24,8 +25,19 @@ const SpotifyWidget = () => {
         };
 
         fetchNowPlaying();
-        const interval = setInterval(fetchNowPlaying, 30000); // 30 seconds
-        return () => clearInterval(interval);
+        const interval = setInterval(() => {
+            if (document.visibilityState === 'visible') fetchNowPlaying();
+        }, 30000); // 30 seconds
+        
+        const handleVisibilityChange = () => {
+            if (document.visibilityState === 'visible') fetchNowPlaying();
+        };
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        
+        return () => {
+            clearInterval(interval);
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+        };
     }, []);
 
     // Progress bar animation (client-side interpolation between fetches)
@@ -33,6 +45,7 @@ const SpotifyWidget = () => {
         if (!data?.isPlaying || !data?.progress || !data?.duration) return;
 
         const interval = setInterval(() => {
+            if (document.visibilityState !== 'visible') return;
             setProgress((prev) => {
                 const next = prev + (1000 / data.duration) * 100;
                 return next >= 100 ? 100 : next;
@@ -67,7 +80,7 @@ const SpotifyWidget = () => {
         >
             {data.albumArt && (
                 <div className="spotify-album-art">
-                    <img src={data.albumArt} alt={data.album} />
+                    <Image src={data.albumArt} alt={data.album} width={64} height={64} />
                     {data.isPlaying && (
                         <div className="spotify-eq">
                             <span></span><span></span><span></span>

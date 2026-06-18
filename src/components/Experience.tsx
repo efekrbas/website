@@ -1,5 +1,8 @@
+'use client';
+
 import React, { useRef } from 'react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import Image from 'next/image';
 import { useLanguage } from '../context/LanguageContext';
 
 const Experience = () => {
@@ -61,7 +64,7 @@ const Experience = () => {
                     <a href="https://siber0x1.gitlab.io/" target="_blank" rel="noopener noreferrer" className="timeline-content glass-card clickable-card">
                         <div className="timeline-inner">
                             <div className="logo-container">
-                                <img src="/images/siber0x1.png" alt="Siber0x1" className="company-logo" loading="lazy" decoding="async" />
+                                <Image src="/images/siber0x1.png" alt="Siber0x1" className="company-logo" width={80} height={80} loading="lazy" decoding="async" />
                             </div>
                             <div className="text-container">
                                 <h3>{t('founder')}</h3>
@@ -86,7 +89,7 @@ const Experience = () => {
                                 <p className="description">{t('kariyerPusulanDesc')}</p>
                             </div>
                             <div className="logo-container">
-                                <img src="/images/kariyerpusulan.jpg" alt="Kariyer Pusulan" className="company-logo" loading="lazy" decoding="async" />
+                                <Image src="/images/kariyerpusulan.jpg" alt="Kariyer Pusulan" className="company-logo" width={80} height={80} loading="lazy" decoding="async" />
                             </div>
                         </div>
                     </a>
@@ -107,7 +110,7 @@ const Experience = () => {
                                 <p className="location"><i className="fas fa-map-marker-alt"></i> {language === 'tr' ? 'Londra, Birleşik Krallık · Uzaktan' : 'London, United Kingdom · Remote'}</p>
                             </div>
                             <div className="logo-container">
-                                <img src="/images/hackviser.jpg" alt="Hackviser" className="company-logo" loading="lazy" decoding="async" />
+                                <Image src="/images/hackviser.jpg" alt="Hackviser" className="company-logo" width={80} height={80} loading="lazy" decoding="async" />
                             </div>
                         </div>
                     </a>
@@ -121,10 +124,11 @@ const Experience = () => {
                     <a href="https://www.sibervatan.org/" target="_blank" rel="noopener noreferrer" className="timeline-content glass-card clickable-card">
                         <div className="timeline-inner">
                             <div className="logo-container">
-                                <img
+                                <Image
                                     src="/images/sibervatan.png"
                                     alt="Siber Vatan"
                                     className="company-logo"
+                                    width={80} height={80}
                                     style={{ backgroundColor: 'transparent', padding: 0 }}
                                     loading="lazy"
                                     decoding="async"
@@ -163,7 +167,7 @@ const Experience = () => {
                                 </ul>
                             </div>
                             <div className="logo-container">
-                                <img src="/images/medipol.png" alt="Medipol Sağlık Grubu" className="company-logo" loading="lazy" decoding="async" />
+                                <Image src="/images/medipol.png" alt="Medipol Sağlık Grubu" className="company-logo" width={80} height={80} loading="lazy" decoding="async" />
                             </div>
                         </div>
                     </a>

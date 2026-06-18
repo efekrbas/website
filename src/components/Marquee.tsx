@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { Bot } from 'lucide-react';
 
 const Marquee = () => {
     const { t } = useLanguage();
@@ -27,8 +30,8 @@ const Marquee = () => {
         { name: 'Blockchain', icon: 'https://cdn.simpleicons.org/bitcoin/white' },
         { name: 'Web3', icon: 'https://cdn.simpleicons.org/web3dotjs/white' },
         { name: 'Smart Contracts', icon: 'https://cdn.simpleicons.org/solidity/white' },
-        { name: 'AI', icon: 'https://cdn.simpleicons.org/tensorflow/white' },
-        { name: 'Automation', icon: 'https://cdn.simpleicons.org/githubactions/white' },
+        { name: t('artificialIntelligence'), icon: 'lucide:bot' },
+        { name: t('automation'), icon: 'https://cdn.simpleicons.org/githubactions/white' },
         { name: 'Next.js', icon: 'https://cdn.simpleicons.org/nextdotjs/white' },
         { name: 'Vanilla CSS', icon: 'https://cdn.simpleicons.org/css/white' },
         { name: 'Tailwind CSS', icon: 'https://cdn.simpleicons.org/tailwindcss/white' }
@@ -57,7 +60,11 @@ const Marquee = () => {
         <div className="tech-marquee-group">
             {row.map((tech, index) => (
                 <div className="tech-icon-card" key={index}>
-                    <img src={tech.icon} alt={tech.name} />
+                    {tech.icon === 'lucide:bot' ? (
+                        <Bot size={32} color="white" />
+                    ) : (
+                        <img src={tech.icon} alt={tech.name} />
+                    )}
                     <span>{tech.name}</span>
                 </div>
             ))}

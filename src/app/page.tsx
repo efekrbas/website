@@ -1,6 +1,5 @@
-'use client';
-
-import React, { useEffect } from 'react';
+import React from 'react';
+import ScrollManager from '../components/ScrollManager';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Marquee from '../components/Marquee';
@@ -16,19 +15,9 @@ import Youtube from '../components/Youtube';
 import Medium from '../components/Medium';
 
 export default function Home() {
-  useEffect(() => {
-    if (window.location.hash) {
-      window.history.replaceState(null, null, window.location.pathname);
-    }
-    window.scrollTo(0, 0);
-
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
-    }
-  }, []);
-
   return (
     <>
+      <ScrollManager />
 
       <Header />
       <main>
