@@ -112,7 +112,6 @@ Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
 
 ### 👤 İletişim
 
-[![GitHub](https://img.shields.io/badge/GitHub-efekrbas-181717?style=for-the-badge&logo=github)](https://github.com/efekrbas)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Efe_Kırbaş-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/efekrbs)
 
 ---
