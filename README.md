@@ -28,7 +28,9 @@ Modern, Serverless Full-Stack ve premium kişisel portfolio websitesi
 | 📂 **GitHub API** | Projelerin yıldız ve güncelleme tarihine göre dinamik çekilmesi |
 | 📝 **Medium Entegrasyonu** | Medium makalelerinin premium kart tasarımıyla güncel listelenmesi |
 | ✨ **Micro-Animations** | Gelişmiş CSS geçişleri ve 60fps premium etkileşimler |
-| ⚡ **Yüksek Performans** | TypeScript destekli tip güvenliği, optimize edilmiş LERP döngüleri ve temiz React mimarisi |
+| ⚡ **Yüksek Performans** | Strict TypeScript desteği, optimize edilmiş LERP döngüleri ve temiz React mimarisi |
+| 🧪 **Test Altyapısı** | Jest ve React Testing Library ile desteklenmiş sağlam ve ölçeklenebilir kod tabanı |
+| ♿ **Erişilebilirlik (a11y)** | Klavye navigasyonu ve Screen Reader uyumlu (ARIA) UI tasarımı |
 | 🤖 **Efek - AI Asistan** | Groq & Llama 3 destekli, samimi kişilikli, "beep boop" konuşma balonlu ve siber güvenlik korumalı akıllı asistan |
 | 💬 **Beep Boop Balonu** | Robot ikonunun üzerinde periyodik olarak beliren eğlenceli konuşma balonu animasyonu |
 | ⛅ **Akıllı Hava Durumu** | Open-Meteo API + localStorage cache ile anlık İstanbul sıcaklığı, kesintisiz gösterim |
@@ -41,10 +43,10 @@ Modern, Serverless Full-Stack ve premium kişisel portfolio websitesi
 
 | Frontend & UI | Animasyon | Backend & API | Araçlar & Çevre |
 |:-------------:|:---------:|:-------------:|:---------------:|
-| React 19 | Framer Motion | Next.js API Routes | TypeScript |
-| Vanilla CSS | Hover Effects | Spotify Web API | Vercel Serverless |
-| HTML5 | Micro-interactions | YouTube API | ESLint |
-| Grid & Flexbox | Smooth Scroll | Lanyard API (Discord) | PostCSS |
+| React 19 | Framer Motion | Next.js API Routes | TypeScript (Strict) |
+| Vanilla CSS | Hover Effects | Spotify Web API | Jest & RTL (Testing) |
+| HTML5 | Micro-interactions | YouTube API | Vercel Serverless |
+| Grid & Flexbox | Smooth Scroll | Lanyard API (Discord) | ESLint & PostCSS |
 | Lucide Icons | Glassmorphism | Groq Cloud & Llama 3 | Git |
 
 </div>
@@ -64,6 +66,10 @@ cd website
 npm install
 
 # Ortam değişkenlerini (.env.local) yapılandırın (Groq, Spotify API, vb.)
+
+# Testleri çalıştırmak için
+npm test
+
 # Geliştirme sunucusunu başlat
 npm run dev
 ```
