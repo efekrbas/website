@@ -183,7 +183,11 @@ const Header = () => {
                     <div 
                         className={`burger ${navOpen ? 'toggle' : ''}`} 
                         onClick={toggleNav}
+                        onKeyDown={(e) => { if(e.key === 'Enter') toggleNav(); }}
                         style={{ transition: 'opacity 0.3s ease' }}
+                        role="button"
+                        tabIndex={0}
+                        aria-label="Toggle mobile menu"
                     >
                         <div className="line1"></div>
                         <div className="line2"></div>
