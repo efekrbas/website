@@ -37,7 +37,7 @@ export const translations: Record<string, Record<string, string>> = {
         downloadCV: 'CV İndir',
         scroll: 'Kaydır',
         codeSkills: '{"Coding", "CyberSec"}',
-        codeMission: 'Her Şeyi Otomatikleştir',
+        codeMission: 'Write Code',
         codeHello: 'Merhaba Dünya! Ben Efe.',
 
         // Marquee
