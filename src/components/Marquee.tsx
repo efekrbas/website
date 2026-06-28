@@ -4,6 +4,31 @@ import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Bot } from 'lucide-react';
 
+const Group = ({ items }: { items: string[] }) => (
+    <>
+        {items.map((item, index) => (
+            <React.Fragment key={index}>
+                <span className="marquee-text">{item}</span>
+                <span className="marquee-star">✦</span>
+            </React.Fragment>
+        ))}
+    </>
+);
+
+const TechGroup = ({ row }: { row: {name: string, icon: string}[] }) => (
+    <div className="tech-marquee-group">
+        {row.map((tech, index) => (
+            <div className="tech-icon-card" key={index}>
+                {tech.icon === 'lucide:bot' ? (
+                    <Bot size={32} color="white" />
+                ) : (
+                    <img src={tech.icon} alt={tech.name} />
+                )}
+                <span>{tech.name}</span>
+            </div>
+        ))}
+    </div>
+);
 const Marquee = () => {
     const { t } = useLanguage();
 
@@ -44,44 +69,19 @@ const Marquee = () => {
         t('marqueeItem4')
     ];
 
-    // Create a group of items with stars
-    const Group = () => (
-        <>
-            {items.map((item, index) => (
-                <React.Fragment key={index}>
-                    <span className="marquee-text">{item}</span>
-                    <span className="marquee-star">✦</span>
-                </React.Fragment>
-            ))}
-        </>
-    );
 
-    const TechGroup = ({ row }: { row: {name: string, icon: string}[] }) => (
-        <div className="tech-marquee-group">
-            {row.map((tech, index) => (
-                <div className="tech-icon-card" key={index}>
-                    {tech.icon === 'lucide:bot' ? (
-                        <Bot size={32} color="white" />
-                    ) : (
-                        <img src={tech.icon} alt={tech.name} />
-                    )}
-                    <span>{tech.name}</span>
-                </div>
-            ))}
-        </div>
-    );
 
     return (
         <div className="marquee-wrapper">
             <div className="marquee-container">
                 <div className="marquee-content">
                     <div className="marquee-group">
-                        <Group />
-                        <Group />
+                        <Group items={items} />
+                        <Group items={items} />
                     </div>
                     <div className="marquee-group" aria-hidden="true">
-                        <Group />
-                        <Group />
+                        <Group items={items} />
+                        <Group items={items} />
                     </div>
                 </div>
             </div>

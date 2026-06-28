@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback, useMemo } from 'react';
 
 // Define the type for the context value
 interface LanguageContextType {
@@ -372,13 +372,15 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
         setMounted(true);
     }, []);
 
-    const t = (key) => {
+    const t = useCallback((key: string) => {
         if (!mounted) return translations['en'][key] || key;
         return translations[language][key] || key;
-    };
+    }, [mounted, language]);
+
+    const contextValue = useMemo(() => ({ language, t }), [language, t]);
 
     return (
-        <LanguageContext.Provider value={{ language, t }}>
+        <LanguageContext.Provider value={contextValue}>
             {children}
         </LanguageContext.Provider>
     );

@@ -9,6 +9,39 @@ import { useLanguage } from '../context/LanguageContext';
 
 const DISCORD_USER_ID = '378501743366897675';
 
+const ClockWidget = () => {
+    const [time, setTime] = useState(new Date());
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+        const updateTime = () => setTime(new Date());
+        const timer = setInterval(() => {
+            if (document.visibilityState === 'visible') updateTime();
+        }, 1000);
+        
+        const handleVisibilityChange = () => {
+            if (document.visibilityState === 'visible') updateTime();
+        };
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        
+        return () => {
+            clearInterval(timer);
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+        };
+    }, []);
+
+    const formatTime = (d) => d.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+    const formatDate = (d) => d.toLocaleDateString('tr-TR', { weekday: 'long', day: 'numeric', month: 'long' });
+
+    return (
+        <div className="ls-clock-content">
+            <div className="ls-clock">{mounted ? formatTime(time) : '--:--:--'}</div>
+            <div className="ls-date">{mounted ? formatDate(time) : '--'}</div>
+        </div>
+    );
+};
+
 const LiveStatus = () => {
     const { t } = useLanguage();
     const [mounted, setMounted] = useState(false);
@@ -103,37 +136,6 @@ const LiveStatus = () => {
         if (code <= 77) return <CloudSnow size={28} className="ls-weather-icon" />;
         if (code >= 95) return <CloudLightning size={28} className="ls-weather-icon" />;
         return <Cloud size={28} className="ls-weather-icon" />;
-    };
-
-    const ClockWidget = () => {
-        const [time, setTime] = useState(new Date());
-
-        useEffect(() => {
-            const updateTime = () => setTime(new Date());
-            const timer = setInterval(() => {
-                if (document.visibilityState === 'visible') updateTime();
-            }, 1000);
-            
-            const handleVisibilityChange = () => {
-                if (document.visibilityState === 'visible') updateTime();
-            };
-            document.addEventListener('visibilitychange', handleVisibilityChange);
-            
-            return () => {
-                clearInterval(timer);
-                document.removeEventListener('visibilitychange', handleVisibilityChange);
-            };
-        }, []);
-
-        const formatTime = (d) => d.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
-        const formatDate = (d) => d.toLocaleDateString('tr-TR', { weekday: 'long', day: 'numeric', month: 'long' });
-
-        return (
-            <div className="ls-clock-content">
-                <div className="ls-clock">{mounted ? formatTime(time) : '--:--:--'}</div>
-                <div className="ls-date">{mounted ? formatDate(time) : '--'}</div>
-            </div>
-        );
     };
 
     const techStack = [

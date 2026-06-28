@@ -4,40 +4,41 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
+const TypewriterText = () => {
+    const [typedText, setTypedText] = useState('');
+    const fullText = "Efe Kırbaş";
+
+    useEffect(() => {
+        let i = 0;
+        const timer = setInterval(() => {
+            i++;
+            setTypedText(fullText.slice(0, i));
+            if (i >= fullText.length) clearInterval(timer);
+        }, 150);
+        return () => clearInterval(timer);
+    }, []);
+
+    return <>{typedText}</>;
+};
+
+const CodeTypewriter = ({ code }: { code: string }) => {
+    const [displayedCode, setDisplayedCode] = useState('');
+    
+    useEffect(() => {
+        let i = 0;
+        const timer = setInterval(() => {
+            setDisplayedCode(code.slice(0, i));
+            i++;
+            if (i > code.length) clearInterval(timer);
+        }, 10);
+        return () => clearInterval(timer);
+    }, [code]);
+
+    return <pre><code className="language-c">{displayedCode}</code></pre>;
+};
 const Hero = () => {
     const { t } = useLanguage();
-    const TypewriterText = () => {
-        const [typedText, setTypedText] = useState('');
-        const fullText = "Efe Kırbaş";
 
-        useEffect(() => {
-            let i = 0;
-            const timer = setInterval(() => {
-                i++;
-                setTypedText(fullText.slice(0, i));
-                if (i >= fullText.length) clearInterval(timer);
-            }, 150);
-            return () => clearInterval(timer);
-        }, []);
-
-        return <>{typedText}</>;
-    };
-
-    const CodeTypewriter = ({ code }) => {
-        const [displayedCode, setDisplayedCode] = useState('');
-        
-        useEffect(() => {
-            let i = 0;
-            const timer = setInterval(() => {
-                setDisplayedCode(code.slice(0, i));
-                i++;
-                if (i > code.length) clearInterval(timer);
-            }, 10);
-            return () => clearInterval(timer);
-        }, [code]);
-
-        return <pre><code className="language-c">{displayedCode}</code></pre>;
-    };
 
     return (
         <section id="hero">
