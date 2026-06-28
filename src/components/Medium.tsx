@@ -48,7 +48,7 @@ const MediumCard = ({ post, index }: { post: MediumPost; index: number }) => {
                     <Image src={post.thumbnail} alt={post.title} width={400} height={200} loading="lazy" />
                     <div className="medium-card-overlay">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                            <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
                         </svg>
                     </div>
                 </div>
@@ -72,7 +72,7 @@ const MediumCard = ({ post, index }: { post: MediumPost; index: number }) => {
 
 const Medium = () => {
     const { t } = useLanguage();
-    
+
     const posts: MediumPost[] = [
         {
             title: "Custom Windows XP Zafiyet Analizi",
@@ -83,7 +83,7 @@ const Medium = () => {
             categories: []
         },
         {
-            title: "Custom Metasploitable2 Zafiyet Analizi",
+            title: "Metasploitable2 Zafiyet Analizi",
             description: "",
             pubDate: "2026-05-31",
             link: "https://medium.com/@efekk/custom-metasploitable2-zafiyet-analizi-f4132060ca17",
@@ -111,7 +111,7 @@ const Medium = () => {
             <div className="github-more" style={{ marginTop: '8px', marginBottom: '24px' }}>
                 <a href="https://medium.com/@efekk" target="_blank" rel="noopener noreferrer" className="btn secondary">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: '8px' }}>
-                        <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                        <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
                     </svg>
                     {t('visitMedium')}
                 </a>
