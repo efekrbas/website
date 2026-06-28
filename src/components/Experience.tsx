@@ -12,15 +12,15 @@ const Experience = () => {
     const calculateDuration = (startYear, startMonth, endYear = null, endMonth = null) => {
         const start = new Date(startYear, startMonth - 1);
         const end = endYear && endMonth ? new Date(endYear, endMonth - 1) : new Date();
-        
+
         let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
         if (!endYear) months += 1; // Devam eden işler için içinde bulunduğumuz ayı da sayalım
 
         if (months <= 0) return language === 'tr' ? 'Yeni' : 'New';
-        
+
         const years = Math.floor(months / 12);
         const remainingMonths = months % 12;
-        
+
         let result = '';
         if (years > 0) {
             result += `${years} ${language === 'tr' ? 'yıl' : 'year'}${years > 1 && language === 'en' ? 's' : ''}`;
@@ -57,11 +57,11 @@ const Experience = () => {
 
                 <div className="timeline-item">
                     <div className="timeline-date">
-                        {language === 'tr' 
-                            ? `Mayıs 2026 - Devam ediyor · ${calculateDuration(2026, 5)}` 
+                        {language === 'tr'
+                            ? `Mayıs 2026 - Devam ediyor · ${calculateDuration(2026, 5)}`
                             : `May 2026 - Continuing · ${calculateDuration(2026, 5)}`}
                     </div>
-                    <a href="https://siber0x1.gitlab.io/" target="_blank" rel="noopener noreferrer" className="timeline-content glass-card clickable-card">
+                    <a href="https://siber0x1.top/" target="_blank" rel="noopener noreferrer" className="timeline-content glass-card clickable-card">
                         <div className="timeline-inner">
                             <div className="logo-container">
                                 <Image src="/images/siber0x1.png" alt="Siber0x1" className="company-logo" width={80} height={80} loading="lazy" decoding="async" />
@@ -77,8 +77,8 @@ const Experience = () => {
 
                 <div className="timeline-item">
                     <div className="timeline-date">
-                        {language === 'tr' 
-                            ? `Mayıs 2026 - Devam ediyor · ${calculateDuration(2026, 5)}` 
+                        {language === 'tr'
+                            ? `Mayıs 2026 - Devam ediyor · ${calculateDuration(2026, 5)}`
                             : `May 2026 - Continuing · ${calculateDuration(2026, 5)}`}
                     </div>
                     <a href="https://kariyerpusulan.com/" target="_blank" rel="noopener noreferrer" className="timeline-content glass-card clickable-card">
@@ -97,8 +97,8 @@ const Experience = () => {
 
                 <div className="timeline-item">
                     <div className="timeline-date">
-                        {language === 'tr' 
-                            ? `Şubat 2026 - Devam ediyor · ${calculateDuration(2026, 2)}` 
+                        {language === 'tr'
+                            ? `Şubat 2026 - Devam ediyor · ${calculateDuration(2026, 2)}`
                             : `February 2026 - Continuing · ${calculateDuration(2026, 2)}`}
                     </div>
                     <a href="https://hackviser.com/" target="_blank" rel="noopener noreferrer" className="timeline-content glass-card clickable-card">
@@ -117,8 +117,8 @@ const Experience = () => {
                 </div>
                 <div className="timeline-item">
                     <div className="timeline-date">
-                        {language === 'tr' 
-                            ? `Kasım 2025 - Devam ediyor · ${calculateDuration(2025, 11)}` 
+                        {language === 'tr'
+                            ? `Kasım 2025 - Devam ediyor · ${calculateDuration(2025, 11)}`
                             : `November 2025 - Continuing · ${calculateDuration(2025, 11)}`}
                     </div>
                     <a href="https://www.sibervatan.org/" target="_blank" rel="noopener noreferrer" className="timeline-content glass-card clickable-card">
@@ -149,8 +149,8 @@ const Experience = () => {
                 </div>
                 <div className="timeline-item">
                     <div className="timeline-date">
-                        {language === 'tr' 
-                            ? `Eylül 2024 - Haziran 2025 · ${calculateDuration(2024, 9, 2025, 6)}` 
+                        {language === 'tr'
+                            ? `Eylül 2024 - Haziran 2025 · ${calculateDuration(2024, 9, 2025, 6)}`
                             : `September 2024 - June 2025 · ${calculateDuration(2024, 9, 2025, 6)}`}
                     </div>
                     <a href="https://medipol.com.tr/" target="_blank" rel="noopener noreferrer" className="timeline-content glass-card clickable-card">
